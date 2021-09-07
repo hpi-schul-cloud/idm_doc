@@ -1,0 +1,146 @@
+%\documentclass[11pt,english,ngerman,pointlessnubers, abstraction, headsepline,liststotoc]{scrreprt}
+%\documentclass[11pt]{report}
+\documentclass[11pt,ngerman,titlepage,abstracton,oneside, headsepline,listof=totoc]{scrreprt}
+\usepackage[a4paper]{geometry}
+%\geometry{verbose, tmargin=3cm, bmargin=3cm, lmargin=3.25cm, rmargin=2.5cm, headheight=1cm, headsep=0.666cm, footskip=1cm}
+\usepackage[T1]{fontenc}
+\usepackage[german]{babel}
+\selectlanguage{german}
+\usepackage[ansinew]{inputenc}
+
+\usepackage{lmodern}
+\renewcommand{\sfdefault}{lmss}
+\renewcommand{\ttdefault}{lmtt}
+%\usepackage{booktabs}
+\usepackage{amsmath}
+%\usepackage{syntax}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{empheq}
+\usepackage{url}
+\usepackage{footmisc}
+\usepackage{tabularx}
+\usepackage[table]{xcolor}
+%\usepackage{relsize}
+\usepackage{setspace}
+\setstretch{1.4}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{nameref}
+\usepackage{varwidth}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{positioning,automata,shapes}
+\usetikzlibrary{positioning}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{decorations.pathmorphing,backgrounds,calc}
+\usetikzlibrary{decorations.pathreplacing,angles,quotes}
+\usetikzlibrary{shapes,arrows,external,shapes.callouts}
+	\tikzstyle{element} = [rectangle, font=\fontsize{0.75em},font=\footnotesize, draw, text centered, minimum height=8mm, minimum width=15mm]
+	\definecolor{light-gray}{gray}{0.98}
+	\definecolor{CPgray}{gray}{0.96}
+	\colorlet{macBorder}{black!25}
+	\colorlet{dataBorder}{black!50}
+	%\definecolor{macBorder}{RGB}{53,125,145}
+	%\definecolor{dataBorder}{RGB}{133,137,63}
+	\tikzstyle{macElement} = [rectangle, font=\footnotesize, draw, text centered, minimum height=12mm, minimum width=30mm,text=black]
+	\tikzstyle{macElementField} =[macElement, color=macBorder,  text centered, text width=27mm, line width=2pt,text=black]
+	\tikzstyle{macElementDeteil} =[macElement, color=macBorder, text centered, text width=25mm, minimum height=12mm,  line width=1pt,text=black]
+	\tikzstyle{dataElementField} =[macElement, color=dataBorder,  text centered, text width=27mm, line width=2pt,text=black]
+	\tikzstyle{dataElementDeteil} =[macElement, color=dataBorder, text centered, text width=25mm, minimum height=12mm, line width=1pt,text=black]
+	
+	
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage[export]{adjustbox} %used for image alignment on title page
+%\floatstyle{boxed}
+%\restylefloat{figure}
+
+\lstdefinestyle{BashInputStyle}{
+	language=sh,
+	basicstyle=\small\sffamily,
+	numbers=left,
+	numberstyle=\tiny,
+	breaklines=true,
+	numbersep=3pt,
+	frame=tb,
+	columns=fullflexible,
+	backgroundcolor=\color{yellow!20},
+	linewidth=0.9\linewidth,
+	xleftmargin=0.1\linewidth
+}
+
+ \usepackage[nounderscore]{syntax}
+ \newenvironment{BNF}{\captionsetup{type=lstlisting}}{}
+ 
+\usepackage{acronym}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+%\setcounter{tocdepth}{5}
+%\setcounter{secnumdepth}{4}
+
+%\usepackage{titlesec}
+
+\usepackage[Algorithmus]{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage[titletoc,title]{appendix}
+\usepackage[nottoc]{tocbibind}
+
+\newcommand{\reftablle}[1]{\textit{Tabelle \ref{#1}, \nameref{#1}, }}
+\newcommand{\reftablleb}[1]{\textit{Tabelle \ref{#1}, \nameref{#1}}}
+\newcommand{\reftabllec}[1]{\textit{Tabelle \ref{#1}}}
+\newcommand{\refabb}[1]{\textit{Abbildung \ref{#1}}}
+\newcommand{\refabschnitt}[1]{\textit{Abschnitt \ref{#1}: \nameref{#1}}}
+\newcommand{\refabschnittb}[1]{\textit{Abschnitt \ref{#1}}}
+\newcommand{\refunterabschnitt}[1]{\textit{Unterabschnitt \ref{#1}}}
+\newcommand{\refuntuntererabschnitt}[1]{\textit{Unterunterabschnitt \ref{#1}}}
+\newcommand{\reflisting}[1]{\textit{Listing \ref{#1}}}
+\newcommand{\refalgo}[1]{\textit{Algorithmus \ref{#1}}}
+\newcommand{\refanhang}[1]{\textit{Anhang \ref{#1}}}
+\renewcommand{\listalgorithmname}{Algorithmenverzeichnis}
+
+
+\begin{document}
+% Hintergründe, Grundlagen, Unterteilung des Dokuments in Abschnitte (Client/Server, UART, Funk, LC)
+% Client/Server Struktur
+% Python-Skript und UART Kommunikation
+% Funkkommunikation und LCs
+\begingroup
+  %\renewcommand*{\chapterpagestyle}{empty}
+  \pagestyle{plain}
+	\setcounter{page}{1}
+	\pagenumbering{roman}
+  \tableofcontents
+  \clearpage
+\endgroup
+\pagenumbering{arabic}
+\pagestyle{plain}
+\setcounter{page}{1}
+\input{rest/main}
+
+
+\bibliographystyle{alphadin}
+
+\listoffigures
+%\addcontentsline{toc}{chapter}{\protect\numberline{}Abbildungsverzeichnis}%
+
+\listoftables
+%\addcontentsline{toc}{chapter}{\protect\numberline{}Tabellenverzeichnis}%
+ 
+\lstlistoflistings
+
+\listofalgorithms
+%\addcontentsline{toc}{chapter}{\protect\numberline{}Listingsverzeichnisses}%
+
+\end{document}
+
+
