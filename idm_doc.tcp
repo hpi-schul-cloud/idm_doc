@@ -7,6 +7,6 @@ MainFile=idm_doc.tex
 UseBibTeX=1
 UseMakeIndex=1
 ActiveProfile=LaTeX ⇨ PDF
-ProjectLanguage=en
-ProjectDialect=US
+ProjectLanguage=de
+ProjectDialect=DE
 
