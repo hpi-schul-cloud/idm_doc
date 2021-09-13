@@ -1,0 +1,70 @@
+\subsubsection{Get}
+\label{sec:end:rest:api:school:users:get}
+Es sind nur Anfragen mit der HTTP-GET Methode für ein GET der Daten zugelassen.
+Die Antwort erfolgt mit den JSON Objekt \reflisting{lst:code:end:rest:api:school:users:get:ret} die einzelnen Felder der Antwort werden in Tabelle \reftabllec{tab:end:rest:api:school:users:get:ret:json} Beschrieben.
+Die Berechtingungen auf den Entdpoint können aus \reftabllec{tab:end:rest:api:school:users:get:right} entnommen werden.
+\input{json}
+\begin{lstlisting}[caption={JSON Antwort für ein GET aufruf der Route /api/school/users},label={lst:code:end:rest:api:school:users:get:ret},frame=tlrb]
+[
+ {
+  school_id: "<STRING>",
+  user_id: "<STRING>",
+	rolle: "<STRING>"
+ },
+...
+ {
+  school_id: "<STRING>",
+  user_id: "<STRING>",
+	rolle: "<STRING>"
+ },
+]
+\end{lstlisting}
+
+\begin{table}[htb]
+	\begin{tabularx}{\textwidth}{|c|c|X|}
+		\hline
+			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
+			school\_id & STRING & ID der Schule. \\ \hline
+			user\_id & STRING & ID des Benutzers \\ \hline
+			rolle & STRING & Rolle des Benutzers an der Schule. \\ \hline
+	\end{tabularx}
+
+		\caption{Beschreibung der Felder in eine JSON Objekt für ein Benutzer an einer Schulle}
+		\label{tab:end:rest:api:school:users:get:ret:json}
+\end{table}
+
+\begin{table}[htb]
+	\begin{tabularx}{\textwidth}{|c|X|}
+		\hline
+\textbf{Benutzerguppen} & \textbf{Zugelassene Daten} \\ \hline
+guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt Erhalten \\ \hline
+studenst & Bekommt eine Liste seine Daten, 
+           den Daten ihrer Erziehungsberechtigten ( nur rolle parents ), 
+					 den Daten seiner Lehrer (nur Rolle teacher) und 
+					 den Daten Schulleiter ( nur Rolle principal ) wieder.\\ \hline
+parents & Bekommt eine Liste mit seinen Daten, 
+          den Daten ihre Kinder unter 18 oder Personen für die sie die Vormundschaft haben ( nur Rolle studenst), 
+					den Daten der Lehrer ihre Kinder unter 18 oder Personen für die sie die Vormundschaft haben ( nur Rolle teacher ) und
+					den Daten der Schulleiter ihre Kinder unter 18 oder Personen für die sie die Vormundschaft haben ( nur Rolle principal )
+					wieder.\\ \hline
+teacher & Bekommt eine Liste mit Seinen Daten, 
+          den Daten aller Schüler die Sie Unterrichten ( nur Rolle studenst ),
+					den Daten aller Erziehungsberechtigten von Schülern unter 18 oder Schülern  mit einem Vormund die Sie Unterrichten ( nur Rolle parents ) und
+					den Daten aller Kollegen ( nur mit den Rollen: teacher, principal, school-admin ) 
+					wieder.\\ \hline
+principal & Bekommt eine Liste mit Seinen Daten,
+            den Daten aller Schüler von Schulen wo Sie Schulleiter sind ( Rolle studenst ),
+						den Daten aller Erziehungsberechtigten von Schülern von Schulen wo Sie Schulleiter sind ( nur Rolle parents ) und
+					  den Daten aller Kollegen ( nur mit den Rollen: teacher, principal, school-admin )
+						wieder.\\ \hline
+school-admin & Bekommt eine Liste mit Seinen Daten und
+               den Daten aller Personen von den Schulen wo er die Rolle school-admin hat mit den Rollen students, parents, teacher, principal und school-admin in den rollen students, parents, teacher, principal und school-admin wieder.  \\ \hline
+school-board & \textcolor[rgb]{1,0.41,0.13}{\textbf{Muss geklärt werden, welche Einschränkungen auf den Daten es hier gibt}} \\ \hline
+fed-school-board & \textcolor[rgb]{1,0.41,0.13}{\textbf{Muss geklärt werden, welche Einschränkungen auf den Daten es hier gibt}} \\ \hline
+sync-systems & Liste mit allen Personen in den Rollen der Personen an den Schulen von den es Syncen darf. \\ \hline
+
+	\end{tabularx}
+
+		\caption{Berechtigungen auf dem Endpunkt}
+		\label{tab:end:rest:api:school:users:get:right}
+\end{table}

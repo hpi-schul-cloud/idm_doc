@@ -17,7 +17,7 @@ Die Berechtingungen auf den Entdpoint können aus \reftabllec{tab:end:rest:api:s
 }
 ]
 \end{lstlisting}
-\begin{table}[htb]
+\begin{table}[!htb]
 	\begin{tabularx}{\textwidth}{|c|c|X|}
 		\hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
@@ -32,10 +32,11 @@ Die Berechtingungen auf den Entdpoint können aus \reftabllec{tab:end:rest:api:s
 		\caption{Beschreibung der Felder in eine JSON Objekt für ein Schulfach}
 		\label{tab:end:rest:api:school-subjects:get:ret:json}
 \end{table}
-\begin{table}[htb]
+\begin{table}[!htb]
 	\begin{tabularx}{\textwidth}{|c|X|}
 		\hline
 \textbf{Benutzerguppen} & \textbf{Zugelassene Daten} \\ \hline
+\endhead
 guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt Erhalten \\ \hline
 studenst & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhanden Schulfächer in einer Liste zurück. \\ \hline
 parents & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhanden Schulfächer in einer Liste zurück. \\ \hline
