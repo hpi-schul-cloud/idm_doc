@@ -1,10 +1,10 @@
 \subsubsection{Get}
 \label{sec:end:rest:api:school:users:get}
-Es sind nur Anfragen mit der HTTP-GET Methode für ein GET der Daten zugelassen.
-Die Antwort erfolgt mit den JSON Objekt \reflisting{lst:code:end:rest:api:school:users:get:ret} die einzelnen Felder der Antwort werden in Tabelle \reftabllec{tab:end:rest:api:school:users:get:ret:json} Beschrieben.
+Es sind nur Anfragen mit der HTTP-GET-Methode für ein GET der Daten zugelassen.
+Die Antwort erfolgt mit den JSON-Objekt \reflisting{lst:code:end:rest:api:school:users:get:ret}. Die einzelnen Felder der Antwort werden in Tabelle \reftabllec{tab:end:rest:api:school:users:get:ret:json} beschrieben.
 Die Berechtingungen auf den Entdpoint können aus \reftabllec{tab:end:rest:api:school:users:get:right} entnommen werden.
 \input{json}
-\begin{lstlisting}[caption={JSON Antwort für ein GET aufruf der Route /api/school/users},label={lst:code:end:rest:api:school:users:get:ret},frame=tlrb]
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/school/users},label={lst:code:end:rest:api:school:users:get:ret},frame=tlrb]
 [
  {
   school_id: "<STRING>",
@@ -29,7 +29,7 @@ Die Berechtingungen auf den Entdpoint können aus \reftabllec{tab:end:rest:api:s
 			rolle & STRING & Rolle des Benutzers an der Schule. \\ \hline
 	\end{tabularx}
 
-		\caption{Beschreibung der Felder in eine JSON Objekt für ein Benutzer an einer Schulle}
+		\caption{Beschreibung der Felder in eine JSON-Objekt für ein Benutzer an einer Schulle}
 		\label{tab:end:rest:api:school:users:get:ret:json}
 \end{table}
 
@@ -37,8 +37,8 @@ Die Berechtingungen auf den Entdpoint können aus \reftabllec{tab:end:rest:api:s
 	\begin{tabularx}{\textwidth}{|c|X|}
 		\hline
 \textbf{Benutzerguppen} & \textbf{Zugelassene Daten} \\ \hline
-guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt Erhalten \\ \hline
-studenst & Bekommt eine Liste seine Daten, 
+guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt erhalten. \\ \hline
+students  & Bekommt eine Liste seine Daten, 
            den Daten ihrer Erziehungsberechtigten ( nur rolle parents ), 
 					 den Daten seiner Lehrer (nur Rolle teacher) und 
 					 den Daten Schulleiter ( nur Rolle principal ) wieder.\\ \hline
@@ -48,12 +48,12 @@ parents & Bekommt eine Liste mit seinen Daten,
 					den Daten der Schulleiter ihre Kinder unter 18 oder Personen für die sie die Vormundschaft haben ( nur Rolle principal )
 					wieder.\\ \hline
 teacher & Bekommt eine Liste mit Seinen Daten, 
-          den Daten aller Schüler die Sie Unterrichten ( nur Rolle studenst ),
+          den Daten aller Schüler die Sie Unterrichten ( nur Rolle students  ),
 					den Daten aller Erziehungsberechtigten von Schülern unter 18 oder Schülern  mit einem Vormund die Sie Unterrichten ( nur Rolle parents ) und
 					den Daten aller Kollegen ( nur mit den Rollen: teacher, principal, school-admin ) 
 					wieder.\\ \hline
 principal & Bekommt eine Liste mit Seinen Daten,
-            den Daten aller Schüler von Schulen wo Sie Schulleiter sind ( Rolle studenst ),
+            den Daten aller Schüler von Schulen wo Sie Schulleiter sind ( Rolle students  ),
 						den Daten aller Erziehungsberechtigten von Schülern von Schulen wo Sie Schulleiter sind ( nur Rolle parents ) und
 					  den Daten aller Kollegen ( nur mit den Rollen: teacher, principal, school-admin )
 						wieder.\\ \hline
