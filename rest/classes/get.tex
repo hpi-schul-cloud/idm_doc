@@ -25,7 +25,7 @@ Die Berechtingungen auf den Endpoint können aus \reftabllec{tab:end:rest:api:sc
 			%	start & TIMESTAMP & Ein Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD \\ \hline
 			%	ende & TIMESTAMP & Ein Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD \\ \hline
 			% name & STRING & Eine Name für das Schuljahr wie z.b.: 2020-2021 \\ \hline
-			id & STRING & Einen eindeutiger Zeichenkette die vom IDM Provider vergeben wird, sie darf nur aus Alpfhanumerischen Zeichen und Bindestrich bestehen.\\ \hline
+			id & STRING & Eine eindeutige Zeichenkette, die vom IDM-Provider vergeben wird. Sie darf nur aus alphanumerischen Zeichen und Bindestrich bestehen.\\ \hline
 			name & STRING & Der Ausgeschrieben name eines Schulfaches \\ \hline
 	\end{tabularx}
 
@@ -35,7 +35,7 @@ Die Berechtingungen auf den Endpoint können aus \reftabllec{tab:end:rest:api:sc
 \begin{table}[htb]
 	\begin{tabularx}{\textwidth}{|c|X|}
 		\hline
-\textbf{Benutzerguppen} & \textbf{Zugelassene Daten} \\ \hline
+\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
 guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt erhalten. \\ \hline
 students& Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
 parents & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
