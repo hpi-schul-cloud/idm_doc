@@ -1,2 +1,2 @@
 # idm_doc
-In this repository there will be the tax documents for an zentral IDM Definition for one Instance.
+This repository contains the technical contract for the IDM API that the Schul-Cloud intends to support once developed. This document currently is still WIP.
