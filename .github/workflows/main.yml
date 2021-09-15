@@ -22,3 +22,4 @@ jobs:
         with:
           # The LaTeX file to be compiled.
           tex_files: idm_doc.tex
+          compiler: pdflatex
