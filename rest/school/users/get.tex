@@ -1,21 +1,30 @@
 \subsubsection{Get}
 \label{sec:end:rest:api:school:users:get}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein GET der Daten zugelassen.
+Bei diesem Aufruf wird eine Liste mit von Objecten auf welche der aktuelle Benutzer zugriff hat übermittelt.
+Ein Object aus der liste Enthält immer für genau eine Benutzer die Information der Benutzer ID, der Schul ID, der Rollen ID, eines Zeitpunktes ab wann das Object gültig war und optional ein Zeitpunkt bis wann das Object gültig ist.
+Gibt es Unterbrechungen in den Zeiträumen in den ein Benutzer eine Rolle in einer Schule eingenommen hat, so muss es für jeden Zeitraum ein eigens Object geben.
+Zum Abrufen von Daten mit IDs müssen die Anwendung über die entsprechenden spezial Routen gehen.
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:end:rest:api:school:users:get:ret}. Die einzelnen Felder der Antwort werden in Tabelle \reftabllec{tab:end:rest:api:school:users:get:ret:json} beschrieben.
 Die Berechtigungungen auf den Endpoint können aus \reftabllec{tab:end:rest:api:school:users:get:right} entnommen werden.
+
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/school/users},label={lst:code:end:rest:api:school:users:get:ret},frame=tlrb]
 [
  {
   school_id: "<STRING>",
   user_id: "<STRING>",
-	role: "<STRING>"
+	role: "<STRING>",
+	start: "<TIMESTAMP>",
+	end: "<TIMESTAMP>"
  },
 ...
  {
   school_id: "<STRING>",
   user_id: "<STRING>",
-	role: "<STRING>"
+	role: "<STRING>",
+	start: "<TIMESTAMP>",
+	end: "<TIMESTAMP>"
  },
 ]
 \end{lstlisting}
@@ -27,44 +36,53 @@ Die Berechtigungungen auf den Endpoint können aus \reftabllec{tab:end:rest:api:
 			school\_id & STRING & ID der Schule. \\ \hline
 			user\_id & STRING & ID des Benutzers \\ \hline
 			role & STRING & Rolle des Benutzers an der Schule. \\ \hline
+			start & TIMESTAMP & Zeitpunkt ab wann der Benutzer diese Rolle innen hat. \\ \hline
+			end & TIMESTAMP & Optional, wenn das Feld da ist gibt es an bis wan ein Benutzer diese Rolle innen hatte. \\ \hline
 	\end{tabularx}
 
 		\caption{Beschreibung der Felder in eine JSON-Objekt für ein Benutzer an einer Schulle}
 		\label{tab:end:rest:api:school:users:get:ret:json}
 \end{table}
 
-\begin{table}[htb]
-	\begin{tabularx}{\textwidth}{|c|X|}
-		\hline
+\begin{longtable}{|c|p{0.7\textwidth}|}
+\caption{Berechtigungen auf dem Endpunkt}
+\label{tab:end:rest:api:school:users:get:right} \\
+\hline
 \textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
+\endfirsthead
+\caption{Berechtigungen auf dem Endpunkt}\\
+\hline
+\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
+\endhead
 guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt erhalten. \\ \hline
-students & Bekommt eine Liste mit ihren Daten, 
+user & Bekommt eine Liste mit ihren Daten \\ \hline 
+students & die Daten aller iherer Mitschüller mit den Sie gemeinsame Klassen oder Kurse haben ( nur Rollen: \textit{students} und \textit{external-students} ),
            den Daten ihrer Erziehungsberechtigten (nur Rolle \textit{parents}), 
 					 den Daten ihrer Lehrer (nur Rolle \textit{teacher}) und 
 					 den Daten ihres Schulleiters (nur Rolle \textit{principal}) wieder.\\ \hline
-parents & Bekommt eine Liste mit ihren Daten, 
-          den Daten ihrer Kinder unter 18 oder Personen, für die sie die Vormundschaft hat (nur Rolle \textit{students}), 
-					den Daten der Lehrer ihrer Kinder unter 18 oder Personen für die sie die Vormundschaft haben (nur Rolle teacher) und
+external-students &  die Daten aller iherer Mitschüller mit den Sie gemeinsame Klassen oder Kurse haben ( nur Rollen: \textit{students} und \textit{external-students} ),
+           den Daten ihrer Lehrer (nur Rolle \textit{teacher}) und 
+					 den Daten ihres Schulleiters (nur Rolle \textit{principal}) wieder.\\ \hline
+parents & den Daten ihrer Kinder unter 18 (nur für die Rollen \textit{students} und \textit{external-students}), 
+					den Daten der Personen für die Sie Vormund ist (nur für die Rollen \textit{students} und \textit{external-students}), 
+					den Daten der Lehrer ihrer Kinder unter 18 (nur Rolle \textit{teacher}),
+					den Daten der Lehrer von Personen für die Sie Vormund ist (nur Rolle \textit{teacher})	und
 					den Daten der Schulleiter ihrer Kinder unter 18 oder Personen für die sie die Vormundschaft haben (nur Rolle \textit{principal})
 					wieder.\\ \hline
-teacher & Bekommt eine Liste mit ihren Daten, 
-          den Daten aller Schüler, die sie unterrichten (nur Rolle \textit{students}),
-					den Daten aller Erziehungsberechtigten von Schülern unter 18 oder Schülern mit einem Vormund die Sie Unterrichten (nur Rolle \textit{parents}) und
+teacher & den Daten aller Schüler, die sie unterrichten (nur für die Rollen \textit{students} und \textit{external-students}),
+					den Daten aller Erziehungsberechtigten von Schülern unter 18 die Sie Unterrichten (nur Rolle \textit{parents}),
+					den Daten aller Erziehungsberechtigten von Schülern mit einem Vormund die Sie Unterrichten (nur Rolle \textit{parents}) und
 					den Daten aller Kollegen (nur mit den Rollen \textit{teacher}, \textit{principal}, \textit{school-admin}) 
 					wieder.\\ \hline
 principal & Bekommt eine Liste mit ihren Daten,
-            den Daten aller Schüler von Schulen, an denen Sie Schulleiter sind (Rolle \textit{students}),
+            den Daten aller Schüler von Schulen, an denen Sie Schulleiter sind (nur für die Rollen \textit{students} und \textit{external-students}),
 						den Daten aller Erziehungsberechtigten von Schülern von Schulen, an denen Sie Schulleiter sind (nur Rolle \textit{parents}) und
 					  den Daten aller Kollegen (nur mit den Rollen \textit{teacher}, \textit{principal}, \textit{school-admin})
 						wieder.\\ \hline
 school-admin & Bekommt eine Liste mit ihren Daten und
-               den Daten aller Personen von den Schulen, an denen er die Rolle \textit{school-admin} hat mit den Rollen \textit{students}, \textit{parents}, \textit{teacher}, \textit{principal} und \textit{school-admin} wieder.  \\ \hline
+               den Daten aller Personen von den Schulen, an denen er die Rolle \textit{school-admin} hat mit den Rollen \textit{students}, \textit{external-students}, \textit{parents}, \textit{teacher}, \textit{principal} und \textit{school-admin} wieder.  \\ \hline
 school-board & \textcolor[rgb]{1,0.41,0.13}{\textbf{Muss geklärt werden, welche Einschränkungen auf den Daten es hier gibt}} \\ \hline
 fed-school-board & \textcolor[rgb]{1,0.41,0.13}{\textbf{Muss geklärt werden, welche Einschränkungen auf den Daten es hier gibt}} \\ \hline
 sync-systems & Liste mit allen Personen, in den Rollen der Personen an den Schulen, von den es syncen darf. \\ \hline
 
-	\end{tabularx}
-
-		\caption{Berechtigungen auf dem Endpunkt}
-		\label{tab:end:rest:api:school:users:get:right}
-\end{table}
+	\end{longtable}
