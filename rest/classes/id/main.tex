@@ -1,16 +1,16 @@
 \subsection{Endpunkt in der REST-API: /api/classes/\$id}
-Die \reftabllec{tab:end:rest:api:classes:id:meth} listet die zugelassenen Methoden. 
+Die \reftabllec{tab:end:rest:api:classes:id:meth} listet auf, welche Operationen zugelassen sind und welche HTTP-Methoden dabei verwendet werden. 
 
 \begin{table}[!htbp]
 	\begin{tabular}{|c|c|c|}
 		\hline
-			\textbf{Methode} & \textbf{Zugelassen} & \textbf{HTTP-Methode} \\ \hline
-			GET & Zugelassen & GET \\ \hline
-			UPDATE & Zugelassen & POST \\ \hline 
-			CREATE & Nicht zugelassen & \\ \hline 
-			DELETE & Zugelassen & POST \\ \hline
+			\textbf{Operation} & \textbf{Zugelassen?} & \textbf{HTTP-Methode} \\ \hline
+			CREATE & Nein & \\ \hline 
+			READ & Ja & GET \\ \hline
+			UPDATE & Ja & POST \\ \hline 
+			DELETE & Ja & POST \\ \hline
 	\end{tabular}
 
-		\caption{Zugelassene Methoden auf /api/classes/\$id}
+		\caption{Zugelassene Operationen auf /api/classes/\$id}
 		\label{tab:end:rest:api:classes:id:meth}
 \end{table}
