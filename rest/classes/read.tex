@@ -1,10 +1,10 @@
 \subsubsection{Get}
-\label{sec:end:rest:api:school-subjects:get}
+\label{sec:end:rest:api:school-subjects:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein GET der Daten zugelassen.
-Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:end:rest:api:school-subjects:get:ret}. Die einzelnen Felder der Antwort werden in Tabelle \reftabllec{tab:end:rest:api:school-subjects:get:ret:json} beschrieben.
-Die Berechtingungen auf den Endpoint können aus \reftabllec{tab:end:rest:api:school-subjects:get:right} entnommen werden.
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:end:rest:api:school-subjects:read:ret}. Die einzelnen Felder der Antwort werden in Tabelle \reftabllec{tab:end:rest:api:school-subjects:read:ret:json} beschrieben.
+Die Berechtingungen auf den Endpoint können aus \reftabllec{tab:end:rest:api:school-subjects:read:right} entnommen werden.
 \input{json}
-\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/school-subjects},label={lst:code:end:rest:api:school-subjects:get:ret},frame=tlrb]
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/school-subjects},label={lst:code:end:rest:api:school-subjects:read:ret},frame=tlrb]
 [
 {
  id: "<STRING>",
@@ -30,7 +30,7 @@ Die Berechtingungen auf den Endpoint können aus \reftabllec{tab:end:rest:api:sc
 	\end{tabularx}
 
 		\caption{Beschreibung der Felder in eine JSON-Objekt für ein Schulfach}
-		\label{tab:end:rest:api:school-subjects:get:ret:json}
+		\label{tab:end:rest:api:school-subjects:read:ret:json}
 \end{table}
 \begin{table}[htb]
 	\begin{tabularx}{\textwidth}{|c|X|}
@@ -49,5 +49,5 @@ sync-systems & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im Syst
 	\end{tabularx}
 
 		\caption{Berechtigungen auf dem Endpunkt}
-		\label{tab:end:rest:api:school-subjects:get:right}
+		\label{tab:end:rest:api:school-subjects:read:right}
 \end{table}
