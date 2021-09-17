@@ -1,20 +1,20 @@
 \subsection{Endpunkt in der REST-API: /api/school-subjects}
 \label{sec:end:rest:api:school-subjects}
-Die \reftabllec{tab:end:rest:api:school-subjects:meth} listet die zugelassenen Methoden. 
+Die \reftabllec{tab:end:rest:api:school-subjects:meth} listet die zugelassenen Operationen. 
 In der Tabelle <REF> ist eine Liste der vollständigen Fächer enthalten.
 
 
 \begin{table}[!htbp]
 	\begin{tabular}{|c|c|c|}
 		\hline
-			\textbf{Methode} & \textbf{Zugelassen} & \textbf{HTTP-Methode} \\ \hline
-			GET & Zugelassen & GET \\ \hline
-			UPDATE & Nicht zugelassen & \\ \hline 
+			\textbf{Operation} & \textbf{Zugelassen} & \textbf{HTTP-Methode} \\ \hline
 			CREATE & Nicht zugelassen & \\ \hline 
+			READ & Zugelassen & GET \\ \hline
+			UPDATE & Nicht zugelassen & \\ \hline 
 			DELETE & Nicht zugelassen & \\ \hline
 	\end{tabular}
 
-		\caption{Zugelassene Methoden auf /api/school-subjects}
+		\caption{Zugelassene Operationen auf /api/school-subjects}
 		\label{tab:end:rest:api:school-subjects:meth}
 \end{table}
 \input{rest/school-subjects/get}
