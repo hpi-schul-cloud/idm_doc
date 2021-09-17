@@ -1,22 +1,22 @@
 \subsection{Endpunkt in der REST-API: /api/school/users/\$id}
-Die \reftabllec{tab:end:rest:api:school:users:id:meth} listet die zugelassenen Methoden. 
+Die \reftabllec{tab:end:rest:api:school:users:id:meth} listet auf, welche Operationen zugelassen sind und welche HTTP-Methoden dabei verwendet werden. 
 \$id ist die ID der Schule im IDM auf welche die nachfolgenden Operationen ausgeführt werden.
 
 \begin{table}[!htbp]
 	\begin{tabular}{|c|c|c|}
 		\hline
-			\textbf{Methode} & \textbf{Zugelassen} & \textbf{HTTP-Methode} \\ \hline
-			GET & Zugelassen &  \\ \hline
-			UPDATE & Zugelassen & POST \\ \hline 
-			CREATE & Zugelassen & POST \\ \hline 
-			DELETE & Zugelassen & DELETE \\ \hline
+			\textbf{Operation} & \textbf{Zugelassen?} & \textbf{HTTP-Methode} \\ \hline
+			CREATE & Ja & POST \\ \hline 
+			READ & Ja &  \\ \hline
+			UPDATE & Ja & POST \\ \hline 
+			DELETE & Ja & POST \\ \hline
 	\end{tabular}
 
-		\caption{Zugelassene Methoden auf /api/school/users/\$id}
+		\caption{Zugelassene Operationen auf /api/school/users/\$id}
 		\label{tab:end:rest:api:school:users:id:meth}
 \end{table}
 
-\input{rest/school/users/id/get}
+\input{rest/school/users/id/read}
 \input{rest/school/users/id/create}
 \input{rest/school/users/id/update}
 \input{rest/school/users/id/delete}
