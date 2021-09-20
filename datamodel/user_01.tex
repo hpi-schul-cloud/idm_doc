@@ -1,0 +1,40 @@
+\begin{lstlisting}[caption={Beispiel 1 Schüler},frame=tlrb]
+{
+ id: "USER-01",
+ name: "Leming",
+ surename: "Zobel",
+ birtdate: "03-01-2003",
+ sex: "mail",
+ rols: [
+ {
+  school_id: "SCHULE-01",
+	role: "students",
+	start: "01-09-2009",
+	end: "31-08-2016",
+	school-years: ["SJ-09/10","SJ-10/11","SJ-11/12","SJ-13/14","SJ-14/15","SJ-15/16"]
+ }, {
+  school_id: "SCHULE-04",
+	role: "students",
+	start: "01-09-2016",
+	school-years: ["SJ-16/17","SJ-17/18","SJ-18/19","SJ-19/20","SJ-20/21"]
+ },{
+  school_id: "SCHULE-02",
+	role: "external-students",
+	start: "01-09-2019",
+	end: "31-08-2020",
+	school-years: ["SJ-19/20"]
+ },
+ ],
+ guardians [
+ {
+	user_id: "USER-02",
+	start: "01-09-2009",
+	end: "03-01-2020",
+ },  {
+	user_id: "USER-04",
+	start: "01-09-2009",
+	end: "03-01-2020",
+ }
+ ],
+}
+\end{lstlisting}
