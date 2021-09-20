@@ -1,0 +1,61 @@
+\subsubsection{CREATE}
+\label{sec:rest:api:school:users:create:id}
+Es sind nur Anfragen mit der HTTP-POST-Methode für ein CREATE der Daten zugelassen.
+Die Aufgabe von CREATE ist es ein Benutzer einer Schule in einer bestimmten Rolle zuzufügen.
+Die Felder im JSON Object, \reflisting{lst:code:rest:api:school:users:id:create:request}, im HTTP-Post Body wird für das CREATE wird in \reftabllec{tab:rest:api:school:users:id:create:obj}  beschrieben.
+Im Erfolgsfall wird der Request mit den HTTP-Statuscode 200 - OK Beantwortet.
+In allen anderen Fällen werden Anfragen mit den HTTP-Statuscode 403 - Forbidden Beantwortet.
+Es gilt für diesen Endpunkt das der Zugriff explizit Erlaubt sein muss, \reftabllec{tab:rest:api:school:users:id:create:right}, ansonsten gibt der Endpunkt den HTTP-Statuscode 403 - Forbidden wieder.
+
+Wird ein Datensatz an den Endpunkt für ein Benutzer mit der Rolle \textit{students} gesendet, gilt das wenn der Benutzer schon ein Eintrag mit der Rolle \textit{students} hat der noch Aktiv ist so wird dessen Enddatum auf das Startdatum des neuen Eintrages gestellt.
+Wenn für Benutzer mit der Rolle \textit{students}, der unter 18 ist, ein Eintrag erstellt wird, muss für seine Eltern, Erziehungsberechtigten oder Vormünder vom System aus entsprechende Einträge für diese Personen mit der Rolle \textit{guardians} Erzeugt werden müssen.
+Wird für ein Benutzer über 18 mit der Rolle \textit{students} ein Eintrag erstellt und sind vom einen Gericht ein oder mehrere Vormünder bestimmt wurden so muss vom System aus die Entsprechenden Einträger für diese Person mit der Rolle \textit{guardians} Erzeugt werden müssen.
+
+Wird für ein Benutzer mit der Rolle \textit{external-students} ein Datensatz an dem Endpunkt gesendet, muss für seine Eltern, Erziehungsberechtigten oder Vormünder vom System aus entsprechende Einträge für diese Personen mit der Rolle \textit{parents} Erzeugt werden müssen.
+
+
+\input{json}
+\begin{lstlisting}[caption={Felder im JSON-Object einer CREATE anfrage per HTTP-POST auf der Route /api/school/users/\$id},label={lst:code:rest:api:school:users:id:create:request},frame=tlrb]
+{
+ user_id: "<STRING>",
+ role: "<STRING>",
+ start: "<TIMESTAMP>"
+ school-years: ["<STRING>",...,"<STRING>"]
+}
+\end{lstlisting}
+
+
+\begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
+		\caption{Beschreibung der Felder in eine JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
+		\label{tab:rest:api:school:users:id:create:obj} \\
+\hline
+			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
+\endfirsthead
+		\caption{Beschreibung der Felder in eine JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}\\
+\hline
+			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
+\endhead
+			user\_id & STRING & ID des Benutzers \\ \hline
+			role & STRING & Rolle des Benutzers an der Schule. \\ \hline
+			start & TIMESTAMP & Zeitpunkt ab wann der Benutzer diese Rolle innen hat. \\ \hline
+			school-years & LISTE of STRINGS & Optional, das Feld wird nur benötigt wenn die Rolle \textit{students} oder \textit{external-students} ist, Enthält eine Liste von Schuljahres IDs. \\ \hline 
+\end{longtable}
+	
+\begin{longtable}{|c|p{0.7\textwidth}|}
+		\caption{Berechtigungen auf dem Endpunkt}
+		\label{tab:rest:api:school:users:id:create:right} \\
+\hline
+\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
+\endfirsthead
+\caption{Berechtigungen auf dem Endpunkt}\\
+\hline
+\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
+\endhead
+principal & Darf Einträge für Personen mit den Rollen \textit{students}, \textit{teacher}, \textit{principal} und \textit{school-admin} an der ausgewählten Schule anlegen.
+            Darf für User mit der Rolle \textit{students} von seiner Schule, an ausgewählten Schule, mit der Rolle \textit{external-students} anlegen und somit diesen Schüler für ausgewählten Schule freigeben.\\ \hline
+school-admin & Darf Einträge für Personen mit den Rollen \textit{students}, \textit{teacher}, \textit{principal} und \textit{school-admin} an der ausgewählten Schule anlegen.
+            Darf für User mit der Rolle \textit{students} von seiner Schule, an ausgewählten Schule, mit der Rolle \textit{external-students} anlegen und somit diesen Schüler für ausgewählten Schule freigeben.  \\ \hline
+school-board & Darf Einträge für Personen mit den Rollen \textit{students}, \textit{teacher}, \textit{principal} und \textit{school-admin} an der ausgewählten Schule anlegen, wenn der Schulträger für die Schule Zuständig ist.
+            Darf für User mit der Rolle \textit{students} für Schulen, von Schulen zu dessen Schulträger er gehört, an der ausgewählten Schule, Einträge mit der Rolle \textit{external-students} anlegen und somit diesen Schüler für ausgewählten Schule freigeben. \\ \hline
+fed-school-board & Darf Einträge für User mit den Rollen \textit{students}, \textit{external-students}, \textit{teacher}, \textit{principal} und \textit{school-admin} an der ausgewählten Schule anlegen.\\ \hline
+	\end{longtable}
