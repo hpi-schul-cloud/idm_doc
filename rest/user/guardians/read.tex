@@ -1,53 +1,13 @@
 \subsubsection{READ}
-\label{sec:end:rest:api:school-subjects:read}
+\label{sec:rest:api:user:guardians:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:end:rest:api:school-subjects:read:ret}. Die einzelnen Felder der Antwort werden in Tabelle \reftabllec{tab:end:rest:api:school-subjects:read:ret:json} beschrieben.
-Die Berechtigungen auf den Endpoint können \reftabllec{tab:end:rest:api:school-subjects:read:right} entnommen werden.
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:user:guardians:read:ret}. Die einzelnen Felder der Antwort werden in Tabelle \reftabllec{tab:rest:api:user:guardians:read:ret:json} beschrieben.
+Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:user:guardians:read:right} entnommen werden.
 \input{json}
-\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/school-subjects},label={lst:code:end:rest:api:school-subjects:read:ret},frame=tlrb]
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/user/guardians},label={lst:code:rest:api:user:guardians:read:ret},frame=tlrb]
 [
-{
  id: "<STRING>",
- name: "<STRING>"
-},
 ...
-{
  id: "<STRING>",
- name: "<STRING>"
-}
 ]
 \end{lstlisting}
-\begin{table}[htb]
-	\begin{tabularx}{\textwidth}{|c|c|X|}
-		\hline
-			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
-			%	id & STRING & Eine eindeutige Zeichenkette, die vom IDM Provider vergeben wird. Sie darf nur aus alphanumerischen Zeichen und Bindestrichen bestehen. \\ \hline
-			%	start & TIMESTAMP & Ein Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD \\ \hline
-			%	ende & TIMESTAMP & Ein Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD \\ \hline
-			% name & STRING & Eine Name für das Schuljahr wie z.b.: 2020-2021 \\ \hline
-			id & STRING & Eine eindeutige Zeichenkette, die vom IDM-Provider vergeben wird. Sie darf nur aus alphanumerischen Zeichen und Bindestrich bestehen.\\ \hline
-			name & STRING & Der Ausgeschrieben name eines Schulfaches \\ \hline
-	\end{tabularx}
-
-		\caption{Beschreibung der Felder in eine JSON-Objekt für ein Schulfach}
-		\label{tab:end:rest:api:school-subjects:read:ret:json}
-\end{table}
-\begin{table}[htb]
-	\begin{tabularx}{\textwidth}{|c|X|}
-		\hline
-\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
-guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt erhalten. \\ \hline
-students & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-parents & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-teacher & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-principal & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-school-admin & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-school-board & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-fed-school-board & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-sync-systems & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-
-	\end{tabularx}
-
-		\caption{Berechtigungen auf dem Endpunkt}
-		\label{tab:end:rest:api:school-subjects:read:right}
-\end{table}
