@@ -1,6 +1,8 @@
 \section{Benutzerrollen}
-Im Nachfolgenden werden die Benutzerrollen des Systems aufgelistet. 
-Später werden für jede Benutzerrolle erlaubte und unerlaubte Aktionen festgelegt.
+Um eine saubere Zugriffssteuerung auf die Endpunkte und die jeweiligen Daten gewährleisten zu können, definiert dieses Dokument zentral die möglichen Rollen der Akteure auf der REST-API. Das korrekte Mapping aus dem jeweiligen IDM-System auf die im Dokument aufgelisteten Rollenbezeichnungen ist dabei vom IDM-Provider sicherzustellen.\\
+\\
+Im Nachfolgenden werden die Benutzerrollen des Systems aufgelistet. Die Auflistung
+der erlaubten und unerlaubten Aktionen erfolgt jeweils in der Definition der Endpunkte.
 
 
 \begin{table}[htb]
@@ -10,7 +12,7 @@ Später werden für jede Benutzerrolle erlaubte und unerlaubte Aktionen festgele
 guest & Gäste und nicht authentifizierte Benutzer \\ \hline
 user & authentifizierte Benutzer \\ \hline
 students & Schüler \\ \hline
-external-students & Schüler die von anderen Schulen kommen und nur einzelne Fächer oder Kurse an einer anderen Schule besuchen \\ \hline
+external-students & Schüler von anderen Schulen, die nur einzelne Fächer oder Kurse besuchen \\ \hline
 guardians & Eltern, Erziehungsberechtigte, Vormünder von Schülern \\ \hline
 teacher & Lehrer \\ \hline
 principal & Schulleitung \\ \hline
@@ -21,6 +23,6 @@ sync-systems & Systeme, welchen ein Sync mit allen Daten erlaubt ist \\ \hline
 
 	\end{tabularx}
 
-		\caption{Benutzerrollen, die im zentralen IDM vorgesehen sind}
+		\caption{Benutzerrollen, die im zentralen IDM-System vorgesehen sind}
 		\label{tab:intro:roles}
 \end{table}
