@@ -1,0 +1,60 @@
+\input{json}
+\begin{lstlisting}[caption={Beispiel 1 Schüler},frame=tlrb]
+{
+ subject_id: "SUBJECT-0001",
+ name: "Deutsch 1-A"
+ subject_ref_id: "DE",
+ school_id: "SCHULE-01",
+ school-year: "SJ-09/10",
+ start: "01-09-2009",
+ end: "28-02-2010",
+ classes: [ "KLASSE-01","KLASSE-03","KLASSE-05" ],
+ grade: [ "1" ],
+ students: [
+  { 
+   user_id: "USER-01",
+	 start: "01-09-2009",
+	 end: "28-02-2010",
+	}, { 
+	 user_id: "USER-06",
+	 start: "01-09-2009",
+	 end: "28-02-2010",
+	}, { 
+	 user_id: "USER-07",
+	 start: "01-09-2009",
+	 end: "31-12-2009",
+	},
+ ]
+ time_tabel [
+  {
+	 day: "1",
+	 start: "08:00:00",
+	 end: "08:45:00",
+	 repeate: "weackly"
+  }, {
+	 day: "2",
+	 start: "08:00:00",
+	 end: "08:45:00",
+	 repeate: "weackly"
+	}, {
+	 day: "3",
+	 start: "08:50:00",
+	 end: "09:35:00",
+	 repeate: "beweackly",
+	 start: "weack-1"
+	}, {
+	 day: "4",
+	 start: "08:50:00",
+	 end: "09:35:00",
+	 repeate: "beweackly",
+	 start: "weack-2"
+	}, {
+	 day: "3",
+	 start: "08:50:00",
+	 end: "09:35:00",
+	 repeate: "ontime",
+	 date: "30-10-2009"
+	}	 
+ ]
+}
+\end{lstlisting}
