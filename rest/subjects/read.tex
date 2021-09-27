@@ -1,19 +1,15 @@
 \subsubsection{READ}
 \label{sec:end:rest:api:subjects:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Die Route gibt für den eingeloggten Benutzer seine Privaten Daten wieder.
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:subjects:read:ret}. 
 Die einzelnen Felder der Antwort werden in Tabelle \reftabllec{tab:rest:api:subjects:read:ret} beschrieben.
 Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:subjects:read:right} entnommen werden.
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/subjects},label={lst:code:rest:api:subjects:read:ret},frame=tlrb]
-{
- id: "<STRING>",
- name: "<STRING>",
- surename: "<STRING>",
- birtdate: "<CALENDARDATE>",
- sex: "<ENUM>",
-}
+[
+ "<STRING>",
+ ...
+]
 \end{lstlisting}
 
 \begin{longtable}{|p{0.16\textwidth}|p{0.16\textwidth}|p{0.58\textwidth}|}
