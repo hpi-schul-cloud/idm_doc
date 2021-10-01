@@ -2,8 +2,9 @@
 \label{sec:end:rest:api:subjects:id:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:subjects:id:read:ret}. 
-Die einzelnen Felder der Antwort werden in Tabelle \reftabllec{tab:rest:api:subjects:id:read:ret} beschrieben.
-Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:subjects:id:read:right} entnommen werden.
+Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:read:ret} beschrieben.
+Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:subjects:id:read:right} entnommen werden.
+
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/subjects/\$id},label={lst:code:rest:api:subjects:id:read:ret},frame=tlrb]
 [
@@ -31,7 +32,6 @@ Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:subjects:id
 \endhead
 			 &  &  \\ \hline
 \end{longtable}
-
 
 \begin{longtable}{|c|p{0.7\textwidth}|}
 \caption{Berechtigungen auf dem Endpunkt}

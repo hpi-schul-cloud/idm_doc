@@ -1,8 +1,8 @@
 \subsubsection{READ}
 \label{sec:rest:api:school-subjects:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:school-subjects:read:ret}. Die einzelnen Felder der Antwort werden in Tabelle \reftabllec{tab:rest:api:school-subjects:read:ret:json} beschrieben.
-Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:school-subjects:read:right} entnommen werden.
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:school-subjects:read:ret}. Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school-subjects:read:ret:json} beschrieben.
+Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:school-subjects:read:right} entnommen werden.
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/school-subjects},label={lst:code:rest:api:school-subjects:read:ret},frame=tlrb]
 [
@@ -22,10 +22,10 @@ Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:school-subj
 		\hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 			id & STRING & Eine eindeutige Zeichenkette, die vom IDM-Provider vergeben wird. Sie darf nur aus alphanumerischen Zeichen und Bindestrich bestehen.\\ \hline
-			name & STRING & Der Ausgeschrieben name eines Schulfaches \\ \hline
+			name & STRING & Der ausgeschriebene Name eines Schulfaches \\ \hline
 	\end{tabularx}
 
-		\caption{Beschreibung der Felder in eine JSON-Objekt für ein Schulfach}
+		\caption{Beschreibung der Felder in einem JSON-Objekt für ein Schulfach}
 		\label{tab:rest:api:school-subjects:read:ret:json}
 \end{table}
 \begin{longtable}{|c|p{0.7\textwidth}|}
