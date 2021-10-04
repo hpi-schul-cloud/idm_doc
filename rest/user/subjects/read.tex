@@ -6,23 +6,7 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:user:subjec
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/user/subjects},label={lst:code:rest:api:user:subjects:read:ret},frame=tlrb]
 [
-  {
-	 subject_id: "<STRING>",
-	 subject_ref_id: "<STRING>",
-   school_id: "<STRING>",
-	 school-year: "<STRING>",
-	 start: "<CALENDARDATE>",
-	 end: "<CALENDARDATE>",
-	 time_tabel [
-	  {
-		 day: "<ENUM>",
-	   start: "<TIME>",
-	   end: "<TIME>",
-		 repeat: "<ENUM>",
-		 date: "<CALENDARDATE>"
-		},
-		...
-	}, 
+  "<STRING>",
 	...
 ]
 \end{lstlisting}

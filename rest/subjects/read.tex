@@ -1,53 +1,51 @@
 \subsubsection{READ}
-\label{sec:end:rest:api:school-subjects:read}
+\label{sec:end:rest:api:subjects:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:end:rest:api:school-subjects:read:ret}. Die einzelnen Felder der Antwort werden in \reftabllec{tab:end:rest:api:school-subjects:read:ret:json} beschrieben.
-Die Berechtigungen auf den Endpunkt können \reftabllec{tab:end:rest:api:school-subjects:read:right} entnommen werden.
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:subjects:read:ret}. 
+Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:read:ret} beschrieben.
+Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:subjects:read:right} entnommen werden.
+
 \input{json}
-\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/school-subjects},label={lst:code:end:rest:api:school-subjects:read:ret},frame=tlrb]
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/subjects},label={lst:code:rest:api:subjects:read:ret},frame=tlrb]
 [
-{
- id: "<STRING>",
- name: "<STRING>"
-},
-...
-{
- id: "<STRING>",
- name: "<STRING>"
-}
+ "<STRING>",
+ ...
 ]
 \end{lstlisting}
-\begin{table}[htb]
-	\begin{tabularx}{\textwidth}{|c|c|X|}
-		\hline
+
+
+\begin{longtable}{|p{0.16\textwidth}|p{0.16\textwidth}|p{0.58\textwidth}|}
+		\caption{Beschreibung der Felder in eine JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
+\endfoot
+		\caption{Beschreibung der Felder in eine JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
+		\label{tab:rest:api:subjects:read:ret}
+\endlastfoot 
+\hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
-			%	id & STRING & Eine eindeutige Zeichenkette, die vom IDM Provider vergeben wird. Sie darf nur aus alphanumerischen Zeichen und Bindestrichen bestehen. \\ \hline
-			%	start & TIMESTAMP & Ein Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD \\ \hline
-			%	ende & TIMESTAMP & Ein Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD \\ \hline
-			% name & STRING & Eine Name für das Schuljahr wie z.b.: 2020-2021 \\ \hline
-			id & STRING & Eine eindeutige Zeichenkette, die vom IDM-Provider vergeben wird. Sie darf nur aus alphanumerischen Zeichen und Bindestrich bestehen.\\ \hline
-			name & STRING & Der ausgeschriebene Name eines Schulfaches \\ \hline
-	\end{tabularx}
+\endhead
+			 &  &  \\ \hline
+\end{longtable}
 
-		\caption{Beschreibung der Felder in einem JSON-Objekt für ein Schulfach}
-		\label{tab:end:rest:api:school-subjects:read:ret:json}
-\end{table}
-\begin{table}[htb]
-	\begin{tabularx}{\textwidth}{|c|X|}
-		\hline
-\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
-guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt erhalten. \\ \hline
-students & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-parents & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-teacher & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-principal & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-school-admin & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-school-board & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-fed-school-board & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-sync-systems & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
 
-	\end{tabularx}
 
+\begin{longtable}{|c|p{0.7\textwidth}|}
+\caption{Berechtigungen auf dem Endpunkt}
+\endfoot
 		\caption{Berechtigungen auf dem Endpunkt}
-		\label{tab:end:rest:api:school-subjects:read:right}
-\end{table}
+		\label{tab:rest:api:subjects:read:right}
+\endlastfoot
+\hline
+\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
+\endhead
+guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt erhalten. \\ \hline
+user &  \\ \hline 
+students & \\ \hline
+external-students & \\ \hline
+guardians & \\ \hline
+teacher & \\ \hline
+principal & \\ \hline
+school-admin & \\ \hline
+school-board & \\ \hline
+fed-school-board & \\ \hline
+sync-systems & \\ \hline
+	\end{longtable}
