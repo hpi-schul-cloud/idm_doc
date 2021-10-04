@@ -1,20 +1,15 @@
 \subsubsection{READ}
-\label{secrest:api:subjects:timetable:read}
+\label{sec:rest:api:subjects:id:schools:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:subjects:timetable:read:ret}. 
-Die einzelnen Felder der Antwort werden in Tabelle \reftabllec{tab:rest:api:subjects:timetable:read:ret:json} beschrieben.
-Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:subjects:timetable:read:right} entnommen werden.
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:subjects:id:schools:read:ret}.
+Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:schools:read:ret:json} beschrieben.
+Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:subjects:id:schools:read:right} entnommen werden.
 \input{json}
-\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/subjects/timetable},label={lst:code:rest:api:subjects:timetable:read:ret},frame=tlrb]
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/subjects/\$id/schools},label={lst:code:rest:api:subjects:id:schools:read:ret},frame=tlrb]
 [
  {
   subject: "<STRING>",
-	day: "<ENUM>",
-	start: "<TIME>",
-	end: "<TIME>",
-	repeate: "<ENUM>",
-	date: "<CALENDARDATE>",
-	week: "<ENUM>",
+  school: "<STRING>",
  },
  ...
 ]
@@ -23,7 +18,7 @@ Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:subjects:ti
 		\caption{Beschreibung der Felder in eine JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
 \endfoot
 		\caption{Beschreibung der Felder in eine JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
-		\label{tab:rest:api:subjects:timetable:read:ret:json}
+		\label{tab:rest:api:subjects:id:schools:read:ret:json}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
@@ -32,11 +27,12 @@ Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:subjects:ti
 \end{longtable}
 
 
+
 \begin{longtable}{|c|p{0.7\textwidth}|}
 \caption{Berechtigungen auf dem Endpunkt}
 \endfoot
 		\caption{Berechtigungen auf dem Endpunkt}
-		\label{tab:rest:api:subjects:timetable:read:right}
+		\label{tab:rest:api:subjects:id:schools:read:right}
 \endlastfoot
 \hline
 \textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
