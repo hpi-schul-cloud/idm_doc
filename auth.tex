@@ -1,7 +1,7 @@
 \chapter{Authentifizierung und Autorisierung}
 Daten zu Schulen -und Lerngruppen (Klassen und Kurse) können durch einen automatischen Sync aus dem IDM im Zielsystem initial angelegt bzw. aktualisiert werden. 
-Dazu kann ein technisches Benutzerkonto mit der Rolle \"sync-system\" genutzt werden (s. Kapitel \ref{Benutzerrollen} \nameref{Benutzerrollen}).
-Wie unter Kapitel \ref{Benutzerrollen} \nameref{Benutzerrollen} zu sehen, enthalten die Datenmodelle zu Schulen und Lerngruppen keine personenbezogen Daten, sondern nur die IDs (uuid) aus dem IDM. \\
+Dazu kann ein technisches Benutzerkonto mit der Rolle ''sync-system''\"'' genutzt werden (s. Kapitel \ref{Benutzerrollen} ''\nameref{Benutzerrollen})''.
+Wie unter Kapitel \ref{Datenmodelle} ''\nameref{Datenmodelle}'' zu sehen, enthalten die Datenmodelle zu Schulen und Lerngruppen keine personenbezogen Daten, sondern nur die IDs (uuid) aus dem IDM. \\
 \\
 Um im Zielsystem auch für den Login keine Anmeldeinformationen vorhalten zu müssen, wird eine Authentifizierung und Autorisierung per OAuth2-Protokoll und OpenID Connect empfohlen.\\
 \\
@@ -9,7 +9,7 @@ Der Ablauf der Autorisierung per OAuth2-Protokoll im Authorization-Code-Flow ist
 \\
 to be inserted\\
 \\
-Über den Access Token erhält das Zielsystem schließlich Zugriff auf die ID (uuid) des Users in Form des ID Tokens. 
+Über den Access Token erhält das Zielsystem schließlich Zugriff auf die REST-API und über den ID Token auf die ID (uuid) des Users. 
 Sofern die personenbezogenen Daten für die Anlage eines Benutzerkontos (z.B. Vor- und Nachname, E-Mail-Adresse) benötigt werden, können diese durch die geeignete Wahl von scopes und claims im Aufruf der Autorisierungs-URL vom Resource Server abgefragt werden und initial zur Benutzerkontoerstellung genutzt werden.\\
 \\
 Der IDM-Provider muss dabei den Autorisierungsserver (OpenID Provider) und Resource Server zur Verfügung stellen, zudem müssen folgende Endpunkte definiert sein:\\
