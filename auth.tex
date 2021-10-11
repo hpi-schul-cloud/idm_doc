@@ -9,7 +9,7 @@ to be inserted\\
 Sofern die personenbezogenen Daten für die Anlage eines Benutzerkontos (z.B. Vor- und Nachname, E-Mail-Adresse) benötigt werden, können diese durch die geeignete Wahl von scopes und claims im Aufruf der Autorisierungs-URL vom Resource Server abgefragt werden und initial zur Benutzerkontoerstellung genutzt werden.\\
 \\
 Der IDM-Provider muss dabei den Autorisierungsserver (OpenID Provider) und Resource Server zur Verfügung stellen, zudem müssen folgende Endpunkte definiert sein:\\
-\\
+
 \begin{table}[htb]
     \begin{tabularx}{\textwidth}{|c|X|}
         \hline
@@ -24,7 +24,7 @@ UserInfo & Kann definierte Benutzerdaten zur Verfügung stellen (z.B. uuid, Vor-
         \label{tab:auth:endpoints}
 \end{table}
 \\
-\\
+
 Die Spezifikation der REST-API sieht vor, dass die Sichtbarkeit der Daten an den definierten Endpunkte bereits im JSON-Objekt gemäß der Berechtigung des anfragenden Benutzers berücksichtigt ist. 
 Die ID des Benutzers im Access Token allein reicht nicht aus, um die Sichtbarkeit der Daten korrekt zu beschränken, da einem Benutzer im IDM mehrere Institut-Rolle-Kombinationen zugewiesen sein können (z.B. an verschiedenen Institutionen als Lehrkraft tätig oder an derselben Institution sowohl Lehrkraft als auch Elternteil eines Schülers). 
 Daher muss die Information, mit welcher Kombination von Institution und Rolle innerhalb dieser Institution der Aufruf eines REST-API-Endpunkts durchgeführt wird, an den IDM-Provider übermittelt werden. 
@@ -36,7 +36,7 @@ Diese haben bei Aufruf eines REST-API-Endpunkts grundsätzlich keine Beschränku
 Um die Tokengenerierung zu vereinheitlichen, wird für Benutzerkonten mit der Rolle ''sync-system'' statt des Institutionsnamens die Bezeichnung der IDM-Domäne verwendet.\\
 \\
 Beispiel:\\
-\\
+
 \begin{lstlisting}
 https://<URl zu Autorisierungsendpunkt>?response_type=code
 &client_id=<Identifier von Client-App>
@@ -44,7 +44,7 @@ https://<URl zu Autorisierungsendpunkt>?response_type=code
 &scope=openid sync-system idm-domain
 &state=<Undurchschaubarer Wert fuer Sicherheitszwecke>
 \end{lstlisting}
-
+\\
 Sofern für ein Benutzerkonto im IDM mehrere Institution-Rolle-Kombinationen hinterlegt sein können, müssen Institution und Rolle bei Start des Authentifizierungsprozesses gegebenenfalls durch den Benutzer wählbar sein. 
 Für einen Instituiton-Rolle-Wechsel ist eine Neuanmeldung bzw. Aktualisierung des Access Tokens bezüglich der Scopes für Institution und Rolle notwendig. \\
 \\
