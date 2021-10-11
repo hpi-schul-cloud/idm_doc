@@ -2,9 +2,13 @@
 Um den Zugriff auf Zielsystem und REST-API gleichermaßen zu steuern und dabei im Zielsystem keine Anmeldeinformationen vorhalten zu müssen, wird eine Authentifizierung und Autorisierung per OAuth2-Protokoll und OpenID Connect vorgeschrieben.\\
 \\
 Der Ablauf der Autorisierung per OAuth2-Protokoll im Authorization-Code-Flow ist in der folgenden Grafik dargestellt. 
-\\
-to be inserted\\
-\\
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=1]{Authentication_Flow.png}
+\caption{Access-Token-Erstellung im Authentication-Code-Flow}
+\end{figure}
+
 Über den Access Token erhält der Benutzer schließlich Zugriff auf das Zielsystem bzw. auf die REST-API, über den ID Token auf die ID (uuid) und ggf. weitere personenbezogene Daten des Benutzers. 
 Sofern die personenbezogenen Daten für die Anlage eines Benutzerkontos (z.B. Vor- und Nachname, E-Mail-Adresse) benötigt werden, können diese durch die geeignete Wahl von scopes und claims im Aufruf der Autorisierungs-URL vom Resource Server abgefragt werden und initial zur Benutzerkontoerstellung genutzt werden.\\
 \\
