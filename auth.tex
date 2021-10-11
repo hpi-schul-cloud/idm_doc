@@ -23,7 +23,7 @@ UserInfo & Kann definierte Benutzerdaten zur Verfügung stellen (z.B. uuid, Vor-
         \caption{Endpunkte, die durch den IDM-Provider für die Anmeldung per OAuth2 in Verbindung mit OpenID Connect zur Verfügung gestellt werden müssen}
         \label{tab:auth:endpoints}
 \end{table}
-\\
+
 Die Spezifikation der REST-API sieht vor, dass die Sichtbarkeit der Daten an den definierten Endpunkte bereits im JSON-Objekt gemäß der Berechtigung des anfragenden Benutzers berücksichtigt ist. 
 Die ID des Benutzers im Access Token allein reicht nicht aus, um die Sichtbarkeit der Daten korrekt zu beschränken, da einem Benutzer im IDM mehrere Institut-Rolle-Kombinationen zugewiesen sein können (z.B. an verschiedenen Institutionen als Lehrkraft tätig oder an derselben Institution sowohl Lehrkraft als auch Elternteil eines Schülers). 
 Daher muss die Information, mit welcher Kombination von Institution und Rolle innerhalb dieser Institution der Aufruf eines REST-API-Endpunkts durchgeführt wird, an den IDM-Provider übermittelt werden. 
@@ -43,7 +43,7 @@ https://<URl zu Autorisierungsendpunkt>?response_type=code
 &scope=openid sync-system idm-domain
 &state=<Undurchschaubarer Wert fuer Sicherheitszwecke>
 \end{lstlisting}
-\\
+
 Sofern für ein Benutzerkonto im IDM mehrere Institution-Rolle-Kombinationen hinterlegt sein können, müssen Institution und Rolle bei Start des Authentifizierungsprozesses gegebenenfalls durch den Benutzer wählbar sein. 
 Für einen Instituiton-Rolle-Wechsel ist eine Neuanmeldung bzw. Aktualisierung des Access Tokens bezüglich der Scopes für Institution und Rolle notwendig. \\
 \\
