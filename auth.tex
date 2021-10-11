@@ -34,9 +34,9 @@ Ein Sonderfall stellen dabei Benutzerkonten mit der Rolle ''sync-system'' dar.
 Diese haben bei Aufruf eines REST-API-Endpunkts grundsätzlich keine Beschränkung auf eine einzelne Institution. 
 Um die Tokengenerierung zu vereinheitlichen, wird für Benutzerkonten mit der Rolle ''sync-system'' statt des Institutionsnamens die Bezeichnung der IDM-Domäne verwendet.\\
 \\
-Beispiel:\\
+Beispiel:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={},frame=tlrb]
 https://<URl zu Autorisierungsendpunkt>?response_type=code
 &client_id=<Identifier von Client-App>
 &redirect_uri=<Redirect-URL>
