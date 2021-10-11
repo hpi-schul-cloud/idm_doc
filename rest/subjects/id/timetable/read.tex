@@ -1,0 +1,55 @@
+\subsubsection{READ}
+\label{secrest:api:subjects:id:timetable:read}
+Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:subjects:id:timetable:read:ret}. 
+Die einzelnen Felder der Antwort werden in Tabelle \reftabllec{tab:rest:api:subjects:id:timetable:read:ret:json} beschrieben.
+Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:subjects:id:timetable:read:right} entnommen werden.
+\input{json}
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/subjects/\$id/timetable},label={lst:code:rest:api:subjects:id:timetable:read:ret},frame=tlrb]
+[
+ {
+  subject: "<STRING>",
+	day: "<ENUM>",
+	start: "<TIME>",
+	end: "<TIME>",
+	repeat: "<ENUM>",
+	date: "<CALENDARDATE>",
+	week: "<ENUM>",
+ },
+ ...
+]
+\end{lstlisting}
+\begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
+		\caption{Beschreibung der Felder in einem JSON-Objekt für den Stundenplan eines Schulfachs}
+\endfoot
+		\caption{Beschreibung der Felder in einem JSON-Objekt für den Stundenplan eines Schulfachs}
+		\label{tab:rest:api:subjects:id:timetable:read:ret:json}
+\endlastfoot 
+\hline
+			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
+\endhead
+			 &  &  \\ \hline
+\end{longtable}
+
+
+\begin{longtable}{|c|p{0.7\textwidth}|}
+\caption{Berechtigungen auf dem Endpunkt}
+\endfoot
+		\caption{Berechtigungen auf dem Endpunkt}
+		\label{tab:rest:api:subjects:id:timetable:read:right}
+\endlastfoot
+\hline
+\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
+\endhead
+guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt erhalten. \\ \hline
+user &  \\ \hline 
+students & \\ \hline
+external-students & \\ \hline
+guardians & \\ \hline
+teacher & \\ \hline
+principal & \\ \hline
+school-admin & \\ \hline
+school-board & \\ \hline
+fed-school-board & \\ \hline
+sync-systems & \\ \hline
+	\end{longtable}

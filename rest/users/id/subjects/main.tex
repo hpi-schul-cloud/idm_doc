@@ -1,0 +1,18 @@
+\subsection{Endpunkt in der REST-API: /api/users/\$id/subjects}
+Die \reftabllec{tab:rest:api:users:id:subjects:meth} listet auf, welche Operationen zugelassen sind und welche HTTP-Methoden dabei verwendet werden. 
+
+\begin{table}[!htbp]
+	\begin{tabular}{|c|c|c|}
+		\hline
+			\textbf{Operation} & \textbf{Zugelassen?} & \textbf{HTTP-Methode} \\ \hline
+			CREATE & Ja & POST \\ \hline 
+			READ & Ja & GET \\ \hline
+			UPDATE & Nein & \\ \hline 
+			DELETE & Ja & POST \\ \hline
+	\end{tabular}
+
+		\caption{Zugelassene Operationen auf /api/users/\$id/subjects}
+		\label{tab:rest:api:users:id:subjects:meth}
+\end{table}
+
+\input{rest/users/id/subjects/read}

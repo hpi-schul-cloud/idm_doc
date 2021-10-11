@@ -1,0 +1,53 @@
+\subsubsection{READ}
+\label{sec:rest:api:users:id:assignments:read}
+Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
+Sie gibt für den per ID ausgewählten Benutzer seine Zuordnungen im System wieder.
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:users:id:assignments:read:ret}. 
+Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:assignments:read:ret} beschrieben.
+Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:users:id:assignments:read:right} entnommen werden.
+\input{json}
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/users/\$id/assignments},label={lst:code:rest:api:users:id:assignments:read:ret},frame=tlrb]
+ {
+  school_id: "<STRING>",
+	role: "<STRING>",
+	start: "<CALENDARDATE>",
+	end: "<CALENDARDATE>",
+	school-years: ["<STRING>",...]
+ },
+ ...
+\end{lstlisting}
+
+\begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
+		\caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
+\endfoot
+		\caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
+		\label{tab:rest:api:users:id:assignments:read:ret}
+\endlastfoot 
+\hline
+			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
+\endhead
+			 &  &  \\ \hline
+\end{longtable}
+
+
+\begin{longtable}{|c|p{0.7\textwidth}|}
+\caption{Berechtigungen auf dem Endpunkt}
+\endfoot
+		\caption{Berechtigungen auf dem Endpunkt}
+		\label{tab:rest:api:users:id:assignments:read:right}
+\endlastfoot
+\hline
+\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
+\endhead
+guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt erhalten. \\ \hline
+user &  \\ \hline 
+students & \\ \hline
+external-students & \\ \hline
+guardians & \\ \hline
+teacher & \\ \hline
+principal & \\ \hline
+school-admin & \\ \hline
+school-board & \\ \hline
+fed-school-board & \\ \hline
+sync-systems & \\ \hline
+	\end{longtable}
