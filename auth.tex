@@ -1,15 +1,11 @@
 \chapter{Authentifizierung und Autorisierung}
-Daten zu Schulen -und Lerngruppen (Klassen und Kurse) können durch einen automatischen Sync aus dem IDM im Zielsystem initial angelegt bzw. aktualisiert werden. 
-Dazu kann ein technisches Benutzerkonto mit der Rolle ''sync-system''\"'' genutzt werden (s. Kapitel \ref{Benutzerrollen} ''\nameref{Benutzerrollen})''.
-Wie unter Kapitel \ref{Datenmodelle} ''\nameref{Datenmodelle}'' zu sehen, enthalten die Datenmodelle zu Schulen und Lerngruppen keine personenbezogen Daten, sondern nur die IDs (uuid) aus dem IDM. \\
-\\
-Um im Zielsystem auch für den Login keine Anmeldeinformationen vorhalten zu müssen, wird eine Authentifizierung und Autorisierung per OAuth2-Protokoll und OpenID Connect empfohlen.\\
+Um den Zugriff auf Zielsystem und REST-API gleichermaßen zu steuern und dabei im Zielsystem keine Anmeldeinformationen vorhalten zu müssen, wird eine Authentifizierung und Autorisierung per OAuth2-Protokoll und OpenID Connect vorgeschrieben.\\
 \\
 Der Ablauf der Autorisierung per OAuth2-Protokoll im Authorization-Code-Flow ist in der folgenden Grafik dargestellt. 
 \\
 to be inserted\\
 \\
-Über den Access Token erhält das Zielsystem schließlich Zugriff auf die REST-API und über den ID Token auf die ID (uuid) des Users. 
+Über den Access Token erhält der Benutzer schließlich Zugriff auf das Zielsystem bzw. auf die REST-API, über den ID Token auf die ID (uuid) und ggf. weitere personenbezogene Daten des Benutzers. 
 Sofern die personenbezogenen Daten für die Anlage eines Benutzerkontos (z.B. Vor- und Nachname, E-Mail-Adresse) benötigt werden, können diese durch die geeignete Wahl von scopes und claims im Aufruf der Autorisierungs-URL vom Resource Server abgefragt werden und initial zur Benutzerkontoerstellung genutzt werden.\\
 \\
 Der IDM-Provider muss dabei den Autorisierungsserver (OpenID Provider) und Resource Server zur Verfügung stellen, zudem müssen folgende Endpunkte definiert sein:\\
@@ -18,9 +14,10 @@ Der IDM-Provider muss dabei den Autorisierungsserver (OpenID Provider) und Resou
     \begin{tabularx}{\textwidth}{|c|X|}
         \hline
 \textbf{Endpunkt} & \textbf{Funktion des Endpunkts} \\ \hline
-Autorisierung & Initiierung der Autorisierung und User-Zustimmung mit definierten Parametern (u.a. scopes/claims und Redirect-URL) \\ \hline
+Autorisierung & Initiierung der Autorisierung und Benutzerzustimmung mit definierten Parametern (u.a. scopes/claims und Redirect-URL) \\ \hline
 Token & Liefert ID und Access Token zurück \\ \hline
-UserInfo & Liefert die angefragten Benutzerdaten zurück (z.B. uuid, Vor- und Nachname, E-Mail-Adresse) \\ \hline
+Revocation & Endpunkt, um den Access Token zu widerrufen \\ \hline
+UserInfo & Kann definierte Benutzerdaten zur Verfügung stellen (z.B. uuid, Vor- und Nachname, E-Mail-Adresse) \\ \hline
     \end{tabularx}
 
         \caption{Endpunkte, die durch den IDM-Provider für die Anmeldung per OAuth2 in Verbindung mit OpenID Connect zur Verfügung gestellt werden müssen}
@@ -28,10 +25,29 @@ UserInfo & Liefert die angefragten Benutzerdaten zurück (z.B. uuid, Vor- und Na
 \end{table}
 \\
 \\
-Die ID des Benutzers genügt nun, um per REST-API (s. Endpunkt /api/user/\$id) die weiteren Informationen des Benutzer aus dem IDM zu abzufragen. 
-Das an diesem Endpunkt gelieferte Datenobjekt liefert auch die Rollen-Institutions-Kombinationen des Benutzers. 
-Ein Benutzer kann mehrere Institution-Rolle-Kombinationen haben. 
-So kann er zum Beispiel an verschiedenen Institutionen als Lehrkraft tätig oder an derselben Institution sowohl Lehrkraft als auch Elternteil eines Schülers sein. 
-In der Zielanwendung können diese Kombinationen zusammengefasst werden und die Rechte ggf. additiv verwenden. 
-Alternativ trennt man die Institution-Rolle-Kombination und lässt den Benutzer diejenige Kombination wählen, mit der der Benutzer interagieren möchte. 
-Eine Speicherung der zuletzt gewählten Kombination im Zielsystem ist dabei möglich.
+Die Spezifikation der REST-API sieht vor, dass die Sichtbarkeit der Daten an den definierten Endpunkte bereits im JSON-Objekt gemäß der Berechtigung des anfragenden Benutzers berücksichtigt ist. 
+Die ID des Benutzers im Access Token allein reicht nicht aus, um die Sichtbarkeit der Daten korrekt zu beschränken, da einem Benutzer im IDM mehrere Institut-Rolle-Kombinationen zugewiesen sein können (z.B. an verschiedenen Institutionen als Lehrkraft tätig oder an derselben Institution sowohl Lehrkraft als auch Elternteil eines Schülers). 
+Daher muss die Information, mit welcher Kombination von Institution und Rolle innerhalb dieser Institution der Aufruf eines REST-API-Endpunkts durchgeführt wird, an den IDM-Provider übermittelt werden. 
+Dies geschieht durch die Erweiterung der Scopes-Liste (um jeweils den Scope für die Institution und die Rolle) als Parameterübergabe beim Autorisierungsvorgang. 
+Die zusätzlichen Scopes für Institution und Rolle sind somit im Access Token hinterlegt und können bei der Generierung des zurückzuliefernden JSON-Objekts verwendet werden. \\
+\\
+Ein Sonderfall stellen dabei Benutzerkonten mit der Rolle ''sync-system'' dar. 
+Diese haben bei Aufruf eines REST-API-Endpunkts grundsätzlich keine Beschränkung auf eine einzelne Institution. 
+Um die Tokengenerierung zu vereinheitlichen, wird für Benutzerkonten mit der Rolle ''sync-system'' statt des Institutionsnamens die Bezeichnung der IDM-Domäne verwendet.\\
+\\
+Beispiel:\\
+\\
+\begin{verbatim}
+https://<URl zu Autorisierungsendpunkt>?response_type=code
+&client_id=<Identifier von Client-App>
+&redirect_uri=<Redirect-URL>
+&scope=openid sync-system idm-domain
+&state=<Undurchschaubarer Wert für Sicherheitszwecke>
+\end{verbatim}
+\\
+\\
+Sofern für ein Benutzerkonto im IDM mehrere Institution-Rolle-Kombinationen hinterlegt sein können, müssen Institution und Rolle bei Start des Authentifizierungsprozesses gegebenenfalls durch den Benutzer wählbar sein. 
+Für einen Instituiton-Rolle-Wechsel ist eine Neuanmeldung bzw. Aktualisierung des Access Tokens bezüglich der Scopes für Institution und Rolle notwendig. \\
+\\
+\\
+Für den Logout bzw. Aktualisierungen aus dem IDM kann der Access Token am Autorisierungsserver widerrufen werfen (Token Revocation.)
