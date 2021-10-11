@@ -37,13 +37,13 @@ Um die Tokengenerierung zu vereinheitlichen, wird für Benutzerkonten mit der Ro
 \\
 Beispiel:\\
 \\
-\begin{verbatim}
+\begin{lstlisting}
 https://<URl zu Autorisierungsendpunkt>?response_type=code
 &client_id=<Identifier von Client-App>
 &redirect_uri=<Redirect-URL>
 &scope=openid sync-system idm-domain
 &state=<Undurchschaubarer Wert für Sicherheitszwecke>
-\end{verbatim}
+\end{lstlisting}
 \\
 \\
 Sofern für ein Benutzerkonto im IDM mehrere Institution-Rolle-Kombinationen hinterlegt sein können, müssen Institution und Rolle bei Start des Authentifizierungsprozesses gegebenenfalls durch den Benutzer wählbar sein. 
