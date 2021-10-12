@@ -4,14 +4,14 @@ Um den Zugriff auf Client und REST-API gleichermaßen zu steuern und dabei im Cl
 \subsection{OAuth2}
 \label{auth:oauth2}
 
-OAuth2 ist eine Spezifikation, wie \textit{Access Tokens} ausgegeben werden (RFC 6749, s. https://tools.ietf.org/html/rfc6749). 
+OAuth2 ist eine Spezifikation, wie \textit{Access Tokens} ausgegeben werden (RFC 6749, s. https://tools.ietf.org/html/rfc6749). \\ 
 
-Der Autorisierungsserver des IDM-Providers muss gemäß RFC 6749 folgende Endpunkte bereitstellen:
+Der Autorisierungsserver des IDM-Providers muss gemäß RFC 6749 folgende \textit{Endpoints} bereitstellen:
 
 \begin{table}[htb]
     \begin{tabularx}{\textwidth}{|c|X|}
         \hline
-\textbf{Endpunkt} & \textbf{Funktion des Endpunkts} \\ \hline
+\textbf{Endpoint} & \textbf{Funktion} \\ \hline
 Authorization & Initiierung der Autorisierung und Benutzerzustimmung durch parametrisierten Aufruf \\ \hline
 Token & Liefert gegen Authorization Code Access Token zurück \\ \hline
     \end{tabularx}
@@ -23,11 +23,11 @@ Token & Liefert gegen Authorization Code Access Token zurück \\ \hline
 OAuth2 definiert sogenannte \textit{Grant Types}, die vom \textit{Client} über das Setzen eines oder mehrerer \textit{response$\_$type} beim Aufruf des \textit{Authorization Endpoint} gewählt werden können. 
 Diese \textit{Grant Types} beschreiben Möglichkeiten, wie ein Client einen \textit{Access Token} erlangt, über den im Namen des Benutzers anschließend eine API aufgerufen werden kann. 
 Während \textit{response$\_$type=code} den \textit{Authorization Code Grant} initiiert, liefert \textit{response$\_$type=token} den Access Token direkt nach Autorisierung zurück. 
-Zudem lassen sich über \textit{Access Token Scopes} vom Client Anwendungsbereiche des vom Autorisierungsserver gelieferten Access Tokens anfordern (s. https://datatracker.ietf.org/doc/html/rfc6749\#section-3.3).
+Zudem lassen sich über \textit{Access Token Scopes} vom Client Anwendungsbereiche des vom Autorisierungsserver gelieferten Access Tokens anfordern (s. https://datatracker.ietf.org/doc/html/rfc6749\#section-3.3). \\
 
 Die \textit{Internet Engineering Task Force (IETF)} empfiehlt als Best-Practice-Ansatz die Verwendung des \textit{Authorization Code Grant} (s. https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics\#section-2.1.1). 
 Je nachdem, ob es sich um einen \textit{Confidential} oder \textit{Public Client} handelt, d.h., ob ein \textit{Client Secret} verwendet werden kann, wird ein \textit{Proof Key for Code Exchange (PKCE)} empfohlen bzw. vorgeschrieben. 
-Der PKCE ist eine Erweiterung des \textit{Authorization Code Grant}, um Cross-Site-Request-Forgery (CSRF) oder Authentication-Code-Injection-Angriffe zu verhindern (s. https://datatracker.ietf.org/doc/html/rfc7636).
+Der PKCE ist eine Erweiterung des \textit{Authorization Code Grant}, um Cross-Site-Request-Forgery (CSRF) oder Authentication-Code-Injection-Angriffe zu verhindern (s. https://datatracker.ietf.org/doc/html/rfc7636). \\
 
 Der Ablauf der Autorisierung per OAuth2-Protokoll im \textit{Authorization Code Grant} ist in Abbildung \refabb{fig:auth-code-grant} dargestellt. 
 
@@ -39,7 +39,7 @@ Der Ablauf der Autorisierung per OAuth2-Protokoll im \textit{Authorization Code 
 \end{figure}
 
 Der Ablauf wird durch den \textit{Client} gestartet, gefolgt von der Authentifizierung des \textit{Resource Owners} beim Autorisierungserver. 
-Der Autorisierungserver sendet einen \textit{Authorization Code} an den \textit{Client}, der diesen wiederum direkt beim Autorisierungsserver gegen den \textit{Access Token} tauscht.
+Der Autorisierungserver sendet einen \textit{Authorization Code} an den \textit{Client}, der diesen wiederum direkt beim Autorisierungsserver gegen den \textit{Access Token} tauscht. \\
 
 Über den Access Token erhält der Benutzer schließlich Zugriff auf die REST-API.
 
@@ -50,7 +50,7 @@ OpenID Connect ist eine Spezifikation, wie \textit{ID Tokens} mit personenbezoge
 Dabei setzt OpenID Connect auf das OAuth2-Protokoll auf. 
 OpenID Connect definiert ein weiteren \textit{response$\_$type=id$\_$token}. 
 Dieser ermöglicht es, neben dem Access Token einen \textit{ID Token} vom Autorisierungsserver anzufordern. 
-Um OpenID Connect nutzen zu können, muss im in \refabschnitt{auth:oauth2} beschriebenen Autorisierungsprozess der Parameter \textit{Scopes} um \textit{openid} erweitert werden.
+Um OpenID Connect nutzen zu können, muss im in \refabschnitt{auth:oauth2} beschriebenen Autorisierungsprozess der Parameter \textit{Scopes} um \textit{openid} erweitert werden. \\
 
 Über den ID Token erlangt der Client Zugriff auf personenbezogene Daten des Benutzers. 
 \textit{OpenID Connect} definiert eine Reihe von Standard-\textit{claims} (s. https://openid.net/specs/openid-connect-core-1$\_$0.html\#StandardClaims), die im \textit{Scope}-Parameter beim Aufruf der Autorisierungs-URL aufgelistet werden und die spezifische Benutzerdaten im ID Token angefordern.
@@ -66,7 +66,7 @@ Dies geschieht durch die Erweiterung der \textit{Scopes}-Liste um den Scope für
 Die zusätzlichen \textit{Scopes} für Schule und Rolle sind somit im Access Token hinterlegt und können bei der Generierung des zurückzuliefernden JSON-Objekts verwendet werden.
 
 \begin{lstlisting}[caption={Beispielhafter Aufruf des Authorization Endpoints},label={listing:authorization_request},frame=tlrb]
-https://<URl zu Autorisierungsendpunkt>?response_type=code
+https://<URL zum Authorization Endpoint>?response_type=code
 &client_id=<Identifier von Client-App>
 &redirect_uri=<Redirect-URL>
 &scope=openid teachers id_schule
@@ -75,7 +75,7 @@ https://<URl zu Autorisierungsendpunkt>?response_type=code
 
 Ein Sonderfall stellen dabei Benutzerkonten mit der Rolle ''sync-system'' dar. 
 Diese haben bei Aufruf eines REST-API-Endpunkts grundsätzlich keine Beschränkung auf eine einzelne Schule. 
-Daher muss beim Autosierungsvorgang auch kein \textit{Scope} für die Schule an den Autorisierungsserver übergeben werden.
+Daher muss beim Autosierungsvorgang auch kein \textit{Scope} für die Schule an den Autorisierungsserver übergeben werden. \\
 
 Sofern für ein Benutzerkonto im IDM mehrere Schule-Rolle-Kombinationen hinterlegt sein können, müssen Schule und Rolle bei Start des Authentifizierungsprozesses gegebenenfalls durch den Benutzer wählbar sein. 
 Für einen Schule-Rolle-Wechsel ist eine Neuanmeldung bzw. Aktualisierung des Access Tokens bezüglich der \textit{Scopes} für Schule und Rolle notwendig.
