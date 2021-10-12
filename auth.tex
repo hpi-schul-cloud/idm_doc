@@ -20,9 +20,9 @@ Token & Liefert gegen Authorization Code Access Token zurück \\ \hline
         \label{tab:auth:endpoints}
 \end{table}
 
-OAuth2 definiert sogenannte \textit{Grant Types}, die vom \textit{Client} über das Setzen eines oder mehrerer \textit{respond_type} beim Aufruf des \textit{Authorization Endpoint} gewählt werden können. 
+OAuth2 definiert sogenannte \textit{Grant Types}, die vom \textit{Client} über das Setzen eines oder mehrerer \textit{respond$\_$type} beim Aufruf des \textit{Authorization Endpoint} gewählt werden können. 
 Diese \textit{Grant Types} beschreiben Möglichkeiten, wie ein Client einen \textit{Access Token} erlangt, über den im Namen des Benutzers anschließend eine API aufgerufen werden kann. 
-Während \textit{respond_type=code} den \textit{Authorization Code Grant} initiiert, liefert \textit{respond_type=token} den Access Token direkt nach Autorisierung zurück. 
+Während \textit{respond$\_$type=code} den \textit{Authorization Code Grant} initiiert, liefert \textit{respond$\_$type=token} den Access Token direkt nach Autorisierung zurück. 
 Zudem lassen sich über \textit{Access Token Scopes} vom Client Anwendungsbereiche des vom Autorisierungsserver gelieferten Access Tokens anfordern (s. https://datatracker.ietf.org/doc/html/rfc6749#section-3.3).
 
 Die \textit{Internet Engineering Task Force (IETF)} empfiehlt als Best-Practice-Ansatz die Verwendung des \textit{Authorization Code Grant} (s. https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#section-2.1.1). 
@@ -48,7 +48,7 @@ Der Autorisierungserver sendet einen \textit{Authorization Code} an den \textit{
 
 OpenID Connect ist eine Spezifikation, wie \textit{ID Tokens} mit personenbezogenen Daten ausgegeben werden (s. https://openid.net/specs/openid-connect-core-1_0.html). 
 Dabei setzt OpenID Connect auf das OAuth2-Protokoll auf. 
-OpenID Connect definiert ein weiteren \textit{response_type=id_token}. 
+OpenID Connect definiert ein weiteren \textit{response_type=id$\_$token}. 
 Dieser ermöglicht es, neben dem Access Token einen \textit{ID Token} vom Autorisierungsserver anzufordern. 
 Um OpenID Connect nutzen zu können, muss im in \refabschnitt{auth:oauth2} beschriebenen Autorisierungsprozess der Parameter \textit{Scopes} um \textit{openid} erweitert werden.
 
@@ -63,7 +63,7 @@ Die ID des Benutzers im Access Token allein reicht nicht aus, um die Sichtbarkei
 Daher muss die Information, mit welcher Kombination von Schule und Rolle innerhalb dieser Schule der Aufruf eines REST-API-Endpunkts durchgeführt wird, an den IDM-Provider übermittelt werden. 
 Dies geschieht durch die Erweiterung der \textit{Scopes}-Liste um den Scope für die Schule und die Rolle als Parameterübergabe beim Autorisierungsvorgang. 
 \reflisting{listing:authorization_request} zeigt einen exemplarischen Aufruf des \textit{Authorization Endpoints} mit Übergabe der \textit{Scopes}.
-Die zusätzlichen \textit{Scopes}. für Schule und Rolle sind somit im Access Token hinterlegt und können bei der Generierung des zurückzuliefernden JSON-Objekts verwendet werden.
+Die zusätzlichen \textit{Scopes} für Schule und Rolle sind somit im Access Token hinterlegt und können bei der Generierung des zurückzuliefernden JSON-Objekts verwendet werden.
 
 \begin{lstlisting}[caption={Beispielhafter Aufruf des Authorization Endpoints},label={listing:authorization_request},frame=tlrb]
 https://<URl zu Autorisierungsendpunkt>?response_type=code
