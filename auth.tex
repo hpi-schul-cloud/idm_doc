@@ -23,9 +23,9 @@ Token & Liefert gegen Authorization Code Access Token zurück \\ \hline
 OAuth2 definiert sogenannte \textit{Grant Types}, die vom \textit{Client} über das Setzen eines oder mehrerer \textit{respond$\_$type} beim Aufruf des \textit{Authorization Endpoint} gewählt werden können. 
 Diese \textit{Grant Types} beschreiben Möglichkeiten, wie ein Client einen \textit{Access Token} erlangt, über den im Namen des Benutzers anschließend eine API aufgerufen werden kann. 
 Während \textit{respond$\_$type=code} den \textit{Authorization Code Grant} initiiert, liefert \textit{respond$\_$type=token} den Access Token direkt nach Autorisierung zurück. 
-Zudem lassen sich über \textit{Access Token Scopes} vom Client Anwendungsbereiche des vom Autorisierungsserver gelieferten Access Tokens anfordern (s. https://datatracker.ietf.org/doc/html/rfc6749#section-3.3).
+Zudem lassen sich über \textit{Access Token Scopes} vom Client Anwendungsbereiche des vom Autorisierungsserver gelieferten Access Tokens anfordern (s. https://datatracker.ietf.org/doc/html/rfc6749\#section-3.3).
 
-Die \textit{Internet Engineering Task Force (IETF)} empfiehlt als Best-Practice-Ansatz die Verwendung des \textit{Authorization Code Grant} (s. https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#section-2.1.1). 
+Die \textit{Internet Engineering Task Force (IETF)} empfiehlt als Best-Practice-Ansatz die Verwendung des \textit{Authorization Code Grant} (s. https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics\#section-2.1.1). 
 Je nachdem, ob es sich um einen \textit{Confidential} oder \textit{Public Client} handelt, d.h., ob ein \textit{Client Secret} verwendet werden kann, wird ein \textit{Proof Key for Code Exchange (PKCE)} empfohlen bzw. vorgeschrieben. 
 Der PKCE ist eine Erweiterung des \textit{Authorization Code Grant}, um Cross-Site-Request-Forgery (CSRF) oder Authentication-Code-Injection-Angriffe zu verhindern (s. https://datatracker.ietf.org/doc/html/rfc7636).
 
@@ -53,7 +53,7 @@ Dieser ermöglicht es, neben dem Access Token einen \textit{ID Token} vom Autori
 Um OpenID Connect nutzen zu können, muss im in \refabschnitt{auth:oauth2} beschriebenen Autorisierungsprozess der Parameter \textit{Scopes} um \textit{openid} erweitert werden.
 
 Über den ID Token erlangt der Client Zugriff auf personenbezogene Daten des Benutzers. 
-\textit{OpenID Connect} definiert eine Reihe von Standard-\textit{claims} (s. https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), die im \textit{Scope}-Parameter beim Aufruf der Autorisierungs-URL aufgelistet werden und die spezifische Benutzerdaten im ID Token angefordern.
+\textit{OpenID Connect} definiert eine Reihe von Standard-\textit{claims} (s. https://openid.net/specs/openid-connect-core-1_0.html\#StandardClaims), die im \textit{Scope}-Parameter beim Aufruf der Autorisierungs-URL aufgelistet werden und die spezifische Benutzerdaten im ID Token angefordern.
 
 \subsection{Einschränkung der Daten}
 \label{auth:limit_data}
