@@ -65,14 +65,13 @@ Dies geschieht durch die Erweiterung der \textit{Scopes}-Liste um den Scope für
 \reflisting{listing:authorization_request} zeigt einen exemplarischen Aufruf des \textit{Authorization Endpoints} mit Übergabe der \textit{Scopes}.
 Die zusätzlichen \textit{Scopes}. für Schule und Rolle sind somit im Access Token hinterlegt und können bei der Generierung des zurückzuliefernden JSON-Objekts verwendet werden.
 
-\begin{lstlisting}[caption={Beispielhafter Aufruf des Authorization Endpoints},frame=tlrb]
+\begin{lstlisting}[caption={Beispielhafter Aufruf des Authorization Endpoints},label={listing:authorization_request},frame=tlrb]
 https://<URl zu Autorisierungsendpunkt>?response_type=code
 &client_id=<Identifier von Client-App>
 &redirect_uri=<Redirect-URL>
 &scope=openid teachers id_schule
 &state=<Undurchschaubarer Wert fuer Sicherheitszwecke>
 \end{lstlisting}
-\label{listing:authorization_request}
 
 Ein Sonderfall stellen dabei Benutzerkonten mit der Rolle ''sync-system'' dar. 
 Diese haben bei Aufruf eines REST-API-Endpunkts grundsätzlich keine Beschränkung auf eine einzelne Schule. 
