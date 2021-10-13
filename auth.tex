@@ -26,7 +26,7 @@ Diese \textit{Grant Types} beschreiben Möglichkeiten, wie ein Client einen \tex
 Während \textit{response$\_$type=code} den \textit{Authorization Code Grant} initiiert, liefert \textit{response$\_$type=token} den Access Token direkt nach Autorisierung zurück. 
 Zudem lassen sich über \textit{Access Token Scopes} vom Client Anwendungsbereiche des vom Autorisierungsserver gelieferten Access Tokens anfordern \cite[Abschnitt~3.3]{rfc6749}. \\
 
-Die \textit{Internet Engineering Task Force (IETF)} empfiehlt als Best-Practice-Ansatz die Verwendung des \textit{Authorization Code Grant} (s. https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics\#section-2.1.1). 
+Die \textit{Internet Engineering Task Force (IETF)} empfiehlt als Best-Practice-Ansatz die Verwendung des \textit{Authorization Code Grant} \cite[Unterabschnitt~2.1.1]{ietf-oauth-security-topics-18}. 
 Je nachdem, ob es sich um einen \textit{Confidential} oder \textit{Public Client} handelt, d.h., ob ein \textit{Client Secret} verwendet werden kann, wird ein \textit{Proof Key for Code Exchange (PKCE)} empfohlen bzw. vorgeschrieben. 
 Der PKCE ist eine Erweiterung des \textit{Authorization Code Grant}, um Cross-Site-Request-Forgery (CSRF) oder Authentication-Code-Injection-Angriffe zu verhindern \cite{rfc7636}. \\
 
@@ -47,14 +47,14 @@ Der Autorisierungserver sendet einen \textit{Authorization Code} an den \textit{
 \subsection{OpenID Connect}
 \label{auth:openid}
 
-OpenID Connect ist eine Spezifikation, wie \textit{ID Tokens} mit personenbezogenen Daten ausgegeben werden (s. https://openid.net/specs/openid-connect-core-1$\_$0.html). 
+OpenID Connect ist eine Spezifikation, wie \textit{ID Tokens} mit personenbezogenen Daten ausgegeben werden \cite{OpenID.Core}. 
 Dabei setzt OpenID Connect auf das OAuth2-Protokoll auf. 
 OpenID Connect definiert ein weiteren \textit{response$\_$type=id$\_$token}. 
 Dieser ermöglicht es, neben dem Access Token einen \textit{ID Token} vom Autorisierungsserver anzufordern. 
 Um OpenID Connect nutzen zu können, muss im in \refabschnitt{auth:oauth2} beschriebenen Autorisierungsprozess der Parameter \textit{Scopes} um \textit{openid} erweitert werden. \\
 
 Über den ID Token erlangt der Client Zugriff auf personenbezogene Daten des Benutzers. 
-\textit{OpenID Connect} definiert eine Reihe von Standard-\textit{claims} (s. https://openid.net/specs/openid-connect-core-1$\_$0.html\#StandardClaims), die im \textit{Scope}-Parameter beim Aufruf der Autorisierungs-URL aufgelistet werden und die spezifische Benutzerdaten im ID Token angefordern.
+\textit{OpenID Connect} definiert eine Reihe von Standard-\textit{claims} \cite[Abschnitt~StandardClaims]{OpenID.Core}), die im \textit{Scope}-Parameter beim Aufruf der Autorisierungs-URL aufgelistet werden und die spezifische Benutzerdaten im ID Token angefordern.
 
 \subsection{Einschränkung der Daten}
 \label{auth:limit_data}
