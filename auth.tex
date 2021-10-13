@@ -1,10 +1,11 @@
 \chapter{Authentifizierung und Autorisierung}
+
 Um den Zugriff auf Client und REST-API gleichermaßen zu steuern und dabei im Client keine Anmeldeinformationen vorhalten zu müssen, wird eine Authentifizierung und Autorisierung per \textit{OAuth2-Protokoll} und \textit{OpenID Connect} vorgeschrieben.
 
 \subsection{OAuth2}
 \label{auth:oauth2}
 
-OAuth2 ist eine Spezifikation, wie \textit{Access Tokens} ausgegeben werden (RFC 6749, s. https://tools.ietf.org/html/rfc6749). \\ 
+OAuth2 ist eine Spezifikation, wie \textit{Access Tokens} ausgegeben werden \cite{rfc6749}. \\ 
 
 Der Autorisierungsserver des IDM-Providers muss gemäß RFC 6749 folgende \textit{Endpoints} bereitstellen:
 
