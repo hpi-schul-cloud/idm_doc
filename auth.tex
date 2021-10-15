@@ -47,7 +47,7 @@ Der Autorisierungserver sendet einen \textit{Authorization Code} an den \textit{
 OpenID Connect ist eine Spezifikation, wie \textit{ID Tokens} mit personenbezogenen Daten ausgegeben werden \cite{OpenID.Core}. 
 Dabei setzt OpenID Connect auf das OAuth2-Protokoll auf. 
 OpenID Connect definiert ein weiteren \textit{response$\_$type=id$\_$token}. 
-Dieser ermöglicht es, neben dem Access Token den sogenannten \textit{ID Token} in Form eines JSON Web Tokens \cite{7519} vom Autorisierungsserver anzufordern. 
+Dieser ermöglicht es, neben dem Access Token den sogenannten \textit{ID Token} in Form eines JSON Web Tokens \cite{rfc7519} vom Autorisierungsserver anzufordern. 
 Um OpenID Connect nutzen zu können, muss im in \refabschnitt{auth:oauth2} beschriebenen Autorisierungsprozess der Parameter \textit{Scopes} um \textit{openid} erweitert werden. \\
 
 Über den ID Token erlangt der Client Zugriff auf personenbezogene Daten des Benutzers. 
