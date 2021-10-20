@@ -1,0 +1,11 @@
+\chapter{Weiterführende Konzepte}
+
+\section{Löschkonzept}
+
+Bei Verwendung der in diesem Dokument definierten REST-API muss der Client ein Löschkonzept auf die über die REST-API bezogenen Daten definieren bzw. diesem mit dem IDM-Provider abstimmen.\\
+
+Der Client hat die Möglichkeit, über ein Benutzerkonto mit der Rolle "sync-system" die im Client vorhandenen Datenobjekte und Referenzen darauf über die REST-API beim IDM-Provider zu revalidieren. 
+Existiert diese Möglichkeit der Rücksynchronisation im Client nicht, so müssen Überlegungen getroffen werden, wann Daten als veraltet gelten und nach welchen Aufbewahrungsfristen diese auf Client-Seite gelöscht werden. 
+Für Benutzerkonten kann ein Kriterium sein, wie lange sich eine Person nicht mehr im Client eingeloggt hat, bevor Maßnahmen getroffen werden, den Datenstand aktuell zu halten (Ankündigung der Deaktivierung/Löschung des Benutzerkontos, Löschung des Benutzerkontos). \\
+
+Bei Löschung eines Benutzerkontos im Client ist zu prüfen, inwiefern Daten vorliegen, die dem geistigen Eigentum der Inhaberin bzw. des Inhabers des Benutzerkontos unterliegen, und diese für einen definierten Zeitraum nach Löschung des Benutzerkontos durch die Inhaberin bzw. den Inhaber zur Sicherung abrufbar sind.
