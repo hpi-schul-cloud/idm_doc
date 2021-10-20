@@ -1,6 +1,9 @@
 \subsubsection{READ}
 \label{secrest:api:subjects:id:timetable:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
+Es werden für das per ID ausgewählte Unterrichtsfach die Daten zu für den Stundenplan ausgegeben.
+Die Daten sind durch den Kontext des Anfragenden Users eingeschränkt.
+
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:subjects:id:timetable:read:ret}. 
 Die einzelnen Felder der Antwort werden in Tabelle \reftabllec{tab:rest:api:subjects:id:timetable:read:ret:json} beschrieben.
 Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:subjects:id:timetable:read:right} entnommen werden.
