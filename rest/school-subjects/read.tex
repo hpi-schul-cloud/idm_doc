@@ -1,6 +1,8 @@
 \subsubsection{READ}
 \label{sec:rest:api:school-subjects:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
+Bei einer lesenden Anfrage wird eine Liste der Teilmenge der Referenzschulfächer, welche vom IDM unterstützt werden, zurückgegeben.
+
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:school-subjects:read:ret}. Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school-subjects:read:ret:json} beschrieben.
 Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:school-subjects:read:right} entnommen werden.
 \input{json}
@@ -8,13 +10,10 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:school-subj
 [
 {
  id: "<STRING>",
+ short_name: "<STRING>",
  name: "<STRING>"
 },
 ...
-{
- id: "<STRING>",
- name: "<STRING>"
-}
 ]
 \end{lstlisting}
 \begin{table}[!htb]

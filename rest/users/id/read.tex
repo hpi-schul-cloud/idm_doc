@@ -2,6 +2,8 @@
 \label{sec:rest:api:users:id:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
 Die Route gibt für den per ID ausgewählten Benutzer seine persönlichen Daten wieder.
+Diese können eingeschränkt werden durch den Kontext, in dem sich der anfragende Benutzer befinden.
+
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:users:id:read:ret}. 
 Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:read:ret} beschrieben.
 Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:users:id:read:right} entnommen werden.
