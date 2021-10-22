@@ -1,6 +1,9 @@
 \subsubsection{READ}
 \label{secrest:api:subjects:id:students:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
+Eine READ-Anfrage auf diese Route gibt eine Liste mit Objekten, welche Schüler von wann bis wann an dem per ID ausgewählten Unterrichtsfach teilgenommen haben, wieder.
+Die Daten werden durch den Kontext des anfragenden Benutzers eingeschränkt.
+
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:subjects:id:students:read:ret}. 
 Die einzelnen Felder der Antwort werden in Tabelle \reftabllec{tab:rest:api:subjects:id:students:read:ret:json} beschrieben.
 Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:subjects:id:students:read:right} entnommen werden.
