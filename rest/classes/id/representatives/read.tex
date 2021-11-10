@@ -1,0 +1,63 @@
+\subsubsection{READ}
+\label{sec:rest:api:classes:id:representatives:read}
+Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
+Bei anfragen an diesen Endpunkt wird eine Liste von Schülern oder Vormündern welche in einer Klasse oder Jahrgangsstufe die Statusgruppe Repräsentieren zurückgegeben.
+Die Position wird durch eine Ordnungsnummer wiedergespiegelt, je kleiner die Nummer des so wichtiger der Repräsentant der Statusgruppe.
+Es können auch mehre Repräsentant einer Statusgruppe die gleiche Ordnungsnummer haben.
+Zusätzlich kann Eintitszeitpunkt, wie der Austritszeitpunkt vermerkt werden wenn dieser abweichend zum Existenzeistraum der Klasse ist.
+
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:classes:id:representatives:read:ret}. 
+Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:representatives:read:ret} beschrieben.
+Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:classes:id:representatives:read:right} entnommen werden.
+\input{json}
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/classes/\$id/representatives},label={lst:code:rest:api:classes:id:representatives:read:ret},frame=tlrb]
+[ 
+ { 
+	user: "<STRING>",
+	role: "<STRING>",
+	order: "<NUMBER>",
+  start: "<CALENDARDATE>",
+  end: "<CALENDARDATE>",
+ },
+ ... 
+]
+\end{lstlisting}
+
+\begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
+		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Lehrer}
+\endfoot
+		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Lehrer}
+		\label{tab:rest:api:classes:id:representatives:read:ret}
+\endlastfoot 
+\hline
+			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
+\endhead
+user & STRING & Die User id des Repräsentanten der Statusgruppe \\ \hline
+role & STRING & Die Rolle welcher der Repräsentant der Statusgruppe im System hat ( Zugelassen sind student oder guardian ). \\ \hline
+order & NUMBER & Die Ordnungsnummer welche angibt welche Position der Repräsentant der Statusgruppe in einer Klasse inne hat. \\ \hline
+start & CALENDARDATE & Optional, wir benötigt wenn der Repräsentant der Statusgruppe zu einen Abweichenden Zeitpunkt das Amt bekommt. \\ \hline
+end & CALENDARDATE & Optional, wir benötigt wenn der Repräsentant der Statusgruppe vorzeitig vor ende des Zeitraums der Klasse nicht mehr als Repräsentant der Statusgruppe fungiert. \\ \hline
+\end{longtable}
+
+
+\begin{longtable}{|c|p{0.7\textwidth}|}
+\caption{Berechtigungen auf dem Endpunkt}
+\endfoot
+		\caption{Berechtigungen auf dem Endpunkt}
+		\label{tab:rest:api:classes:id:representatives:read:right}
+\endlastfoot
+\hline
+\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
+\endhead
+guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt erhalten. \\ \hline
+user &  \\ \hline 
+representatives & \\ \hline
+external-representatives & \\ \hline
+guardians & \\ \hline
+teacher & \\ \hline
+principal & \\ \hline
+school-admin & \\ \hline
+school-board & \\ \hline
+fed-school-board & \\ \hline
+sync-systems & \\ \hline
+	\end{longtable}
