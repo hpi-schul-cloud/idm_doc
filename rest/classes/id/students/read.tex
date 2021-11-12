@@ -1,8 +1,8 @@
 \subsubsection{READ}
 \label{sec:rest:api:classes:id:students:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Bei anfragen an diesen Endpunkt wird eine Liste von IDs von Schülern die in der Klasse sind zurückgegeben.
-Optional ist der Eintitszeitpunkt, wie der Austritszeitpunkt wenn die Klasse dieser für ein Schüler zur dauer der Klasse abweicht.
+Bei Anfragen an diesen Endpunkt wird eine Liste von IDs von Schülern, die in der Klasse sind, zurückgegeben.
+Optional ist der Eintritts- sowie der Austrittszeitpunkt. Diese Felder werden gesetzt, falls ein Schüler nicht über den kompletten Zeitraum Teil der Klasse war.
 
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:classes:id:students:read:ret}. 
 Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:students:read:ret} beschrieben.

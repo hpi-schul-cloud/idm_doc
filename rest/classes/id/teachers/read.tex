@@ -1,8 +1,8 @@
 \subsubsection{READ}
 \label{sec:rest:api:classes:id:teachers:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Bei anfragen an diesen Endpunkt wird eine Liste von IDs von Klassenlehrer die der Klasse als Klassenlehrer zugeordnet sind.
-Optional ist der Eintitszeitpunkt, wie der Austritszeitpunkt wenn die Klasse dieser für ein Klassenlehrer zur dauer der Klasse abweicht.
+Bei Anfragen an diesen Endpunkt wird eine Liste von IDs von Klassenlehrern zurückgegeben, die der Klasse als Klassenlehrer zugeordnet sind.
+Optional ist der Eintritts- sowie Austrittszeitpunkt. Diese Felder werden gesetzt, falls der Klassenlehrer dies nicht über den kompletten Zeitraum der Klasse war.
 
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:classes:id:teachers:read:ret}. 
 Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:teachers:read:ret} beschrieben.
@@ -36,13 +36,13 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:classes:id:
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-user & STRING & Die User id des Lehrers \\ \hline
-start & CALENDARDATE & Optional, wir benötigt wenn der Lehrer später zu eine Klasse als Klassenlehrer zugewiesen wird. \\ \hline
-end & CALENDARDATE & Optional, wir benötigt wenn der Lehrer vorzeitig vor ende des Zeitraums der Klasse nicht mehr der Klasse als Klassenlehrer zugewiesen ist. \\ \hline
-order & Object List & Eine liste mit Objekten die angibt welche Position der Lehrer von wann bis wann in der Klasse inne hatte, niedriger Nummer heißt höhere Position. \\ \hline
-order.order & NUMBER & Die Ordnungsnummer welche angibt welche Position der Lehre in einer Klasse inne hat, beginnt immer bei 1. Es können auch mehre Lehrer die selbe Nummer haben wenn die Klasse zum Beispiel mehre Gleichberechtigte Klassenlehrer hat. \\ \hline
-order.start & CALENDARDATE & Optional, Zeitpunkt ab wann der Lehrer die Position Innen hat. \\ \hline
-order.end & CALENDARDATE & Optional, Zeitpunkt bis wann der Lehrer die Position Innen hatte. \\ \hline
+user & STRING & Die User-ID des Lehrers \\ \hline
+start & CALENDARDATE & Optional; wird gesetzt, falls der Lehrer erst während des Zeitraums einer Klasse als Klassenlehrer zugewiesen wird. \\ \hline
+end & CALENDARDATE & Optional; wird gesetzt, falls der Lehrer vor Ende des Zeitraums der Klasse nicht mehr der Klasse als Klassenlehrer zugewiesen ist. \\ \hline
+order & Object List & Eine Liste mit Objekten, die angibt, welche Position der Lehrer von wann bis wann in der Klasse innehatte. Niedrigere Nummer heißt höhere Position. \\ \hline
+order.order & NUMBER & Die Ordnungsnummer, welche angibt welche Position der Lehrer in einer Klasse inne hat. Beginnt immer bei 1. Es können auch mehre Lehrer dieselbe Nummer haben, falls die Klasse zum Beispiel mehrere gleichberechtigte Klassenlehrer hat. \\ \hline
+order.start & CALENDARDATE & Optional; Zeitpunkt, ab dem der Lehrer die Position innehatte. \\ \hline
+order.end & CALENDARDATE & Optional; Zeitpunkt, bis zu dem der Lehrer die Position innehatte. \\ \hline
 \end{longtable}
 
 
