@@ -1,0 +1,69 @@
+\subsubsection{READ}
+\label{sec:rest:api:classes:id:teachers:read}
+Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
+Bei Anfragen an diesen Endpunkt wird eine Liste von IDs von Klassenlehrern zurückgegeben, die der Klasse als Klassenlehrer zugeordnet sind.
+Optional ist der Eintritts- sowie Austrittszeitpunkt. Diese Felder werden gesetzt, falls der Klassenlehrer dies nicht über den kompletten Zeitraum der Klasse war.
+
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:classes:id:teachers:read:ret}. 
+Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:teachers:read:ret} beschrieben.
+Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:classes:id:teachers:read:right} entnommen werden.
+\input{json}
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/classes/\$id/teachers},label={lst:code:rest:api:classes:id:teachers:read:ret},frame=tlrb]
+[ 
+ { 
+	user: "<STRING>",
+  start: "<CALENDARDATE>",
+  end: "<CALENDARDATE>",
+	order: [
+	 {
+		order: "<NUMBER>",
+    start: "<CALENDARDATE>",
+    end: "<CALENDARDATE>",
+	 },
+	 ...
+	],
+ },
+ ... 
+]
+\end{lstlisting}
+
+\begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
+		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Lehrer}
+\endfoot
+		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Lehrer}
+		\label{tab:rest:api:classes:id:teachers:read:ret}
+\endlastfoot 
+\hline
+			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
+\endhead
+user & STRING & Die User-ID des Lehrers \\ \hline
+start & CALENDARDATE & Optional; wird gesetzt, falls der Lehrer erst während des Zeitraums einer Klasse als Klassenlehrer zugewiesen wird. \\ \hline
+end & CALENDARDATE & Optional; wird gesetzt, falls der Lehrer vor Ende des Zeitraums der Klasse nicht mehr der Klasse als Klassenlehrer zugewiesen ist. \\ \hline
+order & Object List & Eine Liste mit Objekten, die angibt, welche Position der Lehrer von wann bis wann in der Klasse innehatte. Niedrigere Nummer heißt höhere Position. \\ \hline
+order.order & NUMBER & Die Ordnungsnummer, welche angibt welche Position der Lehrer in einer Klasse inne hat. Beginnt immer bei 1. Es können auch mehre Lehrer dieselbe Nummer haben, falls die Klasse zum Beispiel mehrere gleichberechtigte Klassenlehrer hat. \\ \hline
+order.start & CALENDARDATE & Optional; Zeitpunkt, ab dem der Lehrer die Position innehatte. \\ \hline
+order.end & CALENDARDATE & Optional; Zeitpunkt, bis zu dem der Lehrer die Position innehatte. \\ \hline
+\end{longtable}
+
+
+\begin{longtable}{|c|p{0.7\textwidth}|}
+\caption{Berechtigungen auf dem Endpunkt}
+\endfoot
+		\caption{Berechtigungen auf dem Endpunkt}
+		\label{tab:rest:api:classes:id:teachers:read:right}
+\endlastfoot
+\hline
+\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
+\endhead
+guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt erhalten. \\ \hline
+user &  \\ \hline 
+teachers & \\ \hline
+external-teachers & \\ \hline
+guardians & \\ \hline
+teacher & \\ \hline
+principal & \\ \hline
+school-admin & \\ \hline
+school-board & \\ \hline
+fed-school-board & \\ \hline
+sync-systems & \\ \hline
+	\end{longtable}

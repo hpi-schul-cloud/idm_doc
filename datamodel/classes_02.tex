@@ -1,0 +1,78 @@
+\input{json}
+\begin{lstlisting}[caption={Klassen-Datenmodell Beispiel 2: Jahrgangstufe 11, Sekundarstufe 2},frame=tlrb]
+{
+ class: "KLASSE-11",
+ name: "Jarganstuffe 11",
+ school: "SCHULE-04",
+ school-year: "SJ-20/21",
+ start: "01-09-2020",
+ end: "31-08-2021",
+ grade: [ "11", ],
+ subjects: [  ],
+ students: [
+  { 
+   user: "USER-01",
+	}, { 
+	 user: "USER-30",
+	}, { 
+	 user: "USER-31",
+	}, { 
+	 user: "USER-32",
+	}, { 
+	 user: "USER-33",
+	},
+ ],
+ teachers: [
+  { 
+   user: "USER-228",
+	 end: "14-01-2021",
+	 order: [
+	  {
+		 order: "1",
+		 end: "14-01-2021",
+		},
+	 ],
+	}, { 
+	 user: "USER-229",
+	 order: [
+	  {
+		 order: "2",
+		 end: "14-01-2021",
+		}, {
+		 order: "1",
+		 start: "15-01-2021",
+		},
+	 ], { 
+	 user: "USER-230",
+	 start: "15-01-2021",
+	 order: [
+	  {
+		 order: "2",
+		 start: "15-01-2021",
+		},
+	 ],
+	},
+ ],
+ representatives: [
+  {
+	 user: "USER-01",
+	 role: "student",
+	 order: "1",	 
+	}, {
+	 user: "USER-31",
+	 role: "student",
+	 order: "2",	 
+	}, {
+	 user: "USER-141",
+   start: "10-09-2020",
+	 role: "guardian",
+	 order: "1",	 
+	}, {
+	 user: "USER-142",
+   start: "10-09-2020",
+	 role: "guardian",
+	 order: "2",	 
+	},  
+ ]
+}
+\end{lstlisting}

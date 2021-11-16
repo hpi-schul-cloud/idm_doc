@@ -1,0 +1,72 @@
+\input{json}
+\begin{lstlisting}[caption={Klassen-Datenmodell Beispiel 3: Jahrgangsübergreifende Klasse},frame=tlrb]
+{
+ class: "KLASSE-21",
+ name: "Klasse 3,4 A",
+ school: "SCHULE-07",
+ school-year: "SJ-15/16",
+ start: "01-09-2015",
+ end: "31-08-2016",
+ grade: [ "3", "4", ],
+ subjects: [ "SUBJECT-0101", "SUBJECT-0102", "SUBJECT-0103", ],
+ students: [
+  { 
+   user: "USER-51",
+	}, { 
+	 user: "USER-52",
+	}, { 
+	 user: "USER-53",
+	}, { 
+	 user: "USER-55",
+	}, { 
+	 user: "USER-54",
+	 start: "01-03-2016",
+	},
+ ],
+ teachers: [
+  { 
+   user: "USER-256",
+	 order: [
+	  {
+		 order: "1",
+		},
+	 ],
+	}, { 
+	 user: "USER-257",
+	 order: [
+	  {
+		 order: "1",
+		},
+	 ],
+	}, { 
+	 user: "USER-258",
+	 order: [
+	  {
+		 order: "2",
+		},
+	 ],
+	},
+ ],
+ representatives: [
+  {
+	 user: "USER-55",
+	 role: "student",
+	 order: "1",	 
+	}, {
+	 user: "USER-52",
+	 role: "student",
+	 order: "2",	 
+	}, {
+	 user: "USER-158",
+	 start: "10-09-2015",
+	 role: "guardian",
+	 order: "1",	 
+	}, {
+	 user: "USER-159",
+	 start: "10-09-2015",
+	 role: "guardian",
+	 order: "2",	 
+	},  
+ ]
+}
+\end{lstlisting}
