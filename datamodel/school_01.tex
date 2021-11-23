@@ -1,0 +1,54 @@
+\input{json}
+\begin{lstlisting}[caption={Schulen-Datenmodell Beispiel 1},frame=tlrb]
+{
+ school: "SCHULE-01",
+ name: "Zobel Grundschule",
+ classes: [ 
+  {
+   class: "KLASSE-0001",
+	 start: "01-09-2020",
+   end: "31-08-2021",
+  }, {
+   class: "KLASSE-0002",
+	 start: "01-09-2010",
+	 end: "31-08-2011",
+  }, {
+   class: "KLASSE-0003", 
+	 start: "01-09-2010",
+	 end: "31-08-2011",
+  },
+ ],
+ users: [
+  {
+   user: "USER-02",
+ 	 role: "guardians",
+	 start: "01-09-2009",
+	 end: "31-08-2016",
+  }, {
+   user: "USER-01",
+	 role: "students",
+	 start: "01-09-2009",
+	 end: "31-08-2016",
+  }, {
+   user: "USER-208",
+	 role: "teacher",
+	 start: "01-09-2001",
+  }, {
+   user: "USER-209",
+ 	role: "teacher",
+ 	 start: "01-09-2007",
+  },
+ ],
+ subjects: [
+  {
+   subject: "SUBJECT-0001",
+   start: "01-09-2009",
+   end: "28-02-2010",
+  }, {
+   subject: "SUBJECT-0101",
+   start: "01-09-2009",
+   end: "28-02-2010",
+  }, 
+ ],
+}
+\end{lstlisting}
