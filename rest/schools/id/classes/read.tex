@@ -1,7 +1,7 @@
 \subsubsection{READ}
 \label{sec:rest:api:schools:classes:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Der Endpunkt gibt eine Liste von Referenz-IDs für Klassen an der Schule zurück welche unter /api/classes/\$id abgerufen werden können.
+Der Endpunkt gibt eine Liste von Referenz-IDs für Klassen an der Schule zurück, welche unter /api/classes/\$id abgerufen werden können.
 
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:schools:classes:read:ret}. 
 Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:schools:classes:read:ret:json} beschrieben.
@@ -15,15 +15,15 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:schools:cla
 ]
 \end{lstlisting}
 \begin{longtable}{|p{0.16\textwidth}|p{0.16\textwidth}|p{0.58\textwidth}|}
-		\caption{Beschreibung der Felder in eine JSON-Objekt, welches die Klassen an einer Schule repräsentiert.}
+		\caption{Beschreibung der Felder in einem JSON-Objekt, welches die Klassen an einer Schule repräsentiert.}
 \endfoot
-		\caption{Beschreibung der Felder in eine JSON-Objekt, welches die Klassen an einer Schule repräsentiert.}
+		\caption{Beschreibung der Felder in einem JSON-Objekt, welches die Klassen an einer Schule repräsentiert.}
 		\label{tab:rest:api:schools:classes:read:ret:json}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
- & STRING & Zeichenkette welche eine ID von einen Klasse ist, was unter /api/classes/\$id abgerufen werden kann. \\ \hline
+ & STRING & Zeichenkette, welche eine ID einer Klasse ist, die unter /api/classes/\$id abgerufen werden kann. \\ \hline
 \end{longtable}
 
 \begin{longtable}{|c|p{0.7\textwidth}|}
