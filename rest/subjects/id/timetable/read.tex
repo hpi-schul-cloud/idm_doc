@@ -31,7 +31,20 @@ Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:subjects:id
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-			 &  &  \\ \hline
+subject & STRING & Zeichenkette mit der das Unterrichtsfach unter /api/subjects/\$id abgefragt werden kann\\ \hline
+day & ENUM & Tag der Woche an dem die Unterrichtseinheit für das Unterrichtsfach angeboten wird. \\ \hline
+start & TIME & Uhrzeit ab wann die Unterrichtseinheit an den Tag beginnt. \\ \hline
+end & TIME & Uhrzeit bis wann die Unterrichtseinheit an den Tag geht. \\ \hline
+reapeat & ENUM & Mögliche werte sind: \begin{itemize}
+					\item "'weekly"' für Wöchentliche Wiederholung
+					\item "'bieweekly"' für wird nur alle Zweiwochen wiederholt 
+					\item "'onetime"' für ist eine einmalige sache
+				\end{itemize} \\ \hline
+date & CALENDARDATE & Optional, Notwendig wenn es sich um den reapeat typen "`onetime"' handelt, gibt den Tag an an dem die Unterrichtseinheit stattfindet. \\ \hline
+week & ENUM & Optional, Notwendig wenn es sich um den reapeat typen "`bieweekly"' handelt,  \begin{itemize}
+					\item "'week-1"' Steht für grade Kalenderwochen
+					\item "'week-2"' Steht für ungrade Kalenderwochen
+				\end{itemize} \\ \hline
 \end{longtable}
 
 
