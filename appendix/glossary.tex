@@ -33,24 +33,30 @@ Lerngemeinschaft aus Schülern, welche für einen Zeitraum (z.B. Schuljahr 2020/
 \subsubsection*{Unterrichtsfach}
 In unterschiedlichen Fächern werden Unterrichtsinhalte den Schülern durch eine oder mehrere Lehrkräfte zu bestimmten Zeiten in einem bestimmten Zeitraum vermittelt.  
 
-
 \subsection{Technische Begriffe}
 
 \subsubsection*{REST API}
 
-Technische Schnittstelle zum Daten
+Technische Schnittstelle zum Austausch von Daten über HTTP-Methoden.
 
+\subsubsection*{Endpunkt}
 
-- rest api 
-- endpoint, route --> url path
-- IDM, IDM-Provider
-- ID
-- workflow
-- authorization vs. authentication 
-- authorization code
-- authorization server 
-- server
-- Client
-- JSON
-- rest, http methode
-- (sync-) system
+URL-Pfad innerhalb einer REST API, unter dem bestimmte Daten abgerufen können.
+
+\subsubsection*{Authentifizierung}
+
+Zur Nachvollziehbarkeit des Zugriffs und generischem Zugriffsschutz sind Endpunkte durch technische Konzepte geschützt, die den öffentlichen Zugriff beschränken und bei API-Zugriff die Zuordnung eines (technischen) Nutzers ermöglichen.
+ 
+\subsubsection*{Authorisierung}
+
+Zum Schutz der über einen Endpunkt abrufbaren Daten kann die Berechtigung auf und Sichtbarkeit von Datensätzen je nach Rolle eines authentifiziertem Clients eingeschränkt werden.
+
+\subsubsection*{IDM}
+
+\subsubsection*{Client}
+
+Eine Anwendung, welche über die REST API lesend auf Daten des IDM zugreift oder diese verändert.
+
+\subsubsection*{JavaScript Object Notation (JSON))}
+
+Proprietäres Datenformat zum Austausch von Daten über teilweise menschenlesbare Textform.
