@@ -16,8 +16,8 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:subjects:id
   school-subject: ["<STRING>",...], 
   school: "<STRING>",
   school-year: "<STRING>",
-  start: "<CALENDARDATE>",
-  end: "<CALENDARDATE>",
+  start: "<DATE>",
+  end: "<DATE>",
  }
 \end{lstlisting}
 
@@ -35,28 +35,6 @@ name & STRING & Name des Unterrichtsfaches. \\ \hline
 school-subject & Liste von STRING & Für jede Zeichenkette aus dieser Liste kann unter /api/school-subjects/\$id die genauen Informationen abgefragt werden. \\ \hline
 school & STRING & ID der Schule, zu der das Fach gehört. Die Daten der Schule können damit unter /api/schools/\$id abgefragt werden. \\ \hline
 school-year & STRING & ID des Schuljahres, in dem das Unterrichtsfach angeboten wurde. Das Schuljahr kann damit unter /api/school-years/\$id abgefragt werden. \\ \hline
-start & CALENDARDATE & Datumsangabe, ab dem das Unterrichtsfach angeboten wird.  \\ \hline
-Ende & CALENDARDATE & Datumsangabe, bis zu dem das Unterrichtsfach angeboten wird. \\ \hline
+start & DATE & Datumsangabe, ab dem das Unterrichtsfach angeboten wird.  \\ \hline
+Ende & DATE & Datumsangabe, bis zu dem das Unterrichtsfach angeboten wird. \\ \hline
 \end{longtable}
-
-\begin{longtable}{|c|p{0.7\textwidth}|}
-\caption{Berechtigungen auf dem Endpunkt}
-\endfoot
-		\caption{Berechtigungen auf dem Endpunkt}
-		\label{tab:rest:api:subjects:id:read:right}
-\endlastfoot
-\hline
-\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
-\endhead
-guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt erhalten. \\ \hline
-user &  \\ \hline 
-students & \\ \hline
-external-students & \\ \hline
-guardians & \\ \hline
-teacher & \\ \hline
-principal & \\ \hline
-school-admin & \\ \hline
-school-board & \\ \hline
-fed-school-board & \\ \hline
-sync-systems & \\ \hline
-	\end{longtable}

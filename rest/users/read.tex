@@ -9,9 +9,10 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:user:read:r
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/users},label={lst:code:rest:api:user:read:ret},frame=tlrb]
 {
  id: "<STRING>",
+ student-id: "<STRING>"
  name: "<STRING>",
  surename: "<STRING>",
- dateofbirth: "<CALENDARDATE>",
+ dateofbirth: "<DATE>",
  sex: "<ENUM>",
 }
 \end{lstlisting}
@@ -26,37 +27,15 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:user:read:r
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
 id & STRING & ID des Benutzers, mit der unter /api/users/\$id weitere Informtionen abgefragt werden können. \\ \hline
+student-id & STRING & Landesweit gültige Schüler-Identifikationsnummer \\ \hline
 name & STRING & Vorname des Benutzers \\ \hline
 surname & STRING & Nachname des Benutzers \\ \hline
-dateofbirth & CALENDARDATE & Geburtstag des Benutzers \\ \hline
+dateofbirth & DATE & Geburtstag des Benutzers \\ \hline
 sex & ENUM & Geschlecht des Benutzers 
 \begin{itemize}
-	\item 0 steht für divers
-	\item 1 steht für weiblich
-	\item 2 steht für männlich
+	\item divers steht für divers
+	\item female steht für weiblich
+	\item male steht für männlich
 \end{itemize}
  \\ \hline
 \end{longtable}
-
-
-\begin{longtable}{|c|p{0.7\textwidth}|}
-\caption{Berechtigungen auf dem Endpunkt}
-\endfoot
-		\caption{Berechtigungen auf dem Endpunkt}
-		\label{tab:rest:api:user:read:right}
-\endlastfoot
-\hline
-\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
-\endhead
-guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt erhalten. \\ \hline
-user &  \\ \hline 
-students & \\ \hline
-external-students & \\ \hline
-guardians & \\ \hline
-teacher & \\ \hline
-principal & \\ \hline
-school-admin & \\ \hline
-school-board & \\ \hline
-fed-school-board & \\ \hline
-sync-systems & \\ \hline
-	\end{longtable}

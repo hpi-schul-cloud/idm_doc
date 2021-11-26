@@ -16,8 +16,8 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:schools:use
  {
   user: "<STRING>",
   role: "<STRING>",
-	start: "<CALENDARDATE>",
-	end: "<CALENDARDATE>",
+	start: "<DATE>",
+	end: "<DATE>",
 	school-years: ["<STRING>"',...],
  },
  ...
@@ -34,29 +34,7 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:schools:use
 \endhead
 user & STRING & Zeichenkette, welche eine ID von einem Benutzer ist, der unter /api/subjects/\$id abgerufen werden kann. \\ \hline
 role & STRING & Rolle, die der Benutzer innehat. \\ \hline
-start & CALENDARDATE & Datum, ab dem der Benutzer die Rolle innehat \\ \hline
-end & CALENDARDATE & Optional; Gibt an, bis zu welchen Tag der Benutzer die Rolle innehatte. \\ \hline
+start & DATE & Datum, ab dem der Benutzer die Rolle innehat \\ \hline
+end & DATE & Optional; Gibt an, bis zu welchen Tag der Benutzer die Rolle innehatte. \\ \hline
 school-years & Liste & Optional; Liste von Zeichenketten, welche Referenzen auf Schuljahre sind, die unter /api/school-years/\$id abgerufen werden können. \\ \hline 
 \end{longtable}
-
-\begin{longtable}{|c|p{0.7\textwidth}|}
-\caption{Berechtigungen auf dem Endpunkt}
-\endfoot
-		\caption{Berechtigungen auf dem Endpunkt}
-		\label{tab:rest:api:schools:users:read:right}
-\endlastfoot
-\hline
-\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
-\endhead
-guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt erhalten. \\ \hline
-user &  \\ \hline 
-students & \\ \hline
-external-students & \\ \hline
-guardians & \\ \hline
-teacher & \\ \hline
-principal & \\ \hline
-school-admin & \\ \hline
-school-board & \\ \hline
-fed-school-board & \\ \hline
-sync-systems & \\ \
-	\end{longtable}

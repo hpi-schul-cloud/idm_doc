@@ -2,39 +2,40 @@
 \begin{lstlisting}[caption={Beispiel Benutzer mit Rolle 'students'},frame=tlrb]
 {
  id: "USER-01",
+ student-id: "12345",
  name: "Leming",
  surname: "Zobel",
- birtdate: "03-01-2003",
+ birtdate: "2003-01-03",
  sex: "male",
- assignments: [
+ memberships: [
  {
   school: "SCHULE-01",
-	role: "students",
-	start: "01-09-2009",
-	end: "31-08-2016",
+	role: "student",
+	start: "2009-09-01",
+	end: "2016-08-31",
 	school-years: ["SJ-09/10","SJ-10/11","SJ-11/12","SJ-13/14","SJ-14/15","SJ-15/16"]
  }, {
   school: "SCHULE-04",
-	role: "students",
-	start: "01-09-2016",
+	role: "student",
+	start: "2016-09-01",
 	school-years: ["SJ-16/17","SJ-17/18","SJ-18/19","SJ-19/20","SJ-20/21"]
  },{
   school: "SCHULE-02",
-	role: "external-students",
-	start: "01-09-2019",
-	end: "31-08-2020",
+	role: "external-student",
+	start: "2019-09-01",
+	end: "2020-08-31",
 	school-years: ["SJ-19/20"]
  },
  ],
  guardians: [
  {
 	user: "USER-02",
-	start: "01-09-2009",
-	end: "03-01-2020",
+	start: "2009-09-01",
+	end: "2020-01-03",
  },  {
 	user: "USER-04",
-	start: "01-09-2009",
-	end: "03-01-2020",
+	start: "2009-09-01",
+	end: "2020-01-03",
  }
  ],
  classes: [
@@ -42,20 +43,20 @@
 	 class: "KLASSE-0001",
    school: "SCHULE-01",
 	 school-year: "SJ-09/10",
-	 start: "01-09-2009",
-	 end: "31-08-2010",
+	 start: "2009-09-01",
+	 end: "2010-08-31",
 	}, {
 	 class: "KLASSE-0002",
    school: "SCHULE-01",
 	 school-year: "SJ-10/11",
-	 start: "01-09-2010",
-	 end: "31-08-2011",
+	 start: "2010-09-01",
+	 end: "2011-08-31",
 	}, {
 	 class: "KLASSE-0003",
    school: "SCHULE-01",
 	 school-year: "SJ-10/11",
-	 start: "01-09-2010",
-	 end: "31-08-2011",
+	 start: "2010-09-01",
+	 end: "2011-08-31",
 	}, 
  ],
  subjects: [
@@ -64,8 +65,8 @@
 	 subject_ref_id: "DE",
    school: "SCHULE-01",
 	 school-year: "SJ-09/10",
-	 start: "01-09-2009",
-	 end: "28-02-2010".
+	 start: "2009-09-01",
+	 end: "2010-02-28".
 	 time_tabel [
 	  {
 		 day: "1",
@@ -94,15 +95,15 @@
 	   start: "08:50:00",
 	   end: "09:35:00",
 		 repeat: "once",
-		 date: "30-10-2009"
+		 date: "2009-10-30"
 		}
 	}, {
 	 subject_id: "SUBJECT-0002",
 	 subject_ref_id: "MA",
    school: "SCHULE-01",
 	 school-year: "SJ-09/10",
-	 start: "01-09-2009",
-	 end: "31-08-2010"
+	 start: "2009-09-01",
+	 end: "2010-08-31"
 	}, 
 	 
  ]

@@ -16,8 +16,8 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:classes:id:
 	user: "<STRING>",
 	role: "<STRING>",
 	order: "<NUMBER>",
-  start: "<CALENDARDATE>",
-  end: "<CALENDARDATE>",
+  start: "<DATE>",
+  end: "<DATE>",
  },
  ... 
 ]
@@ -35,29 +35,6 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:classes:id:
 user & STRING & Die User-ID des Repräsentanten der Statusgruppe, die Daten des Benutzers können unter /api/users/\$id abgerufen werden \\ \hline
 role & STRING & Die Rolle, welcher der Repräsentant der Statusgruppe im System hat (zugelassen sind student oder guardian). \\ \hline
 order & NUMBER & Die Ordnungsnummer, die angibt, welche Position der Repräsentant der Statusgruppe in einer Klasse innehat. \\ \hline
-start & CALENDARDATE & Optional; wird benötigt, wenn der Repräsentant der Statusgruppe zu einem abweichenden Zeitpunkt das Amt bekommt. \\ \hline
-end & CALENDARDATE & Optional; wird benötigt, wenn der Repräsentant der Statusgruppe vorzeitig vor Ende des Zeitraums der Klasse nicht mehr als Repräsentant der Statusgruppe fungiert. \\ \hline
+start & DATE & Optional; wird benötigt, wenn der Repräsentant der Statusgruppe zu einem abweichenden Zeitpunkt das Amt bekommt. \\ \hline
+end & DATE & Optional; wird benötigt, wenn der Repräsentant der Statusgruppe vorzeitig vor Ende des Zeitraums der Klasse nicht mehr als Repräsentant der Statusgruppe fungiert. \\ \hline
 \end{longtable}
-
-
-\begin{longtable}{|c|p{0.7\textwidth}|}
-\caption{Berechtigungen auf dem Endpunkt}
-\endfoot
-		\caption{Berechtigungen auf dem Endpunkt}
-		\label{tab:rest:api:classes:id:representatives:read:right}
-\endlastfoot
-\hline
-\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
-\endhead
-guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt erhalten. \\ \hline
-user &  \\ \hline 
-representatives & \\ \hline
-external-representatives & \\ \hline
-guardians & \\ \hline
-teacher & \\ \hline
-principal & \\ \hline
-school-admin & \\ \hline
-school-board & \\ \hline
-fed-school-board & \\ \hline
-sync-systems & \\ \hline
-	\end{longtable}
