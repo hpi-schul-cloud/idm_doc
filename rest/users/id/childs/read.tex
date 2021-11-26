@@ -1,14 +1,14 @@
 \subsubsection{READ}
-\label{sec:rest:api:users:id:childs:read}
+\label{sec:rest:api:users:id:children:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
 Die Route gibt für den per ID ausgewählten Benutzer Benutzer die Liste mit den IDs seiner Kinder wieder.
 Für diese Daten gelten die Einschränkungen die durch den Kontext des anfragenden Benutzers gegeben sind.
 
-Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:users:id:childs:read:ret}. 
-Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:childs:read:ret} beschrieben.
-Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:users:id:childs:read:right} entnommen werden.
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:users:id:children:read:ret}. 
+Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:children:read:ret} beschrieben.
+Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:users:id:children:read:right} entnommen werden.
 \input{json}
-\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/users/\$id/childs},label={lst:code:rest:api:users:id:childs:read:ret},frame=tlrb]
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/users/\$id/children},label={lst:code:rest:api:users:id:children:read:ret},frame=tlrb]
 [
  "<STRING>",
 ...
@@ -19,7 +19,7 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:users:id:ch
 		\caption{Beschreibung der Zeichenkette in der JSON-Liste für Kinder von Erziehungsberechtigten.}
 \endfoot
 		\caption{Beschreibung der Zeichenkette in der JSON-Liste für Kinder von Erziehungsberechtigten.}
-		\label{tab:rest:api:users:id:childs:read:ret}
+		\label{tab:rest:api:users:id:children:read:ret}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
