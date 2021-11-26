@@ -10,7 +10,7 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:users:id:as
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/users/\$id/assignments},label={lst:code:rest:api:users:id:assignments:read:ret},frame=tlrb]
  {
-  school_id: "<STRING>",
+  school: "<STRING>",
 	role: "<STRING>",
 	start: "<CALENDARDATE>",
 	end: "<CALENDARDATE>",
@@ -28,7 +28,11 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:users:id:as
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-			 &  &  \\ \hline
+school & STRING & Zeichenkette welche eine ID von einer Schule ist, mit der diese unter /api/schools/\$id abgerufen werden kann. \\ \hline
+role & STRING & Rolle die der Benutzer innen hat. \\ \hline
+start & CALENDARDATE & Ab welchen Tag der Benutzer die Rolle innen hat \\ \hline
+end & CALENDARDATE & Optional; Gibt an bis zu welchen Tag der Benutzer die Rolle innen hatte. \\ \hline
+school-years & Liste & Optional; Liste mit von Zeichenketten, welche Referenzen auf Schuljahre sind die unter /api/school-years/\$id abgerufen werden können. \\ \hline 
 \end{longtable}
 
 

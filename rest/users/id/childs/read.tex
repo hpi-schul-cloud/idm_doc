@@ -10,21 +10,21 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:users:id:ch
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/users/\$id/childs},label={lst:code:rest:api:users:id:childs:read:ret},frame=tlrb]
 [
- id: "<STRING>",
+ "<STRING>",
 ...
 ]
 \end{lstlisting}
 
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
-		\caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
+		\caption{Beschreibung der Zeichenkette in der JSON-Liste für Kinder von Erziehungsberechtigten.}
 \endfoot
-		\caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
+		\caption{Beschreibung der Zeichenkette in der JSON-Liste für Kinder von Erziehungsberechtigten.}
 		\label{tab:rest:api:users:id:childs:read:ret}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-			 &  &  \\ \hline
+ & STRING & Id des Kindes mit dem unter /api/users/\$id alles weiter abgefragt werden kann.		 \\ \hline
 \end{longtable}
 
 
