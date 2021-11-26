@@ -24,15 +24,15 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:classes:id:
 \end{lstlisting}
 
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
-		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Lehrer}
+		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Repräsentanten von Statusgruppen in einer Klasse}
 \endfoot
-		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Lehrer}
+		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Repräsentanten von Statusgruppen in einer Klasse}
 		\label{tab:rest:api:classes:id:representatives:read:ret}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-user & STRING & Die User-ID des Repräsentanten der Statusgruppe \\ \hline
+user & STRING & Die User-ID des Repräsentanten der Statusgruppe, die Daten des Benutzers können unter /api/users/\$id abgerufen werden \\ \hline
 role & STRING & Die Rolle, welcher der Repräsentant der Statusgruppe im System hat (zugelassen sind student oder guardian). \\ \hline
 order & NUMBER & Die Ordnungsnummer, die angibt, welche Position der Repräsentant der Statusgruppe in einer Klasse innehat. \\ \hline
 start & CALENDARDATE & Optional; wird benötigt, wenn der Repräsentant der Statusgruppe zu einem abweichenden Zeitpunkt das Amt bekommt. \\ \hline

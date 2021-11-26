@@ -20,15 +20,15 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:classes:id:
 \end{lstlisting}
 
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
-		\caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
+		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Schüler einer Klasse}
 \endfoot
-		\caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
+		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Schüler einer Klasse}
 		\label{tab:rest:api:classes:id:students:read:ret}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-user & STRING & Die User-ID des Schülers \\ \hline
+user & STRING & Die User-ID des Schülers, die Daten des Benutzers können unter /api/users/\$id abgerufen werden  \\ \hline
 start & CALENDARDATE & Optional; wird gesetzt, falls ein Schüler später zu eine Klasse hinzugefügt wird. \\ \hline
 end & CALENDARDATE & Optional; wird gesetzt, falls ein Schüler früher aus einer Klasse genommen wird. \\ \hline
 \end{longtable}
