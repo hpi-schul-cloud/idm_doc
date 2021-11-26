@@ -32,22 +32,3 @@ Die Berechtingungen auf den Endpunkt können \reftabllec{tab:end:rest:api:school
 		\caption{Beschreibung der Felder in einem JSON-Objekt für ein Schulfach}
 		\label{tab:end:rest:api:school-subjects:read:ret:json}
 \end{table}
-\begin{table}[htb]
-	\begin{tabularx}{\textwidth}{|c|X|}
-		\hline
-\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
-guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt erhalten. \\ \hline
-students& Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-parents & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-teacher & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-principal & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-school-admin & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-school-board & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-fed-school-board & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-sync-systems & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-
-	\end{tabularx}
-
-		\caption{Berechtigungen auf dem Endpunkt}
-		\label{tab:end:rest:api:school-subjects:read:right}
-\end{table}

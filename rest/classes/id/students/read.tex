@@ -32,26 +32,3 @@ user & STRING & Die User-ID des Schülers, die Daten des Benutzers können unter
 start & CALENDARDATE & Optional; wird gesetzt, falls ein Schüler später zu eine Klasse hinzugefügt wird. \\ \hline
 end & CALENDARDATE & Optional; wird gesetzt, falls ein Schüler früher aus einer Klasse genommen wird. \\ \hline
 \end{longtable}
-
-
-\begin{longtable}{|c|p{0.7\textwidth}|}
-\caption{Berechtigungen auf dem Endpunkt}
-\endfoot
-		\caption{Berechtigungen auf dem Endpunkt}
-		\label{tab:rest:api:classes:id:students:read:right}
-\endlastfoot
-\hline
-\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
-\endhead
-guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt erhalten. \\ \hline
-user &  \\ \hline 
-students & \\ \hline
-external-students & \\ \hline
-guardians & \\ \hline
-teacher & \\ \hline
-principal & \\ \hline
-school-admin & \\ \hline
-school-board & \\ \hline
-fed-school-board & \\ \hline
-sync-systems & \\ \hline
-	\end{longtable}

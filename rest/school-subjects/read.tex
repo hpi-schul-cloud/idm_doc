@@ -29,27 +29,3 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:school-subj
  school-subject & STRING & Eine eindeutige Zeichenkette, die vom IDM-Provider vergeben wird. Sie darf nur aus alphanumerischen Zeichen und Bindestrich bestehen.\\ \hline
  name & STRING & Der ausgeschriebene Name eines Schulfaches \\ \hline
 \end{longtable}
-
-
-
-\begin{longtable}{|c|p{0.7\textwidth}|}
-\caption{Berechtigungen auf dem Endpunkt}
-\endfoot
-		\caption{Berechtigungen auf dem Endpunkt}
-		\label{tab:rest:api:school-subjects:read:right}
-\endlastfoot 
-\hline
-\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
-\endhead
-guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt erhalten. \\ \hline
-user & Darf den Endpunkt mit GET aufrufen und Endpunkt gibt alle im System vorhandenen Schulfächer in einer Liste zurück. \\ \hline
-students &  \\ \hline
-external-students &  \\ \hline
-guardians &  \\ \hline
-teacher &  \\ \hline
-principal &  \\ \hline
-school-admin &  \\ \hline
-school-board &  \\ \hline
-fed-school-board &  \\ \hline
-sync-systems &  \\ \hline
-	\end{longtable}

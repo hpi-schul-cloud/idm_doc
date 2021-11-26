@@ -1,10 +1,7 @@
 \section{Benutzerrollen}
 \label{Benutzerrollen}
-Um eine saubere Zugriffssteuerung auf die Daten gewährleisten zu können, definiert dieses Dokument zentral die möglichen Rollen der Akteure. 
-Das korrekte Mapping aus dem jeweiligen IDM-System auf die im Dokument aufgelisteten Rollenbezeichnungen ist dabei vom IDM-Provider sicherzustellen.\\
+An dieser Stelle listen wir eine Reihe von im Kontext "Schule" bekannten Rollen auf, die im IDM definiert und im Client für die Berechtigungssteuerung genutzt werden können. Die Liste der Rollen kann bei Bedarf in Abstimmung zwischen IDM und Clients noch erweitert werden. 
 \\
-Im Nachfolgenden werden die Benutzerrollen des Systems aufgelistet. 
-Die Auflistung der erlaubten und unerlaubten Aktionen erfolgt jeweils in der Definition der Endpunkte.
 
 
 \begin{table}[htb]
@@ -13,18 +10,19 @@ Die Auflistung der erlaubten und unerlaubten Aktionen erfolgt jeweils in der Def
 \textbf{Rollenname} & \textbf{Beschreibung der Rolle} \\ \hline
 guest & Gäste und nicht authentifizierte Benutzer \\ \hline
 user & authentifizierte Benutzer \\ \hline
-students & Schüler \\ \hline
-external-students & Schüler von anderen Schulen, die nur einzelne Fächer oder Kurse besuchen \\ \hline
-guardians & Eltern, Erziehungsberechtigte, Vormünder von Schülern \\ \hline
-teacher & Lehrer \\ \hline
+student & Schüler \\ \hline
+external-student & Schüler von anderen Schulen, die nur einzelne Fächer oder Kurse besuchen \\ \hline
+guardian & Eltern, Erziehungsberechtigte, Vormünder von Schülern \\ \hline
+teacher & Lehrkräfte \\ \hline
+external-expert & Externe Experten zur Unterstützung des Unterrichts (auch Schulassistenten und pädagische Mitarbeiter) \\ \hline
 principal & Schulleitung \\ \hline
 school-admin & Schul-Administrator \\ \hline
 school-board & Schulträger \\ \hline
 fed-school-board & Mitarbeiter/-in des Schulministeriums \\ \hline
-sync-systems & Systeme, welchen ein Sync mit allen Daten erlaubt ist \\ \hline
+sync-system & Systeme, welchen ein Sync mit allen Daten erlaubt ist \\ \hline
 
 	\end{tabularx}
 
-		\caption{Benutzerrollen, die im zentralen IDM-System vorgesehen sind}
+		\caption{Mögliche Benutzerrollen im Kontext "Schule"}
 		\label{tab:intro:roles}
 \end{table}
