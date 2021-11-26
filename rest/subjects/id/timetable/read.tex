@@ -16,7 +16,7 @@ Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:subjects:id
 	start: "<TIME>",
 	end: "<TIME>",
 	repeat: "<ENUM>",
-	date: "<CALENDARDATE>",
+	date: "<DATE>",
 	week: "<ENUM>",
  },
  ...
@@ -40,7 +40,7 @@ repeat & ENUM & Mögliche Werte sind: \begin{itemize}
 					\item "'biweekly"' für zweiwöchentliche Wiederholung 
 					\item "'onetime"' für einmalige Ansetzung
 				\end{itemize} \\ \hline
-date & CALENDARDATE & Optional; wird gesetzt, falls es sich um den repeat-Typen "`onetime"' handelt, und gibt den Tag an, an dem die Unterrichtseinheit stattfindet. \\ \hline
+date & DATE & Optional; wird gesetzt, falls es sich um den repeat-Typen "`onetime"' handelt, und gibt den Tag an, an dem die Unterrichtseinheit stattfindet. \\ \hline
 week & ENUM & Optional; wird gesetzt, falls es sich um den repeat-Typen "`biweekly"' handelt,  \begin{itemize}
 					\item "'week-1"' steht für grade Kalenderwochen
 					\item "'week-2"' steht für ungrade Kalenderwochen

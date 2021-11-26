@@ -13,8 +13,8 @@ Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:subjects:id
  {
   subject: "<STRING>", 
   user: "<STRING>",
-	start: "<CALENDARDATE>",
-	end: "<CALENDARDATE>",
+	start: "<DATE>",
+	end: "<DATE>",
  },
  ...
 ]
@@ -31,6 +31,6 @@ Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:subjects:id
 \endhead
 subject & STRING & Zeichenkette, mit der das Unterrichtsfach unter /api/subjects/\$id abgefragt werden kann. \\ \hline
 user & STRING &  Zeichenkette, mit der User unter /api/users/\$id abfragt werden kann. \\ \hline
-start & CALENDARDATE & Optional; wird gesetzt, falls der Schüler nach Start des Zeitraumes eines Unterrichtsfaches dem Unterrichtsfach hinzugefügt wurde. \\ \hline
-end & CALENDARDATE & Optional; wird gesetzt, falls ein Schüler vor Ablauf des Zeitraumes eines Unterrichtsfaches aus dem Unterrichtsfach entfernt wurde. \\ \hline
+start & DATE & Optional; wird gesetzt, falls der Schüler nach Start des Zeitraumes eines Unterrichtsfaches dem Unterrichtsfach hinzugefügt wurde. \\ \hline
+end & DATE & Optional; wird gesetzt, falls ein Schüler vor Ablauf des Zeitraumes eines Unterrichtsfaches aus dem Unterrichtsfach entfernt wurde. \\ \hline
 \end{longtable}

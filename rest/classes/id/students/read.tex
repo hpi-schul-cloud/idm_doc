@@ -12,8 +12,8 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:classes:id:
 [ 
  { 
 	user: "<STRING>",
-  start: "<CALENDARDATE>",
-  end: "<CALENDARDATE>",
+  start: "<DATE>",
+  end: "<DATE>",
  },
  ... 
 ]
@@ -29,6 +29,6 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:classes:id:
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
 user & STRING & Die User-ID des Schülers, die Daten des Benutzers können unter /api/users/\$id abgerufen werden  \\ \hline
-start & CALENDARDATE & Optional; wird gesetzt, falls ein Schüler später zu eine Klasse hinzugefügt wird. \\ \hline
-end & CALENDARDATE & Optional; wird gesetzt, falls ein Schüler früher aus einer Klasse genommen wird. \\ \hline
+start & DATE & Optional; wird gesetzt, falls ein Schüler später zu eine Klasse hinzugefügt wird. \\ \hline
+end & DATE & Optional; wird gesetzt, falls ein Schüler früher aus einer Klasse genommen wird. \\ \hline
 \end{longtable}
