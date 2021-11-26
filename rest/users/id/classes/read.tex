@@ -11,8 +11,8 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:users:id:cl
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/users/\$id/classes},label={lst:code:rest:api:users:id:classes:read:ret},frame=tlrb]
 [
   {
-	 class_id: "<STRING>",
-   school_id: "<STRING>",
+	 class: "<STRING>",
+   school: "<STRING>",
 	 school-year: "<STRING>",
 	 start: "<CALENDARDATE>",
 	 end: "<CALENDARDATE>",
@@ -22,15 +22,19 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:users:id:cl
 \end{lstlisting}
 
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
-		\caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
+		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Klassen eines Benutzers}
 \endfoot
-		\caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
+		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Klassen eines Benutzers}
 		\label{tab:rest:api:users:id:classes:read:ret}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-			 &  &  \\ \hline
+class & STRING & ID der Klasse im System. \\ \hline
+school & STRING & ID, zu welcher Schule die Klasse gehört, die Schule kann damit unter /api/schools/\$id abgefragt werden. \\ \hline
+school-year & STRING & Schuljahr, in welchem die Klasse existiert, die daten des Schuljahres können unter /api/school-years/\$id abgrufen werden. \\ \hline
+start & CALENDARDATE & Zeitpunkt, ab wann das Klassenobjekt existiert, falls dies abweichend zum Startzeitpunkt des Schuljahres ist. \\ \hline 
+end & CALENDARDATE & Zeitpunkt, bis wann das Klassenobjekt existiert, falls dies abweichend zum Endzeitpunkt des Schuljahres ist. \\ \hline 
 \end{longtable}
 
 

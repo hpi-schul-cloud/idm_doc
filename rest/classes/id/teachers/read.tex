@@ -36,7 +36,7 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:classes:id:
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-user & STRING & Die User-ID des Lehrers \\ \hline
+user & STRING & Die User-ID des Lehrers, die Daten des Benutzers können unter /api/users/\$id abgerufen werden  \\ \hline
 start & CALENDARDATE & Optional; wird gesetzt, falls der Lehrer erst während des Zeitraums einer Klasse als Klassenlehrer zugewiesen wird. \\ \hline
 end & CALENDARDATE & Optional; wird gesetzt, falls der Lehrer vor Ende des Zeitraums der Klasse nicht mehr der Klasse als Klassenlehrer zugewiesen ist. \\ \hline
 order & Object List & Eine Liste mit Objekten, die angibt, welche Position der Lehrer von wann bis wann in der Klasse innehatte. Niedrigere Nummer heißt höhere Position. \\ \hline
@@ -66,4 +66,4 @@ school-admin & \\ \hline
 school-board & \\ \hline
 fed-school-board & \\ \hline
 sync-systems & \\ \hline
-	\end{longtable}
+\end{longtable}

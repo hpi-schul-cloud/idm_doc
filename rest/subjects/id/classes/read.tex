@@ -16,16 +16,16 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:subjects:id
 ]
 \end{lstlisting}
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
-		\caption{Beschreibung der Felder in eine JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
+		\caption{Beschreibung der Zeichenkette in der JSON-Liste, welche alle Klasse die ein Unterrichtsfach haben umfasst}
 \endfoot
-		\caption{Beschreibung der Felder in eine JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
+		\caption{Beschreibung der Zeichenkette in der JSON-Liste, welche alle Klasse die ein Unterrichtsfach haben umfasst}
 		\label{tab:rest:api:subjects:id:classes:read:ret:json}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 
 \endhead
-			 &  &  \\ \hline
+ & STRING & ID der Klasse wie dem Unterrichtsfach zugeordnet wurde, die Klasse kann damit unter /api/classes/\$id abgerufen werden. \\ \hline
 \end{longtable}
 
 
