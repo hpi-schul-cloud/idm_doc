@@ -1,0 +1,49 @@
+\subsubsection{READ}
+\label{sec:rest:api:school:read}
+Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
+Der Endpunkt gib eine Liste mit allen Schul-IDs aus die es im System gibt und für die Daten unter /api/schools/\$id abgerufen werden können
+
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:school:read:ret}. 
+Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school:read:ret} beschrieben.
+Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:school:read:right} entnommen werden.
+\input{json}
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/schools},label={lst:code:rest:api:school:read:ret},frame=tlrb]
+[
+ "<STRING>",
+ ...
+]
+\end{lstlisting}
+
+\begin{longtable}{|p{0.16\textwidth}|p{0.16\textwidth}|p{0.58\textwidth}|}
+		\caption{Beschreibung des Felder in eine JSON-Objekt was die Schul-IDs wieder gibt}
+\endfoot
+		\caption{Beschreibung des Felder in eine JSON-Objekt was die Schul-IDs wieder gibt}
+		\label{tab:rest:api:school:read:ret}
+\endlastfoot 
+\hline
+			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
+\endhead
+ & STRING & Eindeutiger Identifikations String der Schule im IDM, womit unter /api/schools/\$id die Schule abgerufen werden kann.\\ \hline
+\end{longtable}
+
+\begin{longtable}{|c|p{0.7\textwidth}|}
+\caption{Berechtigungen auf dem Endpunkt}
+\endfoot
+		\caption{Berechtigungen auf dem Endpunkt}
+		\label{tab:rest:api:school:read:right}
+\endlastfoot
+\hline
+\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
+\endhead
+guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt erhalten. \\ \hline
+user &  \\ \hline 
+students & \\ \hline
+external-students & \\ \hline
+guardians & \\ \hline
+teacher & \\ \hline
+principal & \\ \hline
+school-admin & \\ \hline
+school-board & \\ \hline
+fed-school-board & \\ \hline
+sync-systems & \\ \hline
+	\end{longtable}

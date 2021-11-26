@@ -1,0 +1,62 @@
+\subsubsection{READ}
+\label{sec:rest:api:schools:users:read}
+Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
+Dieser Endpunkt listet die Informationen über Benutzer und Ihre Rollen an der Schule auf.
+Für jede Kombination aus Benutzer, Rolle und ab wann gibt es eine extra Eintrag in der Liste die Zurückgegeben wird.
+Bei manchen Kombinationen gibt es zudem noch ein Datum biss wann der Benutzer die Rolle innen hatte.
+Zudem kann es bei einigen Rollen noch die Zusatzinformation geben in welche Schuljahren der User die Rolle innen hatte.
+
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:schools:users:read:ret}. 
+Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:schools:users:read:ret:json} beschrieben.
+Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:schools:users:read:right} entnommen werden.
+
+\input{json}
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/schools/\$id/users},label={lst:code:rest:api:schools:users:read:ret},frame=tlrb]
+[
+ {
+  user: "<STRING>",
+  role: "<STRING>",
+	start: "<CALENDARDATE>",
+	end: "<CALENDARDATE>",
+	school-years: ["<STRING>"',...],
+ },
+ ...
+]
+\end{lstlisting}
+\begin{longtable}{|p{0.16\textwidth}|p{0.16\textwidth}|p{0.58\textwidth}|}
+		\caption{Beschreibung der Felder in eine JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
+\endfoot
+		\caption{Beschreibung der Felder in eine JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
+		\label{tab:rest:api:schools:users:read:ret:json}
+\endlastfoot 
+\hline
+			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
+\endhead
+user & STRING & Zeichenkette welche eine ID von einen Benutzer ist, was unter /api/subjects/\$id abgerufen werden kann. \\ \hline
+role & STRING & Rolle die der Benutzer innen hat. \\ \hline
+start & CALENDARDATE & Ab welchen Tag der Benutzer die Rolle innen hat \\ \hline
+end & CALENDARDATE & Optional; Gibt an bis zu welchen Tag der Benutzer die Rolle innen hatte. \\ \hline
+school-years & Liste & Optional; Liste mit von Zeichenketten, welche Referenzen auf Schuljahre sind die unter /api/school-years/\$id abgerufen werden können. \\ \hline 
+\end{longtable}
+
+\begin{longtable}{|c|p{0.7\textwidth}|}
+\caption{Berechtigungen auf dem Endpunkt}
+\endfoot
+		\caption{Berechtigungen auf dem Endpunkt}
+		\label{tab:rest:api:schools:users:read:right}
+\endlastfoot
+\hline
+\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
+\endhead
+guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt erhalten. \\ \hline
+user &  \\ \hline 
+students & \\ \hline
+external-students & \\ \hline
+guardians & \\ \hline
+teacher & \\ \hline
+principal & \\ \hline
+school-admin & \\ \hline
+school-board & \\ \hline
+fed-school-board & \\ \hline
+sync-systems & \\ \
+	\end{longtable}
