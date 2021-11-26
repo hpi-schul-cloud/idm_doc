@@ -1,10 +1,10 @@
 \subsubsection{READ}
 \label{sec:rest:api:schools:users:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Dieser Endpunkt listet die Informationen über Benutzer und Ihre Rollen an der Schule auf.
-Für jede Kombination aus Benutzer, Rolle und ab wann gibt es eine extra Eintrag in der Liste die Zurückgegeben wird.
-Bei manchen Kombinationen gibt es zudem noch ein Datum biss wann der Benutzer die Rolle innen hatte.
-Zudem kann es bei einigen Rollen noch die Zusatzinformation geben in welche Schuljahren der User die Rolle innen hatte.
+Dieser Endpunkt listet die Informationen über Benutzer und ihre Rollen an der Schule auf.
+Für jede Kombination aus Benutzer, Rolle und Startdatum gibt es einen Eintrag in der Liste, die zurückgegeben wird.
+Bei manchen Kombinationen gibt es zudem noch ein Datum, bis zu dem der Benutzer die Rolle innenhatte.
+Zudem kann es bei einigen Rollen noch die Zusatzinformation geben, in welche Schuljahren der User die Rolle innen hatte.
 
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:schools:users:read:ret}. 
 Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:schools:users:read:ret:json} beschrieben.
@@ -24,19 +24,19 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:schools:use
 ]
 \end{lstlisting}
 \begin{longtable}{|p{0.16\textwidth}|p{0.16\textwidth}|p{0.58\textwidth}|}
-		\caption{Beschreibung der Felder in eine JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
+		\caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
 \endfoot
-		\caption{Beschreibung der Felder in eine JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
+		\caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
 		\label{tab:rest:api:schools:users:read:ret:json}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-user & STRING & Zeichenkette welche eine ID von einen Benutzer ist, was unter /api/subjects/\$id abgerufen werden kann. \\ \hline
-role & STRING & Rolle die der Benutzer innen hat. \\ \hline
-start & CALENDARDATE & Ab welchen Tag der Benutzer die Rolle innen hat \\ \hline
-end & CALENDARDATE & Optional; Gibt an bis zu welchen Tag der Benutzer die Rolle innen hatte. \\ \hline
-school-years & Liste & Optional; Liste mit von Zeichenketten, welche Referenzen auf Schuljahre sind die unter /api/school-years/\$id abgerufen werden können. \\ \hline 
+user & STRING & Zeichenkette, welche eine ID von einem Benutzer ist, der unter /api/subjects/\$id abgerufen werden kann. \\ \hline
+role & STRING & Rolle, die der Benutzer innehat. \\ \hline
+start & CALENDARDATE & Datum, ab dem der Benutzer die Rolle innehat \\ \hline
+end & CALENDARDATE & Optional; Gibt an, bis zu welchen Tag der Benutzer die Rolle innehatte. \\ \hline
+school-years & Liste & Optional; Liste von Zeichenketten, welche Referenzen auf Schuljahre sind, die unter /api/school-years/\$id abgerufen werden können. \\ \hline 
 \end{longtable}
 
 \begin{longtable}{|c|p{0.7\textwidth}|}

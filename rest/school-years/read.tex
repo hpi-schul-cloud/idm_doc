@@ -1,8 +1,8 @@
 \subsubsection{READ}
 \label{sec:rest:api:school-years:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Unter diesm Pfad wird eine Liste mit allen im System existierenden Schuljahren zurückgegeben.
-Jedes Schuljahr hat eine eindeutigen Identifikator, einen Zeitraum von wann bis wann das Schuljahr war und ein Anzeigenahmen.
+Unter diesem Pfad wird eine Liste mit allen im System existierenden Schuljahren zurückgegeben.
+Jedes Schuljahr hat eine eindeutigen Identifikator, einen Zeitraum, von wann bis wann das Schuljahr andauerte, und ein Anzeigenamen.
 
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:school-years:read:ret}. 
 Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school-years:read:ret:json} beschrieben.
@@ -21,17 +21,17 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:school-year
 \end{lstlisting}
 
 \begin{longtable}{|p{0.16\textwidth}|p{0.16\textwidth}|p{0.58\textwidth}|}
-		\caption{Beschreibung der Felder in eine JSON-Objekt aus der Liste der Schuljahre}
+		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Schuljahre}
 \endfoot
-		\caption{Beschreibung der Felder in eine JSON-Objekt aus der Liste der Schuljahre}
+		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Schuljahre}
 		\label{tab:rest:api:school-years:read:ret:json}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
- school-year & STRING & Eine Eindeutige Zeichenkette welches das Schuljahr im IDM Identifiziert. \\ \hline
- start & CALENDARDATE & Ein Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD, welche angibt ab wann das Schuljahr begonnen hat. \\ \hline
- ende & CALENDARDATE & Ein Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD, welche angibt bis wann das Schuljahr geht. \\ \hline
+ school-year & STRING & Eine eindeutige Zeichenkette, welche das Schuljahr im IDM identifiziert. \\ \hline
+ start & CALENDARDATE & Ein Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD, welche angibt, wann das Schuljahr begonnen hat. \\ \hline
+ ende & CALENDARDATE & Ein Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD, welche angibt, wann das Schuljahr endet. \\ \hline
  name & STRING & Eine Name für das Schuljahr wie z.b.: 2020-2021 \\ \hline
 \end{longtable}
 
