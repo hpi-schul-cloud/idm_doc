@@ -21,16 +21,16 @@ Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:subjects:id
 \end{lstlisting}
 
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
-		\caption{Beschreibung der Felder in eine JSON-Objekt welches in der Liste aller Schüler eines Unterrichtsfaches.}
+		\caption{Beschreibung der Felder in einem JSON-Objekt mit der Liste aller Schüler eines Unterrichtsfaches.}
 \endfoot
-		\caption{Beschreibung der Felder in eine JSON-Objekt welches in der Liste aller Schüler eines Unterrichtsfaches.}
+		\caption{Beschreibung der Felder in einem JSON-Objekt mit in der Liste aller Schüler eines Unterrichtsfaches.}
 		\label{tab:rest:api:subjects:id:students:read:ret:json}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-subject & STRING & Zeichenkette mit der das Unterrichtsfach unter /api/subjects/\$id abgefragt werden kann\\ \hline
-user & STRING &  Zeichenkette mit der User unter /api/users/\$id abfragt werden kann \\ \hline
-start & CALENDARDATE & Optional; wenn der Schüler zu einen Späteren Zeitpunkt als ab wan das Unterrichtsfach Startet den Unterrichtsfach hinzugefügt wurde.\\ \hline
-end & CALENDARDATE & Optional; wenn ein Schüler vor Ablauf des Zeitraumes eines Unterrichtsfaches aus dem Unterrichtsfach entfernt wurde.\\ \hline
+subject & STRING & Zeichenkette, mit der das Unterrichtsfach unter /api/subjects/\$id abgefragt werden kann. \\ \hline
+user & STRING &  Zeichenkette, mit der User unter /api/users/\$id abfragt werden kann. \\ \hline
+start & CALENDARDATE & Optional; wird gesetzt, falls der Schüler nach Start des Zeitraumes eines Unterrichtsfaches dem Unterrichtsfach hinzugefügt wurde. \\ \hline
+end & CALENDARDATE & Optional; wird gesetzt, falls ein Schüler vor Ablauf des Zeitraumes eines Unterrichtsfaches aus dem Unterrichtsfach entfernt wurde. \\ \hline
 \end{longtable}

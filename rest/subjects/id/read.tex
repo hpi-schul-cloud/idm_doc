@@ -22,19 +22,19 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:subjects:id
 \end{lstlisting}
 
 \begin{longtable}{|p{0.16\textwidth}|p{0.16\textwidth}|p{0.58\textwidth}|}
-		\caption{Beschreibung der Felder in eine JSON-Objekt für ein Unterrichtsfach}
+		\caption{Beschreibung der Felder in einem JSON-Objekt für ein Unterrichtsfach}
 \endfoot
-		\caption{Beschreibung der Felder in eine JSON-Objekt für ein Unterrichtsfach}
+		\caption{Beschreibung der Felder in einem JSON-Objekt für ein Unterrichtsfach}
 		\label{tab:rest:api:subjects:id:read:ret}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-subject & STRING & Eindeutige Zeichenkette die das Unterrichtsfach an einer Schule repräsentiert  \\ \hline
+subject & STRING & Eindeutige Zeichenkette, die das Unterrichtsfach an einer Schule repräsentiert.  \\ \hline
 name & STRING & Name des Unterrichtsfaches. \\ \hline
 school-subject & Liste von STRING & Für jede Zeichenkette aus dieser Liste kann unter /api/school-subjects/\$id die genauen Informationen abgefragt werden. \\ \hline
-school & STRING & ID der Schule zu der das Fach gehört. Die Daten der Schule können damit unter /api/schools/\$id abgefragt werden. \\ \hline
-school-year & STRING & ID des Schuljahres in dem das Unterrichtsfach angeboten wurde. Das Schuljahr kann damit unter /api/school-years/\$id abgefragt werden. \\ \hline
-start & CALENDARDATE & Datumsangabe ab welchen Tag das Unterrichtsfach angeboten wird.  \\ \hline
-Ende & CALENDARDATE & Datumsangabe bis zu welchen Tag das Unterrichtsfach angeboten wird. \\ \hline
+school & STRING & ID der Schule, zu der das Fach gehört. Die Daten der Schule können damit unter /api/schools/\$id abgefragt werden. \\ \hline
+school-year & STRING & ID des Schuljahres, in dem das Unterrichtsfach angeboten wurde. Das Schuljahr kann damit unter /api/school-years/\$id abgefragt werden. \\ \hline
+start & CALENDARDATE & Datumsangabe, ab dem das Unterrichtsfach angeboten wird.  \\ \hline
+Ende & CALENDARDATE & Datumsangabe, bis zu dem das Unterrichtsfach angeboten wird. \\ \hline
 \end{longtable}
