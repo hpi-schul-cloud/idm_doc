@@ -4,9 +4,8 @@ Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugela
 Die Route gibt für den eingeloggten Benutzer seine persönlichen Daten wieder.
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:user:read:ret}. 
 Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:user:read:ret} beschrieben.
-Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:user:read:right} entnommen werden.
 \input{json}
-\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/users},label={lst:code:rest:api:user:read:ret},frame=tlrb]
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/users},label={lst:code:rest:api:user:read:ret},frame=tlrb]
 {
  id: "<STRING>",
  student-id: "<STRING>"

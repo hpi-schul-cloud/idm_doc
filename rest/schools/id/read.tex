@@ -5,9 +5,8 @@ Diese Route gibt für die per ID ausgewählte Schule die Stammdaten zurück.
 
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:school:id:read:ret}. 
 Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school:id:read:ret} beschrieben.
-Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:school:id:read:right} entnommen werden.
 \input{json}
-\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf der Route /api/school/\$id},label={lst:code:rest:api:school:id:read:ret},frame=tlrb]
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/school/\$id},label={lst:code:rest:api:school:id:read:ret},frame=tlrb]
 {
  school: "<STRING>",
  name: "<STRING>",
@@ -26,25 +25,3 @@ Die Berechtigungen auf den Endpunkt können \reftabllec{tab:rest:api:school:id:r
 school & STRING & Eindeutiger Identifikations-String der Schule im IDM \\ \hline
 name & STRING & Name der Schule \\ \hline
 \end{longtable}
-
-\begin{longtable}{|c|p{0.7\textwidth}|}
-\caption{Berechtigungen auf dem Endpunkt}
-\endfoot
-		\caption{Berechtigungen auf dem Endpunkt}
-		\label{tab:rest:api:school:id:read:right}
-\endlastfoot
-\hline
-\textbf{Benutzergruppen} & \textbf{Zugelassene Daten} \\ \hline
-\endhead
-guest & Darf den Endpunkt nicht aufrufen und keine Daten vom Endpunkt erhalten. \\ \hline
-user &  \\ \hline 
-students & \\ \hline
-external-students & \\ \hline
-guardians & \\ \hline
-teacher & \\ \hline
-principal & \\ \hline
-school-admin & \\ \hline
-school-board & \\ \hline
-fed-school-board & \\ \hline
-sync-systems & \\ \hline
-	\end{longtable}
