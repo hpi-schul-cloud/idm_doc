@@ -10,11 +10,13 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:ass
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/users/\$id/assignments},label={lst:code:rest:api:users:id:assignments:read:ret},frame=tlrb]
 [
 {
- 	school: "<STRING>",
-	role: "<STRING>",
-	start: "<DATE>",
-	end: "<DATE>",
-	schoolYears: ["<STRING>",...]
+ 		school: {
+ 			id: "<STRING>",
+ 			displayName: "<STRING>"
+ 		},
+ 		role: "<STRING>",
+ 		start: "<DATE>",
+ 		end: "<DATE>"
 },
 ...
 ]

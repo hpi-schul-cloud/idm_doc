@@ -10,7 +10,31 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school:id:re
 {
 	id: "<STRING>",
 	displayName: "<STRING>",
-	schoolNumber: "<STRING>"
+	schoolNumber: "<STRING>",
+	district: "<STRING>",
+	classes: [
+	{
+		id: "<STRING>",
+		displayName: "<STRING>"
+	},
+	...
+	],
+	subjects: [
+	{
+		id: "<STRING>",
+		displayName: "<STRING>"
+	},
+	...
+	],
+	users: [
+	{
+		id: "<STRING>",
+		role: "<STRING>",
+		start: "<DATE>",
+		end: "<DATE>",
+	},
+	...
+	]
 }
 \end{lstlisting}
 
@@ -26,4 +50,8 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school:id:re
 id & STRING & Eindeutiger Identifikations-String der Schule im IdM \\ \hline
 displayName & STRING & Name der Schule \\ \hline
 schoolNumber & STRING & Schulnummer \\ \hline
+district & STRING & Schulbezirk \\ \hline
+classes & Object Array & Schulnummer \\ \hline
+subjects & Object Array & Schulnummer \\ \hline
+users & Object Array & Schulnummer \\ \hline
 \end{longtable}

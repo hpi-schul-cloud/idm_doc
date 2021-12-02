@@ -9,8 +9,12 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:gua
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/user/\$id/guardians},label={lst:code:rest:api:users:id:guardians:read:ret},frame=tlrb]
 [
-id: "<STRING>",
-...
+	id: "<STRING>",
+	role: "<STRING>",
+	user: {
+		id: "<STRING>",
+		displayName: "<STRING>",
+	}
 ]
 \end{lstlisting}
 
