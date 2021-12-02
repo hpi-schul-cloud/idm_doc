@@ -1,7 +1,7 @@
 \subsubsection{READ}
 \label{sec:rest:api:school-subjects:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Unter diesem Pfad wird eine Liste der Teilmenge der Referenzschulfächer, welche vom IDM unterstützt werden, zurückgegeben.
+Unter diesem Pfad wird eine Liste der Teilmenge der Referenzschulfächer, welche vom IdM unterstützt werden, zurückgegeben.
 
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:school-subjects:read:ret}. Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school-subjects:read:ret:json} beschrieben.
 \input{json}
@@ -25,7 +25,7 @@ Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:school-sub
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
- id & STRING & Eine eindeutige Zeichenkette, die vom IDM-Provider vergeben wird. Sie darf nur aus alphanumerischen Zeichen und Bindestrich bestehen.\\ \hline
+ id & STRING & Eine eindeutige Zeichenkette, die vom IdM-Provider vergeben wird. Sie darf nur aus alphanumerischen Zeichen und Bindestrich bestehen.\\ \hline
  short-name & STRING & Die Kurzbezeichnung eines Schulfaches \\ \hline
  display-name & STRING & Der ausgeschriebene Name bzw. Anzeigename eines Schulfaches \\ \hline
 \end{longtable}

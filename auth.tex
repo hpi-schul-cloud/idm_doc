@@ -10,9 +10,9 @@ Um den Zugriff auf Client und REST-API gleichermaßen zu steuern und dabei im Cl
 \label{auth:limit_data}
 
 Die Spezifikation der REST-API sieht vor, dass die Sichtbarkeit der Daten an den definierten Endpunkte bereits im JSON-Objekt gemäß der Berechtigung des anfragenden Benutzers berücksichtigt ist. 
-Daher muss der \textit{ID Token} Informationen enthalten, über die der IDM-Provider den Benutzer eindeutig identifizieren kann.
-Die Informationen aus dem ID Token reichen ggf. jedoch nicht aus, um die Sichtbarkeit der Daten korrekt zu beschränken, da einem Benutzer im IDM mehrere Schule-Rolle-Kombinationen zugewiesen sein können (z.B. Tätigkeit als Lehrkraft an verschiedenen Schulen oder sowohl Lehrkraft als auch Elternteil eines Schülers an derselben Schule). 
-Daher muss die Information, mit welcher Kombination von Schule und Rolle innerhalb dieser Schule der Aufruf eines REST-API-Endpunkts durchgeführt wird, an den IDM-Provider übermittelt werden. 
+Daher muss der \textit{ID Token} Informationen enthalten, über die der IdM-Provider den Benutzer eindeutig identifizieren kann.
+Die Informationen aus dem ID Token reichen ggf. jedoch nicht aus, um die Sichtbarkeit der Daten korrekt zu beschränken, da einem Benutzer im IdM mehrere Schule-Rolle-Kombinationen zugewiesen sein können (z.B. Tätigkeit als Lehrkraft an verschiedenen Schulen oder sowohl Lehrkraft als auch Elternteil eines Schülers an derselben Schule). 
+Daher muss die Information, mit welcher Kombination von Schule und Rolle innerhalb dieser Schule der Aufruf eines REST-API-Endpunkts durchgeführt wird, an den IdM-Provider übermittelt werden. 
 Dies geschieht durch die Erweiterung der \textit{Scopes}-Liste um den Scope für die Schule und die Rolle als Parameterübergabe beim Autorisierungsvorgang. 
 \reflisting{listing:authorization_request} zeigt einen exemplarischen Aufruf des \textit{Authorization Endpoints} mit Übergabe der \textit{Scopes}.
 Die zusätzlichen \textit{Scopes} für Schule und Rolle sind somit im Access Token hinterlegt und können bei der Generierung des zurückzuliefernden JSON-Objekts verwendet werden.
@@ -29,5 +29,5 @@ Ein Sonderfall stellen dabei Benutzerkonten mit der Rolle ''sync-system'' dar.
 Diese haben bei Aufruf eines REST-API-Endpunkts grundsätzlich keine Beschränkung auf eine einzelne Schule. 
 Daher muss beim Autosierungsvorgang auch kein \textit{Scope} für die Schule an den Autorisierungsserver übergeben werden. \\
 
-Sofern für ein Benutzerkonto im IDM mehrere Schule-Rolle-Kombinationen hinterlegt sein können, müssen Schule und Rolle bei Start des Authentifizierungsprozesses gegebenenfalls durch den Benutzer wählbar sein. 
+Sofern für ein Benutzerkonto im IdM mehrere Schule-Rolle-Kombinationen hinterlegt sein können, müssen Schule und Rolle bei Start des Authentifizierungsprozesses gegebenenfalls durch den Benutzer wählbar sein. 
 Für einen Schule-Rolle-Wechsel ist eine Neuanmeldung bzw. Aktualisierung des Access Tokens bezüglich der \textit{Scopes} für Schule und Rolle notwendig.

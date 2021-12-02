@@ -1,19 +1,85 @@
 \subsubsection{READ}
 \label{sec:rest:api:users:id:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Der Pfad gibt für den per ID ausgewählten Benutzer seine persönlichen Daten wieder.
-Diese können eingeschränkt werden durch den Kontext, in dem sich der anfragende Benutzer befinden.
+Der Pfad gibt für den per ID ausgewählten Benutzer seine persönlichen Daten wieder. Das gelieferte JSON beinhaltet neben den persönlichen Informationen auch alle Rollen in Bezug auf Schule, Klasse, Unterrichtsfächer und andere Benutzer.
 
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:users:id:read:ret}. 
 Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:read:ret} beschrieben.
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/users/\$id},label={lst:code:rest:api:users:id:read:ret},frame=tlrb]
 {
- id: "<STRING>",
- name: "<STRING>",
- surename: "<STRING>",
- dateofbirth: "<DATE>",
- sex: "<ENUM>",
+	id: "<STRING>",
+	student-id: "<STRING>"
+ 	first-name: "<STRING>",
+ 	preferred-name: "<STRING>",
+ 	last-name: "<STRING>",
+ 	date-of-birth: "<DATE>",
+ 	sex: "<ENUM>",
+ 	roles: [
+ 	{
+ 		id: "<STRING>",
+ 		display-name: "<STRING>",
+ 		role: "<STRING>",
+ 		start: "<DATE>",
+ 		end: "<DATE>"
+ 	},
+ 	...
+ 	],
+ 	classes: [
+ 	{
+ 		id: "<STRING>",
+ 		display-name: "<STRING>",
+ 		summary: "<STRING>",
+ 		school: {
+ 			id: "<STRING>",
+ 			display-name: "<STRING>"
+ 		},
+ 		school-year: {
+ 			id: "<STRING>",
+ 			display-name: "<STRING>"
+ 		},
+ 		roleWithinClass: "<STRING>",
+ 		start: "<DATE>",
+ 		end: "<DATE>"
+ 	},
+ 	...
+	],
+	subjects: [
+	{
+		id: "<STRING>",
+		display-name: "<STRING>",
+		school-subject: [
+ 		{
+ 			id: "<STRING>",
+ 			display-name: "<STRING>"
+ 		},
+ 		...
+ 		],
+ 		school: {
+ 			id: "<STRING>",
+ 			display-name: "<STRING>"
+ 		},
+ 		school-year: {
+ 			id: "<STRING>",
+ 			display-name: "<STRING>"
+ 		},
+ 		roleWithinSubject: "<STRING>",
+ 		start: "<DATE>",
+ 		end: "<DATE>" 		
+	},
+	...
+	],
+	guardians: [
+	{
+		id: "<STRING>",
+		role: "<STRING>",
+		user: {
+			id: "<STRING>",
+			display-name: "<STRING>",
+		}
+	},
+	...
+	]
 }
 \end{lstlisting}
 
@@ -26,10 +92,11 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:rea
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-id & STRING & ID des Benutzers, mit der unter /api/users/\$id weitere Informationen abgefragt werden können. \\ \hline
+id & STRING & ID des Benutzers, mit der unter /api/users/\$id weitere Informtionen abgefragt werden können. \\ \hline
+student-id & STRING & Landesweit gültige Schüler-Identifikationsnummer \\ \hline
 name & STRING & Vorname des Benutzers \\ \hline
-surname & STRING & Nachname des Benutzers \\ \hline
-dateofbirth & DATE & Geburtstag des Benutzers \\ \hline
+last-name & STRING & Nachname des Benutzers \\ \hline
+date-of-birth & DATE & Geburtstag des Benutzers \\ \hline
 sex & ENUM & Geschlecht des Benutzers 
 \begin{itemize}
 	\item divers steht für divers
@@ -37,4 +104,8 @@ sex & ENUM & Geschlecht des Benutzers
 	\item male steht für männlich
 \end{itemize}
  \\ \hline
+roles &  & Liste von Rollen in Bezug auf eine Schule \\ \hline
+classes &  & Liste von Rollen in Bezug auf eine Klasse \\ \hline
+subjects &  & Liste von Rollen in Bezug auf eine Unterrichtsfach \\ \hline
+guardians &  & Liste von Rollen in Bezug auf einen anderen Benutzer \\ \hline
 \end{longtable}

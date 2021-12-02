@@ -11,9 +11,9 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school-years
 [
 {
     id: "<STRING>",
+    display-name: "<STRING>",
     start: "<DATE>",
-    end: "<DATE>",
-    display-name: "<STRING>"
+    end: "<DATE>"
 },
 ...
 ]
@@ -28,8 +28,8 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school-years
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
- id & STRING & Eine eindeutige Zeichenkette, welche das Schuljahr im IDM identifiziert. \\ \hline
+ id & STRING & Eine eindeutige Zeichenkette, welche das Schuljahr im IdM identifiziert. \\ \hline
+ display-name & STRING & Eine Name für das Schuljahr wie z.b "2020-2021" \\ \hline
  start & DATE & Ein Datumsangabe nach ISO-8601 im Format YYYY-MM-DD, welche angibt, wann das Schuljahr begonnen hat. \\ \hline
  end & DATE & Ein Datumsangabe nach ISO-8601 im Format YYYY-MM-DD, welche angibt, wann das Schuljahr endet. \\ \hline
- display-name & STRING & Eine Name für das Schuljahr wie z.b "2020-2021" \\ \hline
 \end{longtable}
