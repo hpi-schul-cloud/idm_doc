@@ -1,16 +1,16 @@
 \subsubsection{READ}
 \label{sec:rest:api:school-subjects:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Bei einer lesenden Anfrage wird eine Liste der Teilmenge der Referenzschulfächer, welche vom IDM unterstützt werden, zurückgegeben.
+Unter diesem Pfad wird eine Liste der Teilmenge der Referenzschulfächer, welche vom IDM unterstützt werden, zurückgegeben.
 
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:school-subjects:read:ret}. Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school-subjects:read:ret:json} beschrieben.
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/school-subjects},label={lst:code:rest:api:school-subjects:read:ret},frame=tlrb]
 [
 {
- school-subject: "<STRING>",
- short-name: "<STRING>",
- name: "<STRING>"
+    id: "<STRING>",
+    short-name: "<STRING>",
+    display-name: "<STRING>"
 },
 ...
 ]
@@ -25,6 +25,7 @@ Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:school-sub
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
- school-subject & STRING & Eine eindeutige Zeichenkette, die vom IDM-Provider vergeben wird. Sie darf nur aus alphanumerischen Zeichen und Bindestrich bestehen.\\ \hline
- name & STRING & Der ausgeschriebene Name eines Schulfaches \\ \hline
+ id & STRING & Eine eindeutige Zeichenkette, die vom IDM-Provider vergeben wird. Sie darf nur aus alphanumerischen Zeichen und Bindestrich bestehen.\\ \hline
+ short-name & STRING & Die Kurzbezeichnung eines Schulfaches \\ \hline
+ display-name & STRING & Der ausgeschriebene Name bzw. Anzeigename eines Schulfaches \\ \hline
 \end{longtable}

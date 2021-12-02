@@ -1,7 +1,7 @@
 \subsubsection{READ}
 \label{sec:rest:api:subjects:id:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Diese Route gibt bei einer READ-Anfrage für das per ID ausgewählte Unterrichtsfach die allgemeinen Informationen davon wieder.
+Dieser Pfad gibt bei einer READ-Anfrage für das per ID ausgewählte Unterrichtsfach die allgemeinen Informationen davon wieder.
 Die Daten, welche wiedergegeben werden, sind durch den Kontext des anfragenden Benutzers eingeschränkt.
 
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:subjects:id:read:ret}. 
@@ -9,14 +9,27 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:
 
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/subjects/\$id},label={lst:code:rest:api:subjects:id:read:ret},frame=tlrb]
- {
-  subject: "<STRING>",
-  name: "<STRING>",
-  school-subject: ["<STRING>",...], 
-  school: "<STRING>",
-  school-year: "<STRING>",
-  start: "<DATE>",
-  end: "<DATE>",
+{
+    id: "<STRING>",
+    display-name: "<STRING>",
+    school-subject: [
+    {
+        id: "<STRING>",
+        display-name: "<STRING>"
+    },
+    ...
+    ]
+    school: {
+        id: "<STRING>",
+        display-name: "<STRING>"
+    },
+    school-year: {
+            id: "<STRING>",
+            display-name: "<STRING>"
+    },
+    roleWithinSubject: <STRING>"
+    start: "<DATE>",
+    end: "<DATE>",
  }
 \end{lstlisting}
 

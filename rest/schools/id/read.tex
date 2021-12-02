@@ -1,15 +1,16 @@
 \subsubsection{READ}
 \label{sec:rest:api:school:id:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Diese Route gibt für die per ID ausgewählte Schule die Stammdaten zurück.
+Dieser Pfad gibt für die per ID ausgewählte Schule die Stammdaten zurück.
 
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:school:id:read:ret}. 
 Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school:id:read:ret} beschrieben.
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/school/\$id},label={lst:code:rest:api:school:id:read:ret},frame=tlrb]
 {
- school: "<STRING>",
- name: "<STRING>",
+ school-id: "<STRING>",
+ display-name: "<STRING>",
+ school-number: "<STRING>"
 }
 \end{lstlisting}
 
@@ -22,6 +23,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school:id:re
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-school & STRING & Eindeutiger Identifikations-String der Schule im IDM \\ \hline
-name & STRING & Name der Schule \\ \hline
+school-id & STRING & Eindeutiger Identifikations-String der Schule im IDM \\ \hline
+display-name & STRING & Name der Schule \\ \hline
+school-number & STRING & Schulnummer \\ \hline
 \end{longtable}

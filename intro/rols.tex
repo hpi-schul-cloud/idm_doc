@@ -1,6 +1,6 @@
 \section{Benutzerrollen}
 \label{Benutzerrollen}
-An dieser Stelle listen wir eine Reihe von im Kontext "'Schule"' bekannten Rollen auf, die auf IDM-Provider-Seite definiert und im Client für die Berechtigungssteuerung genutzt werden können.
+An dieser Stelle listen wir eine Reihe von bekannten Rollen in Bezug auf Entitäten im Kontext "'Schule"' auf, die auf IDM-Provider-Seite definiert und im Client für die Berechtigungssteuerung genutzt werden können.
 \\
 
 
@@ -19,12 +19,54 @@ principal & Schulleitung \\ \hline
 school-admin & Schul-Administrator \\ \hline
 school-board & Schulträger \\ \hline
 fed-school-board & Mitarbeiter/-in des Schulministeriums \\ \hline
+alum & Ehemalige einer Schule \\ \hline
 sync-system & Systeme, welchen ein Sync mit allen Daten erlaubt ist \\ \hline
 
 	\end{tabularx}
 
-		\caption{Mögliche Benutzerrollen im Kontext "'Schule"'}
-		\label{tab:intro:roles}
+		\caption{Mögliche Benutzerrollen in Bezug auf eine Schule}
+		\label{tab:intro:rolesschool}
 \end{table}
 
-Bei Bedarf können IDM-Provider und Client weitere Rollen festlegen, die additiv zu vergeben und nicht Teil dieser Konzeption sind.
+\begin{table}[htb]
+	\begin{tabularx}{\textwidth}{|c|X|}
+		\hline
+\textbf{Rollenname} & \textbf{Beschreibung der Rolle} \\ \hline
+student & Schüler \\ \hline
+teacher & Lehrkräfte \\ \hline
+class-representative & Klassensprecher \\ \hline
+guardian-representative & Elternsprecher \\ \hline
+
+	\end{tabularx}
+
+		\caption{Mögliche Benutzerrollen in Bezug auf eine Klasse}
+		\label{tab:intro:rolesclass}
+\end{table}
+
+\begin{table}[htb]
+	\begin{tabularx}{\textwidth}{|c|X|}
+		\hline
+\textbf{Rollenname} & \textbf{Beschreibung der Rolle} \\ \hline
+student & Schüler \\ \hline
+teacher & Lehrkräfte \\ \hline
+external-expert & Externe Experten zur Unterstützung des Unterrichts \\ \hline
+	\end{tabularx}
+
+		\caption{Mögliche Benutzerrollen in Bezug auf ein Unterrichtsfach}
+		\label{tab:intro:rolessubject}
+\end{table}
+
+\begin{table}[htb]
+	\begin{tabularx}{\textwidth}{|c|X|}
+		\hline
+\textbf{Rollenname} & \textbf{Beschreibung der Rolle} \\ \hline
+guardian & Eltern, Erziehungsberechtigte, Vormünder von Schülern \\ \hline
+resource-teacher & Förderlehrkräfte \\ \hline
+	\end{tabularx}
+
+		\caption{Mögliche Benutzerrollen in Bezug auf einen Benutzer}
+		\label{tab:intro:rolesuser}
+\end{table}
+
+
+Durch die Rollen auf die Entitäten Klasse, Unterrichtsfach und Benutzer lassen sich Berechtigungen im Kontext dieser besser steuern. Bei Bedarf können IDM-Provider und Client weitere Rollen festlegen, die additiv zu vergeben und nicht Teil dieser Konzeption sind.
