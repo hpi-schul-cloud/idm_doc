@@ -6,11 +6,12 @@ Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:user:read:
 Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:user:read:ret} beschrieben.
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/users},label={lst:code:rest:api:user:read:ret},frame=tlrb]
+[
 {
 	id: "<STRING>",
 	studentId: "<STRING>"
- 	first-name: "<STRING>",
- 	preferred-name: "<STRING>",
+ 	firstName: "<STRING>",
+ 	preferredName: "<STRING>",
  	lastName: "<STRING>",
  	dateOfBirth: "<DATE>",
  	sex: "<ENUM>",
@@ -80,6 +81,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:user:read:re
 	...
 	]
 }
+]
 \end{lstlisting}
 
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
@@ -103,8 +105,8 @@ sex & ENUM & Geschlecht des Benutzers
 	\item male steht für männlich
 \end{itemize}
  \\ \hline
-roles &  & Liste von Rollen in Bezug auf eine Schule \\ \hline
-classes &  & Liste von Rollen in Bezug auf eine Klasse \\ \hline
-subjects &  & Liste von Rollen in Bezug auf eine Unterrichtsfach \\ \hline
-guardians &  & Liste von Rollen in Bezug auf einen anderen Benutzer \\ \hline
+roles & Object List & Liste von Rollen in Bezug auf eine Schule \\ \hline
+classes & Object List & Liste von Rollen in Bezug auf eine Klasse \\ \hline
+subjects & Object List & Liste von Rollen in Bezug auf eine Unterrichtsfach \\ \hline
+guardians & Object List & Liste von direkten Verbindungen zu einem anderen Benutzer \\ \hline
 \end{longtable}

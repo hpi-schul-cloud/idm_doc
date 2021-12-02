@@ -11,8 +11,8 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:rea
 {
 	id: "<STRING>",
 	studentId: "<STRING>"
- 	first-name: "<STRING>",
- 	preferred-name: "<STRING>",
+ 	firstName: "<STRING>",
+ 	preferredName: "<STRING>",
  	lastName: "<STRING>",
  	dateOfBirth: "<DATE>",
  	sex: "<ENUM>",
@@ -106,8 +106,8 @@ sex & ENUM & Geschlecht des Benutzers
 	\item male steht für männlich
 \end{itemize}
  \\ \hline
-roles &  & Liste von Rollen in Bezug auf eine Schule \\ \hline
-classes &  & Liste von Rollen in Bezug auf eine Klasse \\ \hline
-subjects &  & Liste von Rollen in Bezug auf eine Unterrichtsfach \\ \hline
-guardians &  & Liste von Rollen in Bezug auf einen anderen Benutzer \\ \hline
+roles & Object List & Liste von Rollen in Bezug auf eine Schule \\ \hline
+classes & Object List & Liste von Rollen in Bezug auf eine Klasse \\ \hline
+subjects & Object List & Liste von Rollen in Bezug auf eine Unterrichtsfach \\ \hline
+guardians & Object List & Liste von direkten Verbindungen zu einem anderen Benutzer \\ \hline
 \end{longtable}
