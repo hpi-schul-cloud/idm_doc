@@ -7,6 +7,7 @@ Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:classes:id
 Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:read:ret} beschrieben.
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/classes/\$id},label={lst:code:rest:api:classes:id:read:ret},frame=tlrb]
+[
 {
     id: "<STRING>",
     displayName: "<STRING>",
@@ -23,10 +24,18 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:r
         "STRING",
         ...
     ],
-    roleWithinClass: "<STRING>",
-    start: "<DATE>",
-    end: "<DATE>"
+    users: [
+    {
+        id: "<STRING>",
+        displayName: "<STRING>",
+        roleWithinClass: <STRING>",
+        start: "<DATE>",
+        end: "<DATE>"    
+    },
+    ...
+    ]
 }
+]
 \end{lstlisting}
 
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
@@ -40,10 +49,12 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:r
 \endhead
 id & STRING & ID der Klasse im System. \\ \hline
 displayName & STRING & Name der Klasse, welche zum Anzeigen verwendet wird. \\ \hline
+summary & STRING &  \\ \hline
 school & STRING & ID, zu welcher Schule die Klasse gehört. Die Schule kann damit unter /api/schools/\$id abgefragt werden. \\ \hline
 school-year & STRING & Schuljahr, in welchem die Klasse existiert. Die Daten des Schuljahres können unter /api/school-years/\$id abgrufen werden. \\ \hline
 grade & List of STRINGs & Enthält eine Liste von Klassenstufen, die dieser Klasse zugeordnet sind. \\ \hline
-roleWithinClass & STRING & Rolle innerhalb der Klasse. \\ \hline
-start & DATE & Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Zeitpunkt, ab wann das Klassenobjekt existiert, falls dies abweichend zum Startzeitpunkt des Schuljahres ist. \\ \hline 
-end & DATE & Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Zeitpunkt, bis wann das Klassenobjekt existiert, falls dies abweichend zum Endzeitpunkt des Schuljahres ist. \\ \hline 
+users & Object Array & User-Rollen-Informationen in Bezug auf die Klasse.\\ \hline
+% roleWithinClass & STRING & Rolle innerhalb der Klasse. \\ \hline
+% start & DATE & Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Zeitpunkt, ab wann das Klassenobjekt existiert, falls dies abweichend zum Startzeitpunkt des Schuljahres ist. \\ \hline 
+% end & DATE & Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Zeitpunkt, bis wann das Klassenobjekt existiert, falls dies abweichend zum Endzeitpunkt des Schuljahres ist. \\ \hline 
 \end{longtable}
