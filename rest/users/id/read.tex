@@ -99,6 +99,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:rea
 id & STRING & ID des Benutzers, mit der unter /api/users/\$id weitere Informtionen abgefragt werden können. \\ \hline
 studentId & STRING & Landesweit gültige Schüler-Identifikationsnummer \\ \hline
 name & STRING & Vorname des Benutzers \\ \hline
+preferredName & STRING & Bevorzugter Vorname des Benutzers \\ \hline
 lastName & STRING & Nachname des Benutzers \\ \hline
 dateOfBirth & DATE & Geburtstag des Benutzers \\ \hline
 sex & ENUM & Geschlecht des Benutzers 
@@ -108,8 +109,8 @@ sex & ENUM & Geschlecht des Benutzers
 	\item male steht für männlich
 \end{itemize}
  \\ \hline
-roles & Object List & Liste von Rollen in Bezug auf eine Schule \\ \hline
-classes & Object List & Liste von Rollen in Bezug auf eine Klasse \\ \hline
-subjects & Object List & Liste von Rollen in Bezug auf eine Unterrichtsfach \\ \hline
-guardians & Object List & Liste von direkten Verbindungen zu einem anderen Benutzer \\ \hline
+roles & Object Array & Liste von Rollen in Bezug auf eine Schule \\ \hline
+classes & Object Array & Liste von Rollen in Bezug auf eine Klasse \\ \hline
+subjects & Object Array & Liste von Rollen in Bezug auf eine Unterrichtsfach \\ \hline
+guardians & Object Array & Liste von direkten Verbindungen zu einem anderen Benutzer \\ \hline
 \end{longtable}
