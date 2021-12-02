@@ -106,43 +106,43 @@ sex & ENUM & Geschlecht des Benutzers
 \end{itemize}
  \\ \hline
 roles & Object List & Liste von Rollen in Bezug auf eine Schule \\ \hline
-roles[].schoolId & STRING & ID der Schule \\ \hline
-roles[].schoolName & STRING & Name der Schule \\ \hline
-roles[].role & STRING & Role welche der User an der Schule innen hat, Werte dafür können aus \reftabllec{tab:intro:rolesschool} entnommen werden. \\ \hline
-roles[].start: & DATE & OPTIONAL; ab wan der Benutzer die Rolle an der Schule innen hat \\ \hline
-roles[].end & DATE & OPTIONAL; bis wan der Benutzer die Rolle an der Schule innen hatte \\ \hline
+roles\[\].schoolId & STRING & ID der Schule \\ \hline
+roles\[\].schoolName & STRING & Name der Schule \\ \hline
+roles\[\].role & STRING & Role welche der User an der Schule innen hat, Werte dafür können aus \reftabllec{tab:intro:rolesschool} entnommen werden. \\ \hline
+roles\[\].start: & DATE & OPTIONAL; ab wan der Benutzer die Rolle an der Schule innen hat \\ \hline
+roles\[\].end & DATE & OPTIONAL; bis wan der Benutzer die Rolle an der Schule innen hatte \\ \hline
 classes & Object List & Liste von Rollen in Bezug auf eine Klasse \\ \hline
-classes[].id & STRING & ID der Klasse, mit der unter /api/classes/\$id weiter Informatioen abgefragt werden können. \\ \hline
-classes[].displayName & STRING & Anzeige name der Klasse \\ \hline
-classes[].summary & STRING & Zusammfasende Beschreibung der Klasse \\ \hline
-classes[].school & Object & Object mit Informationen zu Schule zu der die Klasse gehört \\ \hline
-classes[].school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weiter Informatioen abgefragt werden können. \\ \hline
-classes[].school.displayName & STRING & Anzeigename der Schule \\ \hline
-classes[].schoolYear & Object & Object mit Informationen zum Schuljahr in welche der Benutzer die Klasse besucht hat. \\ \hline
-classes[].schoolYear.id & STRING & ID des Schuljahres, mit der unter /api/school-years/\$id weiter Informatioen abgefragt werden können. \\ \hline
-classes[].schoolYear.displayName & STRING & Anzeigename des Schuljahres \\\hline
-classes[].roleWithinClass & STRING & Rolle des Benutzers in der Klasse, Werte dafür können aus \reftabllec{tab:intro:rolesclass} entnommen werden. \\ \hline 
-classes[].start & DATE & OPTIONAL; Ab wan der Benutzer in der Klasse war oder ist. \\ \hline
-classes[].end & DATE & OPTIONAL; Bis wan der Benutzer in der Klasse war oder ist. \\ \hline
+classes\[\].id & STRING & ID der Klasse, mit der unter /api/classes/\$id weiter Informatioen abgefragt werden können. \\ \hline
+classes\[\].displayName & STRING & Anzeige name der Klasse \\ \hline
+classes\[\].summary & STRING & Zusammfasende Beschreibung der Klasse \\ \hline
+classes\[\].school & Object & Object mit Informationen zu Schule zu der die Klasse gehört \\ \hline
+classes\[\].school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weiter Informatioen abgefragt werden können. \\ \hline
+classes\[\].school.displayName & STRING & Anzeigename der Schule \\ \hline
+classes\[\].schoolYear & Object & Object mit Informationen zum Schuljahr in welche der Benutzer die Klasse besucht hat. \\ \hline
+classes\[\].schoolYear.id & STRING & ID des Schuljahres, mit der unter /api/school-years/\$id weiter Informatioen abgefragt werden können. \\ \hline
+classes\[\].schoolYear.displayName & STRING & Anzeigename des Schuljahres \\\hline
+classes\[\].roleWithinClass & STRING & Rolle des Benutzers in der Klasse, Werte dafür können aus \reftabllec{tab:intro:rolesclass} entnommen werden. \\ \hline 
+classes\[\].start & DATE & OPTIONAL; Ab wan der Benutzer in der Klasse war oder ist. \\ \hline
+classes\[\].end & DATE & OPTIONAL; Bis wan der Benutzer in der Klasse war oder ist. \\ \hline
 subjects & Object List & Liste von Unterrichtsfächern und den Rollen welcher der Benutzer in diesen Innen hatte. \\ \hline
-subjects[].id & STRING & ID des Unterrichtsfaches, mit der unter /api/subjects/\$id weiter Informatioen abgefragt werden können. \\ \hline
-subjects[].displayName & STRING & Anzegenamen des Unterrichtsfaches \\ \hline
-subjects[].schoolSubject & Array of Objects & Array mit Objecten zu referenz Schulfächer \\ \hline
-subjects[].schoolSubject[].id & STRING & ID des Refrenzschulfaches, welches in der liste /api/school-subjects zufinden ist. \\ \hline
-subjects[].schoolSubject[].displayName & STRING & Anzeigename das Referenz Schulfaches 
-subjects[].school & Object & Object der mit Informationen zu Schule wo was Unterrichtsfach angeboten wird. \\ \hline
-subjects[].school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weiter Informatioen abgefragt werden können. \\ \hline
-subjects[].school.displayName & STRING & Anzeigename für die Schule \\ \hline
-subjects[].schoolYear & Object & Object mit Informationen zum Schuljahr in welche der Benutzer das Unterrichtsfach besucht hat. \\ \hline
-subjects[].schoolYear.id & STRING & ID des Schuljahres, mit der unter /api/school-years/\$id weiter Informatioen abgefragt werden können. \\ \hline
-subjects[].schoolYear.displayName & STRING & Anzeigename des Schuljahres \\\hline
-subjects[].roleWithinSubject & STRING & Rolle weleche der Benutzer in dem Unterrichtsfach hat, Werte dafür können aus \reftabllec{tab:intro:rolessubject} entnommen werden. \\ \hline
-subjects[].start & DATE & OPTIONAL; Ab wan der Benutzer das Unterrichtsfach hat.\\ \hline
-subjects[].end & DATE & OPTIONAL; Bis wan der Benutzer das Unterrichtsfach hat. \\ \hline
+subjects\[\].id & STRING & ID des Unterrichtsfaches, mit der unter /api/subjects/\$id weiter Informatioen abgefragt werden können. \\ \hline
+subjects\[\].displayName & STRING & Anzegenamen des Unterrichtsfaches \\ \hline
+subjects\[\].schoolSubject & Array of Objects & Array mit Objecten zu referenz Schulfächer \\ \hline
+subjects\[\].schoolSubject\[\].id & STRING & ID des Refrenzschulfaches, welches in der liste /api/school-subjects zufinden ist. \\ \hline
+subjects\[\].schoolSubject\[\].displayName & STRING & Anzeigename das Referenz Schulfaches 
+subjects\[\].school & Object & Object der mit Informationen zu Schule wo was Unterrichtsfach angeboten wird. \\ \hline
+subjects\[\].school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weiter Informatioen abgefragt werden können. \\ \hline
+subjects\[\].school.displayName & STRING & Anzeigename für die Schule \\ \hline
+subjects\[\].schoolYear & Object & Object mit Informationen zum Schuljahr in welche der Benutzer das Unterrichtsfach besucht hat. \\ \hline
+subjects\[\].schoolYear.id & STRING & ID des Schuljahres, mit der unter /api/school-years/\$id weiter Informatioen abgefragt werden können. \\ \hline
+subjects\[\].schoolYear.displayName & STRING & Anzeigename des Schuljahres \\\hline
+subjects\[\].roleWithinSubject & STRING & Rolle weleche der Benutzer in dem Unterrichtsfach hat, Werte dafür können aus \reftabllec{tab:intro:rolessubject} entnommen werden. \\ \hline
+subjects\[\].start & DATE & OPTIONAL; Ab wan der Benutzer das Unterrichtsfach hat.\\ \hline
+subjects\[\].end & DATE & OPTIONAL; Bis wan der Benutzer das Unterrichtsfach hat. \\ \hline
 guardians & Object List & Liste von direkten Verbindungen zu einem anderen Benutzer \\ \hline
-guardians[].id & STRING & ID des Eintrages \\ \hline
-guardians[].role & STRING & Angabe zu Beziehung zum anderen Benutzer, Werte dafür können aus \reftabllec{tab:intro:rolesuser} entnommen werden. \\ \hline
-guardians[].user & Object & Object welches die informationen des anderen Benutzers entählt. \\ \hline
-guardians[].user.id & STRING & ID des anderen Benutzers, mit der unter /api/users/\$id weitere Informtionen abgefragt werden können. \\ \hline
-guardians[].user.displayName & STRING & Name des anderen Benutzers \\ \hline
+guardians\[\].id & STRING & ID des Eintrages \\ \hline
+guardians\[\].role & STRING & Angabe zu Beziehung zum anderen Benutzer, Werte dafür können aus \reftabllec{tab:intro:rolesuser} entnommen werden. \\ \hline
+guardians\[\].user & Object & Object welches die informationen des anderen Benutzers entählt. \\ \hline
+guardians\[\].user.id & STRING & ID des anderen Benutzers, mit der unter /api/users/\$id weitere Informtionen abgefragt werden können. \\ \hline
+guardians\[\].user.displayName & STRING & Name des anderen Benutzers \\ \hline
 \end{longtable}
