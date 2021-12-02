@@ -12,9 +12,9 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:s
 { 
 	user: "<STRING>",
 	start: "<DATE>",
-	end: "<DATE>",
+	end: "<DATE>"
 },
- ... 
+... 
 ]
 \end{lstlisting}
 
@@ -28,6 +28,6 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:s
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
 user & STRING & Die User-ID des Schülers, die Daten des Benutzers können unter /api/users/\$id abgerufen werden  \\ \hline
-start & DATE & Optional; wird gesetzt, falls ein Schüler später zu eine Klasse hinzugefügt wird. \\ \hline
-end & DATE & Optional; wird gesetzt, falls ein Schüler früher aus einer Klasse genommen wird. \\ \hline
+start & DATE & Optional; Ein Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Wird gesetzt, falls ein Schüler später zu eine Klasse hinzugefügt wird. \\ \hline
+end & DATE & Optional; Ein Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Wird gesetzt, falls ein Schüler früher aus einer Klasse genommen wird. \\ \hline
 \end{longtable}

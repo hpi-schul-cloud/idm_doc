@@ -10,16 +10,16 @@ Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:subjects:id
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/subjects/\$id/timetable},label={lst:code:rest:api:subjects:id:timetable:read:ret},frame=tlrb]
 [
- {
-  subject: "<STRING>",
+{
+	subject: "<STRING>",
 	day: "<ENUM>",
 	start: "<TIME>",
 	end: "<TIME>",
 	repeat: "<ENUM>",
 	date: "<DATE>",
-	week: "<ENUM>",
- },
- ...
+	week: "<ENUM>"
+},
+...
 ]
 \end{lstlisting}
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
@@ -40,8 +40,8 @@ repeat & ENUM & Mögliche Werte sind: \begin{itemize}
 					\item "'biweekly"' für zweiwöchentliche Wiederholung 
 					\item "'onetime"' für einmalige Ansetzung
 				\end{itemize} \\ \hline
-date & DATE & Optional; wird gesetzt, falls es sich um den repeat-Typen "`onetime"' handelt, und gibt den Tag an, an dem die Unterrichtseinheit stattfindet. \\ \hline
-week & ENUM & Optional; wird gesetzt, falls es sich um den repeat-Typen "`biweekly"' handelt,  \begin{itemize}
+date & DATE & Optional; Ein Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Wird gesetzt, falls es sich um den repeat-Typen "`onetime"' handelt, und gibt den Tag an, an dem die Unterrichtseinheit stattfindet. \\ \hline
+week & ENUM & Optional; Ein Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Wird gesetzt, falls es sich um den repeat-Typen "`biweekly"' handelt,  \begin{itemize}
 					\item "'week-1"' steht für grade Kalenderwochen
 					\item "'week-2"' steht für ungrade Kalenderwochen
 				\end{itemize} \\ \hline

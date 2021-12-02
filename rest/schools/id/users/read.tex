@@ -12,14 +12,14 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:schools:user
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/schools/\$id/users},label={lst:code:rest:api:schools:users:read:ret},frame=tlrb]
 [
- {
-  user: "<STRING>",
-  role: "<STRING>",
+{
+	user: "<STRING>",
+	role: "<STRING>",
 	start: "<DATE>",
 	end: "<DATE>",
-	school-years: ["<STRING>"',...],
- },
- ...
+	schoolYears: ["<STRING>"',...]
+},
+...
 ]
 \end{lstlisting}
 \begin{longtable}{|p{0.16\textwidth}|p{0.16\textwidth}|p{0.58\textwidth}|}
@@ -35,5 +35,5 @@ user & STRING & Zeichenkette, welche eine ID von einem Benutzer ist, der unter /
 role & STRING & Rolle, die der Benutzer innehat. \\ \hline
 start & DATE & Datum, ab dem der Benutzer die Rolle innehat \\ \hline
 end & DATE & Optional; Gibt an, bis zu welchen Tag der Benutzer die Rolle innehatte. \\ \hline
-school-years & Liste & Optional; Liste von Zeichenketten, welche Referenzen auf Schuljahre sind, die unter /api/school-years/\$id abgerufen werden können. \\ \hline 
+schoolYears & Liste & Optional; Liste von Zeichenketten, welche Referenzen auf Schuljahre sind, die unter /api/school-years/\$id abgerufen werden können. \\ \hline 
 \end{longtable}

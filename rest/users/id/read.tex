@@ -7,18 +7,19 @@ Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:users:id:r
 Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:read:ret} beschrieben.
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/users/\$id},label={lst:code:rest:api:users:id:read:ret},frame=tlrb]
+[
 {
 	id: "<STRING>",
-	student-id: "<STRING>"
+	studentId: "<STRING>"
  	first-name: "<STRING>",
  	preferred-name: "<STRING>",
- 	last-name: "<STRING>",
- 	date-of-birth: "<DATE>",
+ 	lastName: "<STRING>",
+ 	dateOfBirth: "<DATE>",
  	sex: "<ENUM>",
  	roles: [
  	{
  		id: "<STRING>",
- 		display-name: "<STRING>",
+ 		displayName: "<STRING>",
  		role: "<STRING>",
  		start: "<DATE>",
  		end: "<DATE>"
@@ -28,15 +29,15 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:rea
  	classes: [
  	{
  		id: "<STRING>",
- 		display-name: "<STRING>",
+ 		displayName: "<STRING>",
  		summary: "<STRING>",
  		school: {
  			id: "<STRING>",
- 			display-name: "<STRING>"
+ 			displayName: "<STRING>"
  		},
- 		school-year: {
+ 		schoolYear: {
  			id: "<STRING>",
- 			display-name: "<STRING>"
+ 			displayName: "<STRING>"
  		},
  		roleWithinClass: "<STRING>",
  		start: "<DATE>",
@@ -47,21 +48,21 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:rea
 	subjects: [
 	{
 		id: "<STRING>",
-		display-name: "<STRING>",
-		school-subject: [
+		displayName: "<STRING>",
+		schoolSubject: [
  		{
  			id: "<STRING>",
- 			display-name: "<STRING>"
+ 			displayName: "<STRING>"
  		},
  		...
  		],
  		school: {
  			id: "<STRING>",
- 			display-name: "<STRING>"
+ 			displayName: "<STRING>"
  		},
- 		school-year: {
+ 		schoolYear: {
  			id: "<STRING>",
- 			display-name: "<STRING>"
+ 			displayName: "<STRING>"
  		},
  		roleWithinSubject: "<STRING>",
  		start: "<DATE>",
@@ -75,12 +76,13 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:rea
 		role: "<STRING>",
 		user: {
 			id: "<STRING>",
-			display-name: "<STRING>",
+			displayName: "<STRING>",
 		}
 	},
 	...
 	]
 }
+]
 \end{lstlisting}
 
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
@@ -93,10 +95,10 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:rea
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
 id & STRING & ID des Benutzers, mit der unter /api/users/\$id weitere Informtionen abgefragt werden können. \\ \hline
-student-id & STRING & Landesweit gültige Schüler-Identifikationsnummer \\ \hline
+studentId & STRING & Landesweit gültige Schüler-Identifikationsnummer \\ \hline
 name & STRING & Vorname des Benutzers \\ \hline
-last-name & STRING & Nachname des Benutzers \\ \hline
-date-of-birth & DATE & Geburtstag des Benutzers \\ \hline
+lastName & STRING & Nachname des Benutzers \\ \hline
+dateOfBirth & DATE & Geburtstag des Benutzers \\ \hline
 sex & ENUM & Geschlecht des Benutzers 
 \begin{itemize}
 	\item divers steht für divers

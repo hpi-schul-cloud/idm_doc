@@ -8,16 +8,16 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:user:read:re
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/users},label={lst:code:rest:api:user:read:ret},frame=tlrb]
 {
 	id: "<STRING>",
-	student-id: "<STRING>"
+	studentId: "<STRING>"
  	first-name: "<STRING>",
  	preferred-name: "<STRING>",
- 	last-name: "<STRING>",
- 	date-of-birth: "<DATE>",
+ 	lastName: "<STRING>",
+ 	dateOfBirth: "<DATE>",
  	sex: "<ENUM>",
  	roles: [
  	{
  		id: "<STRING>",
- 		display-name: "<STRING>",
+ 		displayName: "<STRING>",
  		role: "<STRING>",
  		start: "<DATE>",
  		end: "<DATE>"
@@ -27,15 +27,15 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:user:read:re
  	classes: [
  	{
  		id: "<STRING>",
- 		display-name: "<STRING>",
+ 		displayName: "<STRING>",
  		summary: "<STRING>",
  		school: {
  			id: "<STRING>",
- 			display-name: "<STRING>"
+ 			displayName: "<STRING>"
  		},
- 		school-year: {
+ 		schoolYear: {
  			id: "<STRING>",
- 			display-name: "<STRING>"
+ 			displayName: "<STRING>"
  		},
  		roleWithinClass: "<STRING>",
  		start: "<DATE>",
@@ -46,21 +46,21 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:user:read:re
 	subjects: [
 	{
 		id: "<STRING>",
-		display-name: "<STRING>",
-		school-subject: [
+		displayName: "<STRING>",
+		schoolSubject: [
  		{
  			id: "<STRING>",
- 			display-name: "<STRING>"
+ 			displayName: "<STRING>"
  		},
  		...
  		],
  		school: {
  			id: "<STRING>",
- 			display-name: "<STRING>"
+ 			displayName: "<STRING>"
  		},
- 		school-year: {
+ 		schoolYear: {
  			id: "<STRING>",
- 			display-name: "<STRING>"
+ 			displayName: "<STRING>"
  		},
  		roleWithinSubject: "<STRING>",
  		start: "<DATE>",
@@ -74,7 +74,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:user:read:re
 		role: "<STRING>",
 		user: {
 			id: "<STRING>",
-			display-name: "<STRING>",
+			displayName: "<STRING>",
 		}
 	},
 	...
@@ -92,10 +92,10 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:user:read:re
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
 id & STRING & ID des Benutzers, mit der unter /api/users/\$id weitere Informtionen abgefragt werden können. \\ \hline
-student-id & STRING & Landesweit gültige Schüler-Identifikationsnummer \\ \hline
+studentId & STRING & Landesweit gültige Schüler-Identifikationsnummer \\ \hline
 name & STRING & Vorname des Benutzers \\ \hline
-last-name & STRING & Nachname des Benutzers \\ \hline
-date-of-birth & DATE & Geburtstag des Benutzers \\ \hline
+lastName & STRING & Nachname des Benutzers \\ \hline
+dateOfBirth & DATE & Geburtstag des Benutzers \\ \hline
 sex & ENUM & Geschlecht des Benutzers 
 \begin{itemize}
 	\item divers steht für divers

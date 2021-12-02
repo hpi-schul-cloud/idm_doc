@@ -17,7 +17,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:t
 	{
 		order: "<NUMBER>",
     	start: "<DATE>",
-    	end: "<DATE>",
+    	end: "<DATE>"
 	},
 	 ...
 	],
@@ -36,8 +36,8 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:t
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
 user & STRING & Die User-ID des Lehrers, die Daten des Benutzers können unter /api/users/\$id abgerufen werden  \\ \hline
-start & DATE & Optional; wird gesetzt, falls der Lehrer erst während des Zeitraums einer Klasse als Klassenlehrer zugewiesen wird. \\ \hline
-end & DATE & Optional; wird gesetzt, falls der Lehrer vor Ende des Zeitraums der Klasse nicht mehr der Klasse als Klassenlehrer zugewiesen ist. \\ \hline
+start & DATE & Optional; Ein Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Wird gesetzt, falls der Lehrer erst während des Zeitraums einer Klasse als Klassenlehrer zugewiesen wird. \\ \hline
+end & DATE & Optional; Ein Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Wird gesetzt, falls der Lehrer vor Ende des Zeitraums der Klasse nicht mehr der Klasse als Klassenlehrer zugewiesen ist. \\ \hline
 order & Object List & Eine Liste mit Objekten, die angibt, welche Position der Lehrer von wann bis wann in der Klasse innehatte. Niedrigere Nummer heißt höhere Position. \\ \hline
 order.order & NUMBER & Die Ordnungsnummer, welche angibt welche Position der Lehrer in einer Klasse inne hat. Beginnt immer bei 1. Es können auch mehre Lehrer dieselbe Nummer haben, falls die Klasse zum Beispiel mehrere gleichberechtigte Klassenlehrer hat. \\ \hline
 order.start & DATE & Optional; Zeitpunkt, ab dem der Lehrer die Position innehatte. \\ \hline

@@ -6,10 +6,12 @@ Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:subjects:i
 Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:schools:read:ret:json} beschrieben.
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/subjects/\$id/schools},label={lst:code:rest:api:subjects:id:schools:read:ret},frame=tlrb]
- {
-  subject: "<STRING>",
-  school: "<STRING>",
- }
+[
+{
+	subject: "<STRING>",
+	school: "<STRING>"
+}
+]
 \end{lstlisting}
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
 		\caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}

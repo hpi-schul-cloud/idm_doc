@@ -8,14 +8,16 @@ Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:users:id:a
 Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:assignments:read:ret} beschrieben.
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/users/\$id/assignments},label={lst:code:rest:api:users:id:assignments:read:ret},frame=tlrb]
- {
-  school: "<STRING>",
+[
+{
+ 	school: "<STRING>",
 	role: "<STRING>",
-	start: "<CALENDARDATE>",
-	end: "<CALENDARDATE>",
-	school-years: ["<STRING>",...]
- },
- ...
+	start: "<DATE>",
+	end: "<DATE>",
+	schoolYears: ["<STRING>",...]
+},
+...
+]
 \end{lstlisting}
 
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
@@ -29,7 +31,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:ass
 \endhead
 school & STRING & Zeichenkette, welche eine ID von einer Schule ist, mit der diese unter /api/schools/\$id abgerufen werden kann. \\ \hline
 role & STRING & Rolle, die der Benutzer innehat. \\ \hline
-start & CALENDARDATE & Datum, ab dem der Benutzer die Rolle innehat. \\ \hline
-end & CALENDARDATE & Optional; Gibt an, bis zu welchen Datum der Benutzer die Rolle innehatte. \\ \hline
-school-years & Liste & Optional; Liste von Zeichenketten, welche Referenzen auf Schuljahre sind, die unter /api/school-years/\$id abgerufen werden können. \\ \hline 
+start & DATE & Datum, ab dem der Benutzer die Rolle innehat. \\ \hline
+end & DATE & Optional; Gibt an, bis zu welchen Datum der Benutzer die Rolle innehatte. \\ \hline
+schoolYears & Liste & Optional; Liste von Zeichenketten, welche Referenzen auf Schuljahre sind, die unter /api/school-years/\$id abgerufen werden können. \\ \hline 
 \end{longtable}

@@ -11,25 +11,25 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/subjects/\$id},label={lst:code:rest:api:subjects:id:read:ret},frame=tlrb]
 {
     id: "<STRING>",
-    display-name: "<STRING>",
-    school-subject: [
+    displayName: "<STRING>",
+    schoolSubject: [
     {
         id: "<STRING>",
-        display-name: "<STRING>"
+        displayName: "<STRING>"
     },
     ...
     ]
     school: {
         id: "<STRING>",
-        display-name: "<STRING>"
+        displayName: "<STRING>"
     },
-    school-year: {
+    schoolYear: {
             id: "<STRING>",
-            display-name: "<STRING>"
+            displayName: "<STRING>"
     },
     roleWithinSubject: <STRING>"
     start: "<DATE>",
-    end: "<DATE>",
+    end: "<DATE>"
  }
 \end{lstlisting}
 
@@ -44,9 +44,9 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:
 \endhead
 subject & STRING & Eindeutige Zeichenkette, die das Unterrichtsfach an einer Schule repräsentiert.  \\ \hline
 name & STRING & Name des Unterrichtsfaches. \\ \hline
-school-subject & Liste von STRING & Für jede Zeichenkette aus dieser Liste kann unter /api/school-subjects/\$id die genauen Informationen abgefragt werden. \\ \hline
+schoolSubject & Liste von STRING & Für jede Zeichenkette aus dieser Liste kann unter /api/school-subjects/\$id die genauen Informationen abgefragt werden. \\ \hline
 school & STRING & ID der Schule, zu der das Fach gehört. Die Daten der Schule können damit unter /api/schools/\$id abgefragt werden. \\ \hline
-school-year & STRING & ID des Schuljahres, in dem das Unterrichtsfach angeboten wurde. Das Schuljahr kann damit unter /api/school-years/\$id abgefragt werden. \\ \hline
-start & DATE & Datumsangabe, ab dem das Unterrichtsfach angeboten wird.  \\ \hline
-Ende & DATE & Datumsangabe, bis zu dem das Unterrichtsfach angeboten wird. \\ \hline
+schoolYear & STRING & ID des Schuljahres, in dem das Unterrichtsfach angeboten wurde. Das Schuljahr kann damit unter /api/school-years/\$id abgefragt werden. \\ \hline
+start & DATE & Ein Datumsangabe nach ISO-8601 im Format YYYY-MM-DD, ab dem das Unterrichtsfach angeboten wird.  \\ \hline
+Ende & DATE & Ein Datumsangabe nach ISO-8601 im Format YYYY-MM-DD, bis zu dem das Unterrichtsfach angeboten wird. \\ \hline
 \end{longtable}
