@@ -18,7 +18,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:
         displayName: "<STRING>"
     },
     ...
-    ]
+    ],
     school: {
         id: "<STRING>",
         displayName: "<STRING>"
@@ -27,7 +27,11 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:
             id: "<STRING>",
             displayName: "<STRING>"
     },
-    roleWithinSubject: <STRING>"
+    grade: [
+        "STRING",
+        ...
+    ],
+    roleWithinSubject: <STRING>",
     start: "<DATE>",
     end: "<DATE>"
  }
@@ -42,11 +46,14 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-subject & STRING & Eindeutige Zeichenkette, die das Unterrichtsfach an einer Schule repräsentiert.  \\ \hline
-name & STRING & Name des Unterrichtsfaches. \\ \hline
+id & STRING & Eindeutige Zeichenkette, die das Unterrichtsfach an einer Schule repräsentiert.  \\ \hline
+displayName & STRING & Name des Unterrichtsfaches. \\ \hline
 schoolSubject & Liste von STRING & Für jede Zeichenkette aus dieser Liste kann unter /api/school-subjects/\$id die genauen Informationen abgefragt werden. \\ \hline
 school & STRING & ID der Schule, zu der das Fach gehört. Die Daten der Schule können damit unter /api/schools/\$id abgefragt werden. \\ \hline
 schoolYear & STRING & ID des Schuljahres, in dem das Unterrichtsfach angeboten wurde. Das Schuljahr kann damit unter /api/school-years/\$id abgefragt werden. \\ \hline
+grade & List of STRINGs & Enthält eine Liste von Klassenstufen in dieser Klasse. \\ \hline
+ \\ \hline
+roleWithinSubject & STRING & Rolle in Bezug auf ein Schulfach. \\hline
 start & DATE & Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD, ab dem das Unterrichtsfach angeboten wird.  \\ \hline
-Ende & DATE & Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD, bis zu dem das Unterrichtsfach angeboten wird. \\ \hline
+end & DATE & Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD, bis zu dem das Unterrichtsfach angeboten wird. \\ \hline
 \end{longtable}

@@ -7,13 +7,10 @@ Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:end:rest:api:school
 [
 {
 	id: "<STRING>",
-	name: "<STRING>"
+	displayName: "<STRING>"
 },
 ...
-{
-	id: "<STRING>",
-	name: "<STRING>"
-}
+
 ]
 \end{lstlisting}
 \begin{table}[htb]
@@ -25,7 +22,7 @@ Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:end:rest:api:school
 			%	ende & TIMESTAMP & Eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD \\ \hline
 			% name & STRING & Eine Name für das Schuljahr wie z.b.: 2020-2021 \\ \hline
 			id & STRING & Eine eindeutige Zeichenkette, die vom IdM-Provider vergeben wird. Sie darf nur aus alphanumerischen Zeichen und Bindestrich bestehen.\\ \hline
-			name & STRING & Der ausgeschriebene Name eines Schulfaches \\ \hline
+			displayName & STRING & Der ausgeschriebene Name eines Schulfaches. \\ \hline
 	\end{tabularx}
 
 		\caption{Beschreibung der Felder in einem JSON-Objekt für ein Schulfach}
