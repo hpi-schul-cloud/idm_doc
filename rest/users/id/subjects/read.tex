@@ -42,5 +42,16 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:sub
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-			 & STRING & Referenz auf das Unterrichtsfach; kann als ID im Pfad /api/subjects/\$id verwendet werden.  \\ \hline
+id & STRING & ID des Unterrichtsfaches, mit der unter /api/subjects/\$id weiter Informationen abgefragt werden können. \\ \hline
+displayName & STRING & Anzeigenamen des Unterrichtsfaches \\ \hline
+schoolSubject & Array of Objects & Array mit Objekten zu Referenzschulfächern. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:subjects:schoolSubject} entnommen werden. \\ \hline
+school & Object & Objekt mit Informationen zu der Schule, an der das Unterrichtsfach angeboten wird. \\ \hline
+school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weitere Informationen abgefragt werden können. \\ \hline
+school.displayName & STRING & Anzeigename für die Schule \\ \hline
+schoolYear & Object & Objekt mit Informationen zum Schuljahr, in welche der Benutzer das Unterrichtsfach besucht hat. \\ \hline
+schoolYear.id & STRING & ID des Schuljahres, mit der unter /api/school-years/\$id weitere Informationen abgefragt werden können. \\ \hline
+schoolYear.displayName & STRING & Anzeigename des Schuljahres \\\hline
+roleWithinSubject & STRING & Rolle, welche der Benutzer in dem Unterrichtsfach innehat. Werte dafür können \reftabllec{tab:intro:rolessubject} entnommen werden. \\ \hline
+start & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, ab dem der Benutzer das Unterrichtsfach hat.\\ \hline
+end & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, bis zu dem der Benutzer das Unterrichtsfach hat. \\ \hline
 \end{longtable}
