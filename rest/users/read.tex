@@ -15,10 +15,12 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:user:read:re
  	lastName: "<STRING>",
  	dateOfBirth: "<DATE>",
  	sex: "<ENUM>",
- 	roles: [
+ 	memberships: [
  	{
- 		id: "<STRING>",
- 		displayName: "<STRING>",
+ 		school: {
+ 			id: "<STRING>",
+ 			displayName: "<STRING>"
+ 		},
  		role: "<STRING>",
  		start: "<DATE>",
  		end: "<DATE>"
