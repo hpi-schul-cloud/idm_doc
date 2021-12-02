@@ -7,7 +7,6 @@ Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:classes:id
 Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:read:ret} beschrieben.
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/classes/\$id},label={lst:code:rest:api:classes:id:read:ret},frame=tlrb]
-[
 {
     id: "<STRING>",
     displayName: "<STRING>",
@@ -27,7 +26,6 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:r
     users: [
     {
         id: "<STRING>",
-        displayName: "<STRING>",
         roleWithinClass: <STRING>",
         start: "<DATE>",
         end: "<DATE>"    
@@ -35,7 +33,6 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:r
     ...
     ]
 }
-]
 \end{lstlisting}
 
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}

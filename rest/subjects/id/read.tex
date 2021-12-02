@@ -5,7 +5,7 @@ Dieser Pfad gibt bei einer READ-Anfrage für das per ID ausgewählte Unterrichts
 Die Daten, welche wiedergegeben werden, sind durch den Kontext des anfragenden Benutzers eingeschränkt.
 
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:subjects:id:read:ret}. 
-Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:read:ret} beschrieben.
+Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:read:ret:json} beschrieben.
 
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/subjects/\$id},label={lst:code:rest:api:subjects:id:read:ret},frame=tlrb]
@@ -47,7 +47,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:
 		\caption{Beschreibung der Felder in einem JSON-Objekt für ein Unterrichtsfach}
 \endfoot
 		\caption{Beschreibung der Felder in einem JSON-Objekt für ein Unterrichtsfach}
-		\label{tab:rest:api:subjects:id:read:ret}
+		\label{tab:rest:api:subjects:id:read:ret:json}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
@@ -61,7 +61,6 @@ school.displayName & STRING & Anzeigename der Schule \\ \hline
 schoolYear & Object & Objekt mit Informationen zum Schuljahr, in welchem der Benutzer die Klasse besucht hat. \\ \hline
 schoolYear.id & STRING & ID des Schuljahres, mit der unter /api/school-years/\$id weitere Informationen abgefragt werden können. \\ \hline
 schoolYear.displayName & STRING & Anzeigename des Schuljahres. \\\hline
-abgefragt werden. \\ \hline
 grade & List of STRINGs & Enthält eine Liste von Klassenstufen, die dieser Klasse zugeordnet sind. \\ \hline
 users & Array of Objects & Liste von Rollen in Bezug auf ein Unterrichtsfach. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:subjects:id:users:read:ret:json} entnommen werden. \\ \hline
 \end{longtable}
