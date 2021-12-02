@@ -97,7 +97,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:rea
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
 id & STRING & ID des Benutzers, mit der unter /api/users/\$id weitere Informtionen abgefragt werden können. \\ \hline
-studentId & STRING & Landesweit gültige Schüler-Identifikationsnummer \\ \hline
+studentId & STRING & OPTIONAL; Landesweit gültige Schüler-Identifikationsnummer \\ \hline
 name & STRING & Vorname des Benutzers \\ \hline
 preferredName & STRING & Bevorzugter Vorname des Benutzers \\ \hline
 lastName & STRING & Nachname des Benutzers \\ \hline
@@ -109,8 +109,8 @@ sex & ENUM & Geschlecht des Benutzers
 	\item male steht für männlich
 \end{itemize}
  \\ \hline
-roles & Object Array & Liste von Rollen in Bezug auf eine Schule \\ \hline
-classes & Object Array & Liste von Rollen in Bezug auf eine Klasse \\ \hline
-subjects & Object Array & Liste von Rollen in Bezug auf eine Unterrichtsfach \\ \hline
-guardians & Object Array & Liste von direkten Verbindungen zu einem anderen Benutzer \\ \hline
+memberships & Array of Objects & Liste von Rollen in Bezug auf eine Schule. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:roles} entnommen werden. \\ \hline
+classes & Array of Objects & Liste von Rollen in Bezug auf eine Klasse. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:classes} entnommen werden. \\ \hline
+subjects & Array of Objects & Liste von Unterrichtsfächern und den Rollen, welcher der Benutzer in diesen innehat. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:subjects} entnommen werden. \\ \hline
+guardians & Array of Objects & Liste von direkten Verbindungen zu einem anderen Benutzer. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:guardians} entnommen werden. \\ \hline
 \end{longtable}

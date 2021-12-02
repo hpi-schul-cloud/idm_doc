@@ -96,7 +96,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:user:read:re
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
 id & STRING & ID des Benutzers, mit der unter /api/users/\$id weitere Informtionen abgefragt werden können. \\ \hline
-studentId & STRING & Optional; Landesweit gültige Schüler-Identifikationsnummer \\ \hline
+studentId & STRING & OPTIONAL; Landesweit gültige Schüler-Identifikationsnummer \\ \hline
 name & STRING & Vorname des Benutzers \\ \hline
 lastName & STRING & Nachname des Benutzers \\ \hline
 dateOfBirth & DATE & Geburtstag des Benutzers \\ \hline
@@ -107,10 +107,10 @@ sex & ENUM & Geschlecht des Benutzers
 	\item male steht für männlich
 \end{itemize}
  \\ \hline
-roles & Object List & Liste von Rollen in Bezug auf eine Schule, der Aufbaue der Objekte kann aus \reftabllec{tab:rest:api:user:read:ret:roles} entnommen werden. \\ \hline
-classes & Object List & Liste von Rollen in Bezug auf eine Klasse, der Aufbaue der Objekte kann aus \reftabllec{tab:rest:api:user:read:ret:classes} entnommen werden. \\ \hline
-subjects & Object List & Liste von Unterrichtsfächern und den Rollen welcher der Benutzer in diesen Innen hatte, der Aufbaue der Objekte kann aus \reftabllec{tab:rest:api:user:read:ret:subjects} entnommen werden. \\ \hline
-guardians & Object List & Liste von direkten Verbindungen zu einem anderen Benutzer, der Aufbaue der Objekte kann aus \reftabllec{tab:rest:api:user:read:ret:guardians} entnommen werden. \\ \hline
+memberships & Array of Objects & Liste von Rollen in Bezug auf eine Schule. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:roles} entnommen werden. \\ \hline
+classes & Array of Objects & Liste von Rollen in Bezug auf eine Klasse. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:classes} entnommen werden. \\ \hline
+subjects & Array of Objects & Liste von Unterrichtsfächern und den Rollen, welcher der Benutzer in diesen innehat. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:subjects} entnommen werden. \\ \hline
+guardians & Array of Objects & Liste von direkten Verbindungen zu einem anderen Benutzer. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:guardians} entnommen werden. \\ \hline
 \end{longtable}
 
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
@@ -122,11 +122,12 @@ guardians & Object List & Liste von direkten Verbindungen zu einem anderen Benut
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-schoolId & STRING & ID der Schule \\ \hline
-schoolName & STRING & Name der Schule \\ \hline
-role & STRING & Role welche der User an der Schule innen hat, Werte dafür können aus \reftabllec{tab:intro:rolesschool} entnommen werden. \\ \hline
-start: & DATE & OPTIONAL; ab wan der Benutzer die Rolle an der Schule innen hat \\ \hline
-end & DATE & OPTIONAL; bis wan der Benutzer die Rolle an der Schule innen hatte \\ \hline
+school & Object & Objekt mit Informationen zur Schule, zu der die Klasse gehört. \\ \hline
+school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weitere Informationen abgefragt werden können. \\ \hline
+school.displayName & STRING & Anzeigename der Schule \\ \hline
+role & STRING & Rolle, welche der User an der Schule innehat. Werte dafür können \reftabllec{tab:intro:rolesschool} entnommen werden. \\ \hline
+start & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, ab dem der Benutzer die Rolle an der Schule innehat. \\ \hline
+end & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, bis zu dem der Benutzer die Rolle an der Schule innehat. \\ \hline
 \end{longtable}
 
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
@@ -138,18 +139,18 @@ end & DATE & OPTIONAL; bis wan der Benutzer die Rolle an der Schule innen hatte 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-id & STRING & ID der Klasse, mit der unter /api/classes/\$id weiter Informatioen abgefragt werden können. \\ \hline
-displayName & STRING & Anzeige name der Klasse \\ \hline
-summary & STRING & Zusammfasende Beschreibung der Klasse \\ \hline
+id & STRING & ID der Klasse, mit der unter /api/classes/\$id weitere Informationen abgefragt werden können. \\ \hline
+displayName & STRING & Anzeigename der Klasse \\ \hline
+summary & STRING & Zusammfassende Beschreibung der Klasse \\ \hline
 school & Object & Object mit Informationen zu Schule zu der die Klasse gehört \\ \hline
-school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weiter Informatioen abgefragt werden können. \\ \hline
+school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weitere Informationen abgefragt werden können. \\ \hline
 school.displayName & STRING & Anzeigename der Schule \\ \hline
-schoolYear & Object & Object mit Informationen zum Schuljahr in welche der Benutzer die Klasse besucht hat. \\ \hline
-schoolYear.id & STRING & ID des Schuljahres, mit der unter /api/school-years/\$id weiter Informatioen abgefragt werden können. \\ \hline
+schoolYear & Object & Objekt mit Informationen zum Schuljahr, in welchem der Benutzer die Klasse besucht hat. \\ \hline
+schoolYear.id & STRING & ID des Schuljahres, mit der unter /api/school-years/\$id weitere Informationen abgefragt werden können. \\ \hline
 schoolYear.displayName & STRING & Anzeigename des Schuljahres \\\hline
-roleWithinClass & STRING & Rolle des Benutzers in der Klasse, Werte dafür können aus \reftabllec{tab:intro:rolesclass} entnommen werden. \\ \hline 
-start & DATE & OPTIONAL; Ab wan der Benutzer in der Klasse war oder ist. \\ \hline
-end & DATE & OPTIONAL; Bis wan der Benutzer in der Klasse war oder ist. \\ \hline
+roleWithinClass & STRING & Rolle des Benutzers in der Klasse. Werte dafür können \reftabllec{tab:intro:rolesclass} entnommen werden. \\ \hline 
+start & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, ab dem der Benutzer in der Klasse war oder ist. \\ \hline
+end & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, bis zu dem der Benutzer in der Klasse war oder ist. \\ \hline
 \end{longtable}
 
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
@@ -161,18 +162,18 @@ end & DATE & OPTIONAL; Bis wan der Benutzer in der Klasse war oder ist. \\ \hlin
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-id & STRING & ID des Unterrichtsfaches, mit der unter /api/subjects/\$id weiter Informatioen abgefragt werden können. \\ \hline
-displayName & STRING & Anzegenamen des Unterrichtsfaches \\ \hline
-schoolSubject & Array of Objects & Array mit Objecten zu referenz Schulfächer, der Aufbaue der Objekte kann aus \reftabllec{tab:rest:api:user:read:ret:subjects:schoolSubject} entnommen werden. \\ \hline
-school & Object & Object der mit Informationen zu Schule wo was Unterrichtsfach angeboten wird. \\ \hline
-school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weiter Informatioen abgefragt werden können. \\ \hline
+id & STRING & ID des Unterrichtsfaches, mit der unter /api/subjects/\$id weiter Informationen abgefragt werden können. \\ \hline
+displayName & STRING & Anzeigenamen des Unterrichtsfaches \\ \hline
+schoolSubject & Array of Objects & Array mit Objekten zu Referenzschulfächern. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:subjects:schoolSubject} entnommen werden. \\ \hline
+school & Object & Objekt mit Informationen zu der Schule, an der das Unterrichtsfach angeboten wird. \\ \hline
+school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weitere Informationen abgefragt werden können. \\ \hline
 school.displayName & STRING & Anzeigename für die Schule \\ \hline
-schoolYear & Object & Object mit Informationen zum Schuljahr in welche der Benutzer das Unterrichtsfach besucht hat. \\ \hline
-schoolYear.id & STRING & ID des Schuljahres, mit der unter /api/school-years/\$id weiter Informatioen abgefragt werden können. \\ \hline
+schoolYear & Object & Objekt mit Informationen zum Schuljahr, in welche der Benutzer das Unterrichtsfach besucht hat. \\ \hline
+schoolYear.id & STRING & ID des Schuljahres, mit der unter /api/school-years/\$id weitere Informationen abgefragt werden können. \\ \hline
 schoolYear.displayName & STRING & Anzeigename des Schuljahres \\\hline
-roleWithinSubject & STRING & Rolle weleche der Benutzer in dem Unterrichtsfach hat, Werte dafür können aus \reftabllec{tab:intro:rolessubject} entnommen werden. \\ \hline
-start & DATE & OPTIONAL; Ab wan der Benutzer das Unterrichtsfach hat.\\ \hline
-end & DATE & OPTIONAL; Bis wan der Benutzer das Unterrichtsfach hat. \\ \hline
+roleWithinSubject & STRING & Rolle, welche der Benutzer in dem Unterrichtsfach innehat. Werte dafür können \reftabllec{tab:intro:rolessubject} entnommen werden. \\ \hline
+start & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, ab dem der Benutzer das Unterrichtsfach hat.\\ \hline
+end & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, bis zu dem der Benutzer das Unterrichtsfach hat. \\ \hline
 \end{longtable}
 
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
@@ -184,8 +185,8 @@ end & DATE & OPTIONAL; Bis wan der Benutzer das Unterrichtsfach hat. \\ \hline
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-id & STRING & ID des Refrenzschulfaches, welches in der liste /api/school-subjects zufinden ist. \\ \hline
-displayName & STRING & Anzeigename das Referenz Schulfaches \\ \hline
+id & STRING & ID des Referenzschulfaches, welches in der Liste /api/school-subjects zu finden ist. \\ \hline
+displayName & STRING & Anzeigename das Referenzschulfaches \\ \hline
 \end{longtable}
 
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
@@ -198,8 +199,8 @@ displayName & STRING & Anzeigename das Referenz Schulfaches \\ \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
 id & STRING & ID des Eintrages \\ \hline
-role & STRING & Angabe zu Beziehung zum anderen Benutzer, Werte dafür können aus \reftabllec{tab:intro:rolesuser} entnommen werden. \\ \hline
-user & Object & Object welches die informationen des anderen Benutzers entählt. \\ \hline
+role & STRING & Angabe zur Beziehung zum anderen Benutzer. Werte dafür können \reftabllec{tab:intro:rolesuser} entnommen werden. \\ \hline
+user & Object & ObjeKt, welches die informationen des anderen Benutzers enthält. \\ \hline
 user.id & STRING & ID des anderen Benutzers, mit der unter /api/users/\$id weitere Informtionen abgefragt werden können. \\ \hline
 user.displayName & STRING & Name des anderen Benutzers \\ \hline
 \end{longtable}
