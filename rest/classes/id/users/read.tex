@@ -1,8 +1,8 @@
 \subsubsection{READ}
 \label{sec:rest:api:classes:id:users:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Bei Anfragen an diesen Endpunkt wird eine Liste von IDs von Klassenlehrern zurückgegeben, die der Klasse als Klassenlehrer zugeordnet sind.
-Optional ist der Eintritts- sowie Austrittszeitpunkt. Diese Felder werden gesetzt, falls der Klassenlehrer dies nicht über den kompletten Zeitraum der Klasse war.
+Bei Anfragen an diesen Endpunkt wird eine Liste von IDs von Benutzern zurückgegeben, die der Klasse zugeordnet sind.
+Optional ist der Eintritts- sowie Austrittszeitpunkt. Diese Felder werden gesetzt, falls der Benutzer dies nicht über den kompletten Zeitraum der Klasse war.
 
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:classes:id:users:read:ret}. 
 Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:users:read:ret} beschrieben.
@@ -20,9 +20,9 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:u
 \end{lstlisting}
 
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
-		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Lehrer}
+		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Benutzer}
 \endfoot
-		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Lehrer}
+		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Benutzer}
 		\label{tab:rest:api:classes:id:users:read:ret}
 \endlastfoot 
 \hline

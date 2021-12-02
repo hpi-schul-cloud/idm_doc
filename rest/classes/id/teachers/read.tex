@@ -27,19 +27,19 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:t
 \end{lstlisting}
 
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
-		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Lehrer}
+		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Lehrkräfte}
 \endfoot
-		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Lehrer}
+		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Lehrkräfte}
 		\label{tab:rest:api:classes:id:teachers:read:ret}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
 user & STRING & Die User-ID des Lehrers, die Daten des Benutzers können unter /api/users/\$id abgerufen werden  \\ \hline
-start & DATE & OPTIONAL; Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Wird gesetzt, falls der Lehrer erst während des Zeitraums einer Klasse als Klassenlehrer zugewiesen wird. \\ \hline
-end & DATE & OPTIONAL; Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Wird gesetzt, falls der Lehrer vor Ende des Zeitraums der Klasse nicht mehr der Klasse als Klassenlehrer zugewiesen ist. \\ \hline
-order & Array of Objects & Eine Liste mit Objekten, die angibt, welche Position der Lehrer von wann bis wann in der Klasse innehat. Niedrigere Nummer heißt höhere Position. \\ \hline
-order.order & NUMBER & Die Ordnungsnummer, welche angibt welche Position der Lehrer in einer Klasse inne hat. Beginnt immer bei 1. Es können auch mehre Lehrer dieselbe Nummer haben, falls die Klasse zum Beispiel mehrere gleichberechtigte Klassenlehrer hat. \\ \hline
-order.start & DATE & OPTIONAL; Zeitpunkt, ab dem der Lehrer die Position innehat. \\ \hline
-order.end & DATE & OPTIONAL; Zeitpunkt, bis zu dem der Lehrer die Position innehat. \\ \hline
+start & DATE & OPTIONAL; Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Wird gesetzt, falls die Lehrkraft erst während des Zeitraums einer Klasse als Klassenlehrer zugewiesen wird. \\ \hline
+end & DATE & OPTIONAL; Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Wird gesetzt, falls die Lehrkraft vor Ende des Zeitraums der Klasse nicht mehr der Klasse als Klassenlehrer zugewiesen ist. \\ \hline
+order & Array of Objects & Eine Liste mit Objekten, die angibt, welche Position die Lehrkraft von wann bis wann in der Klasse innehat. Niedrigere Nummer heißt höhere Position. \\ \hline
+order.order & NUMBER & Die Ordnungsnummer, welche angibt welche Position die Lehrkraft in einer Klasse inne hat. Beginnt immer bei 1. Es können auch mehrere Lehrkräfte dieselbe Nummer haben, falls die Klasse zum Beispiel mehrere gleichberechtigte Klassenlehrer hat. \\ \hline
+order.start & DATE & OPTIONAL; Zeitpunkt, ab dem die Lehrkraft die Position innehat. \\ \hline
+order.end & DATE & OPTIONAL; Zeitpunkt, bis zu dem die Lehrkraft die Position innehat. \\ \hline
 \end{longtable}

@@ -49,12 +49,13 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:r
 \endhead
 id & STRING & ID der Klasse im System. \\ \hline
 displayName & STRING & Name der Klasse, welche zum Anzeigen verwendet wird. \\ \hline
-summary & STRING &  \\ \hline
-school & STRING & ID, zu welcher Schule die Klasse gehört. Die Schule kann damit unter /api/schools/\$id abgefragt werden. \\ \hline
-school-year & STRING & Schuljahr, in welchem die Klasse existiert. Die Daten des Schuljahres können unter /api/school-years/\$id abgrufen werden. \\ \hline
+summary & STRING & Zusammenfassung der Klasse. \\ \hline
+school & Object & Objekt mit Informationen zu Schule zu der die Klasse gehört \\ \hline
+school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weitere Informationen abgefragt werden können. \\ \hline
+school.displayName & STRING & Anzeigename der Schule \\ \hline
+schoolYear & Object & Objekt mit Informationen zum Schuljahr, in welchem der Benutzer die Klasse besucht hat. \\ \hline
+schoolYear.id & STRING & ID des Schuljahres, mit der unter /api/school-years/\$id weitere Informationen abgefragt werden können. \\ \hline
+schoolYear.displayName & STRING & Anzeigename des Schuljahres. \\\hline
 grade & List of STRINGs & Enthält eine Liste von Klassenstufen, die dieser Klasse zugeordnet sind. \\ \hline
-users & Array of Objects & User-Rollen-Informationen in Bezug auf die Klasse.\\ \hline
-% roleWithinClass & STRING & Rolle innerhalb der Klasse. \\ \hline
-% start & DATE & Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Zeitpunkt, ab wann das Klassenobjekt existiert, falls dies abweichend zum Startzeitpunkt des Schuljahres ist. \\ \hline 
-% end & DATE & Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Zeitpunkt, bis wann das Klassenobjekt existiert, falls dies abweichend zum Endzeitpunkt des Schuljahres ist. \\ \hline 
+users & Array of Objects & users & Array of Objects & Liste von Rollen in Bezug auf eine Klasse. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:classes:id:users:read:ret} entnommen werden. \\ \hline
 \end{longtable}
