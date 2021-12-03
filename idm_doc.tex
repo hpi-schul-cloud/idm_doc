@@ -117,7 +117,7 @@
  
 \usepackage{acronym}
 \setcounter{secnumdepth}{3}
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{2}
 %\setcounter{tocdepth}{5}
 %\setcounter{secnumdepth}{4}
 
@@ -152,17 +152,19 @@
   \pagestyle{plain}
 	\setcounter{page}{1}
 	\pagenumbering{roman}
+  \input{version}
   \tableofcontents
   \clearpage
 \endgroup
 \pagenumbering{arabic}
 \pagestyle{plain}
 \setcounter{page}{1}
-\input{version}
 \input{intro}
 \input{auth}
 \input{rest/main}
 \input{additional}
+\appendix
+\chapter{Anhang}
 \input{appendix/glossary}
 % \input{appendix/datamodel}
 
