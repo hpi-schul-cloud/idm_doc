@@ -1,19 +1,88 @@
 \subsubsection{READ}
 \label{sec:rest:api:users:id:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Die Route gibt für den per ID ausgewählten Benutzer seine persönlichen Daten wieder.
-Diese können eingeschränkt werden durch den Kontext, in dem sich der anfragende Benutzer befinden.
+Der Pfad gibt für den per ID ausgewählten Benutzer seine persönlichen Daten wieder. Das gelieferte JSON beinhaltet neben den persönlichen Informationen auch alle Rollen in Bezug auf Schule, Klasse, Unterrichtsfächer und andere Benutzer.
 
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:users:id:read:ret}. 
 Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:read:ret} beschrieben.
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/users/\$id},label={lst:code:rest:api:users:id:read:ret},frame=tlrb]
 {
- id: "<STRING>",
- name: "<STRING>",
- surename: "<STRING>",
- dateofbirth: "<DATE>",
- sex: "<ENUM>",
+	id: "<STRING>",
+	studentId: "<STRING>"
+ 	firstName: "<STRING>",
+ 	preferredName: "<STRING>",
+ 	lastName: "<STRING>",
+ 	dateOfBirth: "<DATE>",
+ 	sex: "<ENUM>",
+ 	schools: [
+ 	{
+ 		school: {
+ 			id: "<STRING>",
+ 			displayName: "<STRING>"
+ 		},
+ 		role: "<STRING>",
+ 		start: "<DATE>",
+ 		end: "<DATE>"
+ 	},
+ 	...
+ 	],
+ 	classes: [
+ 	{
+ 		id: "<STRING>",
+ 		displayName: "<STRING>",
+ 		summary: "<STRING>",
+ 		school: {
+ 			id: "<STRING>",
+ 			displayName: "<STRING>"
+ 		},
+ 		schoolYear: {
+ 			id: "<STRING>",
+ 			displayName: "<STRING>"
+ 		},
+ 		roleWithinClass: "<STRING>",
+ 		start: "<DATE>",
+ 		end: "<DATE>"
+ 	},
+ 	...
+	],
+	subjects: [
+	{
+		id: "<STRING>",
+		displayName: "<STRING>",
+		schoolSubject: [
+ 		{
+ 			id: "<STRING>",
+ 			displayName: "<STRING>"
+ 		},
+ 		...
+ 		],
+ 		school: {
+ 			id: "<STRING>",
+ 			displayName: "<STRING>"
+ 		},
+ 		schoolYear: {
+ 			id: "<STRING>",
+ 			displayName: "<STRING>"
+ 		},
+ 		roleWithinSubject: "<STRING>",
+ 		start: "<DATE>",
+ 		end: "<DATE>" 		
+	},
+	...
+	],
+	guardians: [
+	{
+		id: "<STRING>",
+		role: "<STRING>",
+		user: {
+			id: "<STRING>",
+			firstName: "<STRING>",
+			lastName: "<STRING>"		
+		}
+	},
+	...
+	]
 }
 \end{lstlisting}
 
@@ -26,10 +95,12 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:rea
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-id & STRING & ID des Benutzers, mit der unter /api/users/\$id weitere Informationen abgefragt werden können. \\ \hline
+id & STRING & ID des Benutzers, mit der unter /api/users/\$id weitere Informtionen abgefragt werden können. \\ \hline
+studentId & STRING & OPTIONAL; Landesweit gültige Schüler-Identifikationsnummer \\ \hline
 name & STRING & Vorname des Benutzers \\ \hline
-surname & STRING & Nachname des Benutzers \\ \hline
-dateofbirth & DATE & Geburtstag des Benutzers \\ \hline
+preferredName & STRING & Bevorzugter Vorname des Benutzers \\ \hline
+lastName & STRING & Nachname des Benutzers \\ \hline
+dateOfBirth & DATE & Geburtstag des Benutzers \\ \hline
 sex & ENUM & Geschlecht des Benutzers 
 \begin{itemize}
 	\item divers steht für divers
@@ -37,4 +108,8 @@ sex & ENUM & Geschlecht des Benutzers
 	\item male steht für männlich
 \end{itemize}
  \\ \hline
+schools & Array of Objects & Liste von Rollen in Bezug auf eine Schule. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:roles} entnommen werden. \\ \hline
+classes & Array of Objects & Liste von Rollen in Bezug auf eine Klasse. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:classes} entnommen werden. \\ \hline
+subjects & Array of Objects & Liste von Unterrichtsfächern und den Rollen, welcher der Benutzer in diesen innehat. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:subjects} entnommen werden. \\ \hline
+guardians & Array of Objects & Liste von direkten Verbindungen zu einem anderen Benutzer. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:guardians} entnommen werden. \\ \hline
 \end{longtable}

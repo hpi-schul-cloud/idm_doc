@@ -10,26 +10,26 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school-years
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/school-years},label={lst:code:rest:api:school-years:read:ret},frame=tlrb]
 [
 {
- school-year: "<STRING>",
- start: "<DATE>",
- end: "<DATE>",
- name: "<STRING>",
+    id: "<STRING>",
+    displayName: "<STRING>",
+    start: "<DATE>",
+    end: "<DATE>"
 },
 ...
 ]
 \end{lstlisting}
 
 \begin{longtable}{|p{0.16\textwidth}|p{0.16\textwidth}|p{0.58\textwidth}|}
-		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Schuljahre}
+		\caption{Beschreibung der Felder in einem JSON-Objekt für ein Schuljahr}
 \endfoot
-		\caption{Beschreibung der Felder in einem JSON-Objekt aus der Liste der Schuljahre}
+		\caption{Beschreibung der Felder in einem JSON-Objekt für ein Schuljahr}
 		\label{tab:rest:api:school-years:read:ret:json}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
- school-year & STRING & Eine eindeutige Zeichenkette, welche das Schuljahr im IDM identifiziert. \\ \hline
- start & DATE & Ein Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD, welche angibt, wann das Schuljahr begonnen hat. \\ \hline
- ende & DATE & Ein Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD, welche angibt, wann das Schuljahr endet. \\ \hline
- name & STRING & Eine Name für das Schuljahr wie z.b.: 2020-2021 \\ \hline
+ id & STRING & Eine eindeutige Zeichenkette, welche das Schuljahr im IdM identifiziert. \\ \hline
+ displayName & STRING & Eine Name für das Schuljahr wie z.b "2020-2021" \\ \hline
+ start & DATE & Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Gibt an, wann das Schuljahr begonnen hat. \\ \hline
+ end & DATE & Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Gibt an, wann das Schuljahr endet. \\ \hline
 \end{longtable}

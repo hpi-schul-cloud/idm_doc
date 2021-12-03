@@ -1,22 +1,21 @@
 \subsubsection{READ}
 \label{secrest:api:subjects:id:students:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Eine READ-Anfrage auf diese Route gibt eine Liste mit Objekten, welche Schüler von wann bis wann an dem per ID ausgewählten Unterrichtsfach teilgenommen haben, wieder.
+Eine READ-Anfrage auf diesen Pfad gibt eine Liste mit Objekten, welche Schüler von wann bis wann an dem per ID ausgewählten Unterrichtsfach teilgenommen haben, wieder.
 Die Daten werden durch den Kontext des anfragenden Benutzers eingeschränkt.
 
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:subjects:id:students:read:ret}. 
 Die einzelnen Felder der Antwort werden in Tabelle \reftabllec{tab:rest:api:subjects:id:students:read:ret:json} beschrieben.
-Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:subjects:id:students:read:right} entnommen werden.
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/subjects/\$id/students},label={lst:code:rest:api:subjects:id:students:read:ret},frame=tlrb]
 [
- {
-  subject: "<STRING>", 
-  user: "<STRING>",
+{
+	subject: "<STRING>", 
+	user: "<STRING>",
 	start: "<DATE>",
-	end: "<DATE>",
- },
- ...
+	end: "<DATE>"
+},
+...
 ]
 \end{lstlisting}
 
@@ -31,6 +30,6 @@ Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:subjects:id
 \endhead
 subject & STRING & Zeichenkette, mit der das Unterrichtsfach unter /api/subjects/\$id abgefragt werden kann. \\ \hline
 user & STRING &  Zeichenkette, mit der User unter /api/users/\$id abfragt werden kann. \\ \hline
-start & DATE & Optional; wird gesetzt, falls der Schüler nach Start des Zeitraumes eines Unterrichtsfaches dem Unterrichtsfach hinzugefügt wurde. \\ \hline
-end & DATE & Optional; wird gesetzt, falls ein Schüler vor Ablauf des Zeitraumes eines Unterrichtsfaches aus dem Unterrichtsfach entfernt wurde. \\ \hline
+start & DATE & OPTIONAL; Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Wird gesetzt, falls der Schüler nach Start des Zeitraumes eines Unterrichtsfaches dem Unterrichtsfach hinzugefügt wurde. \\ \hline
+end & DATE & OPTIONAL; Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Wird gesetzt, falls ein Schüler vor Ablauf des Zeitraumes eines Unterrichtsfaches aus dem Unterrichtsfach entfernt wurde. \\ \hline
 \end{longtable}

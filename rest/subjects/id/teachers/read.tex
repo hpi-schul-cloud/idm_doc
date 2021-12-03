@@ -1,22 +1,21 @@
 \subsubsection{READ}
 \label{secrest:api:subjects:id:teachers:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Bei einer READ-Abnfrage auf diese Route wird eine Liste von Objekten mit Metainformationen zu den unterrichtenden Lehrkräften des per ID ausgewählten Unterrichtsfaches zurückgegeben.
-Für die Daten gilt, dasd diese anhand des Kontextes des anfragenden Users Einschränkungen unterliegen.
+Bei einer READ-Abfrage auf diesen Pfad wird eine Liste von Objekten mit Metainformationen zu den unterrichtenden Lehrkräften des per ID ausgewählten Unterrichtsfaches zurückgegeben.
+Für die Daten gilt, das diese anhand des Kontextes des anfragenden Users Einschränkungen unterliegen.
 
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:subjects:id:teachers:read:ret}. 
 Die einzelnen Felder der Antwort werden in Tabelle \reftabllec{tab:rest:api:subjects:id:teachers:read:ret:json} beschrieben.
-Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:subjects:id:teachers:read:right} entnommen werden.
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/subjects/\$id/teachers},label={lst:code:rest:api:subjects:id:teachers:read:ret},frame=tlrb]
 [
- { 
-  subject: "<STRING>",
-  user: "<STRING>",
+{ 
+	subject: "<STRING>",
+	user: "<STRING>",
 	start: "<DATE>",
-	end: "<DATE>",
- },
- ...
+	end: "<DATE>"
+},
+...
 ]
 \end{lstlisting}
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
@@ -30,6 +29,6 @@ Die Berechtigungen auf den Endpoint können \reftabllec{tab:rest:api:subjects:id
 \endhead
 subject & STRING & Zeichenkette, mit der das Unterrichtsfach unter /api/subjects/\$id abgefragt werden kann. \\ \hline
 user & STRING &  Zeichenkette, mit der die Lehrkraft unter /api/users/\$id abfragt werden kann. \\ \hline
-start & DATE & Optional; wird gesetzt, falls die Lehrkraft ach Start des Zeitraumes eines Unterrichtsfaches dem Unterrichtsfach hinzugefügt wurde. \\ \hline
-end & DATE & Optional; wird gesetzt, falls die Lehrkräften vor Ablauf des Zeitraumes eines Unterrichtsfaches aus dem Unterrichtsfach entfernt wurde. \\ \hline
+start & DATE & OPTIONAL; Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Wird gesetzt, falls die Lehrkraft ach Start des Zeitraumes eines Unterrichtsfaches dem Unterrichtsfach hinzugefügt wurde. \\ \hline
+end & DATE & OPTIONAL; Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Wird gesetzt, falls die Lehrkräften vor Ablauf des Zeitraumes eines Unterrichtsfaches aus dem Unterrichtsfach entfernt wurde. \\ \hline
 \end{longtable}

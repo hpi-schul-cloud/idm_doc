@@ -1,0 +1,12 @@
+\section{OpenID Connect}
+\label{auth:openid}
+
+OpenID Connect ist eine Spezifikation, wie \textit{ID Tokens} mit personenbezogenen Daten ausgegeben werden \cite{OpenID.Core}. 
+Dabei setzt OpenID Connect auf das OAuth2-Protokoll auf. 
+OpenID Connect definiert ein weiteren \textit{response$\_$type=id$\_$token}. 
+Dieser ermöglicht es, neben dem Access Token den sogenannten \textit{ID Token} in Form eines JSON Web Tokens \cite{rfc7519} vom Autorisierungsserver anzufordern. 
+Um OpenID Connect nutzen zu können, muss im in \refabschnitt{auth:oauth2} beschriebenen Autorisierungsprozess der Parameter \textit{Scopes} um \textit{openid} erweitert werden. \\
+
+Über den ID Token erlangt der Client Zugriff auf personenbezogene Daten des Benutzers. 
+\textit{OpenID Connect} definiert eine Reihe von Standard-\textit{claims} \cite[Abschnitt~StandardClaims]{OpenID.Core}), die im \textit{Scope}-Parameter beim Aufruf der Autorisierungs-URL aufgelistet werden. 
+Standard-\textit{claims} können um Custom-\textit{claims} erweitert werden, um die gewünschten Benutzerinformationen im ID Token angefordern.

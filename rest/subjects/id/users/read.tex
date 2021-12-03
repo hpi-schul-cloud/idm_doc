@@ -1,0 +1,33 @@
+\subsubsection{READ}
+\label{secrest:api:subjects:id:users:read}
+Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
+Bei einer READ-Abfrage auf diesen Pfad wird eine Liste von Objekten mit Metainformationen zu Benutzern und ihrer Rolle innerhalb eines Unterrichtsfaches zurückgegeben.
+
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:subjects:id:users:read:ret}. 
+Die einzelnen Felder der Antwort werden in Tabelle \reftabllec{tab:rest:api:subjects:id:users:read:ret:json} beschrieben.
+\input{json}
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/subjects/\$id/users},label={lst:code:rest:api:subjects:id:users:read:ret},frame=tlrb]
+[
+{
+    id: "<STRING>",
+    roleWithinSubject: <STRING>",
+    start: "<DATE>",
+    end: "<DATE>"    
+},
+...
+]
+\end{lstlisting}
+\begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
+		\caption{Beschreibung der Felder in einem JSON-Objekt mit der Liste aller Benutzer und ihrer Rolle innerhalb eines Unterrichtsfaches.}
+\endfoot
+		\caption{Beschreibung der Felder in einem JSON-Objekt mit der Liste aller Benutzer und ihrer Rolle innerhalb eines Unterrichtsfaches.}
+		\label{tab:rest:api:subjects:id:users:read:ret:json}
+\endlastfoot 
+\hline
+			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
+\endhead
+id & STRING & Zeichenkette, mit der der Benutzer unter /api/users/\$id abfragt werden kann. \\ \hline
+roleWithinSubject & STRING & Rolle des Benutzer innerhalb des Unterrichtsfaches. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:subjects:id:read:ret:roles} entnommen werden. \\ \hline
+start & DATE & OPTIONAL; Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Wird gesetzt, falls der Benutzer nach Start des Zeitraumes eines Unterrichtsfaches dem Unterrichtsfach hinzugefügt wurde. \\ \hline
+end & DATE & OPTIONAL; Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Wird gesetzt, falls der Benutzer vor Ablauf des Zeitraumes eines Unterrichtsfaches aus dem Unterrichtsfach entfernt wurde. \\ \hline
+\end{longtable}

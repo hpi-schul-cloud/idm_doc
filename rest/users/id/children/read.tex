@@ -1,7 +1,7 @@
 \subsubsection{READ}
 \label{sec:rest:api:users:id:children:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Die Route gibt für den per ID ausgewählten Benutzer Benutzer die Liste mit den IDs seiner Kinder wieder.
+Der Pfad gibt für den per ID ausgewählten Benutzer Benutzer die Liste mit den IDs seiner Kinder wieder.
 Für diese Daten gelten die Einschränkungen die durch den Kontext des anfragenden Benutzers gegeben sind.
 
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:users:id:children:read:ret}. 
@@ -9,7 +9,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:chi
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/users/\$id/children},label={lst:code:rest:api:users:id:children:read:ret},frame=tlrb]
 [
- "<STRING>",
+"<STRING>",
 ...
 ]
 \end{lstlisting}

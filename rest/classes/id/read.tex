@@ -8,13 +8,30 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:r
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/classes/\$id},label={lst:code:rest:api:classes:id:read:ret},frame=tlrb]
 {
- class: "<STRING>",
- name: "<STRING>",
- school: "<STRING>",
- school-year: "<STRING>",
- start: "<DATE>",
- end: "<DATE>",
- grade: [ "<STRING>", ... ],
+    id: "<STRING>",
+    displayName: "<STRING>",
+    summary: "<STRING>",
+    school: {
+        id: "<STRING>",
+        displayName: "<STRING>"
+    },
+    schoolYear: {
+        id: "<STRING>",
+        displayName: "<STRING>"
+    },
+    grade: [
+        "STRING",
+        ...
+    ],
+    users: [
+    {
+        id: "<STRING>",
+        roleWithinClass: <STRING>",
+        start: "<DATE>",
+        end: "<DATE>"    
+    },
+    ...
+    ]
 }
 \end{lstlisting}
 
@@ -27,11 +44,15 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:r
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-class & STRING & ID der Klasse im System. \\ \hline
-name & STRING & Name der Klasse, welche zum Anzeigen verwendet wird. \\ \hline
-school & STRING & ID, zu welcher Schule die Klasse gehört. Die Schule kann damit unter /api/schools/\$id abgefragt werden. \\ \hline
-school-year & STRING & Schuljahr, in welchem die Klasse existiert. Die Daten des Schuljahres können unter /api/school-years/\$id abgrufen werden. \\ \hline
-start & DATE & Zeitpunkt, ab wann das Klassenobjekt existiert, falls dies abweichend zum Startzeitpunkt des Schuljahres ist. \\ \hline 
-end & DATE & Zeitpunkt, bis wann das Klassenobjekt existiert, falls dies abweichend zum Endzeitpunkt des Schuljahres ist. \\ \hline 
-grade & List of STRINGs & Enthält eine Liste von Klassenstufen von Schülern in dieser Klasse. \\ \hline
+id & STRING & ID der Klasse im System. \\ \hline
+displayName & STRING & Name der Klasse, welche zum Anzeigen verwendet wird. \\ \hline
+summary & STRING & Zusammenfassung der Klasse. \\ \hline
+school & Object & Objekt mit Informationen zu Schule zu der die Klasse gehört \\ \hline
+school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weitere Informationen abgefragt werden können. \\ \hline
+school.displayName & STRING & Anzeigename der Schule \\ \hline
+schoolYear & Object & Objekt mit Informationen zum Schuljahr, in welchem der Benutzer die Klasse besucht hat. \\ \hline
+schoolYear.id & STRING & ID des Schuljahres, mit der unter /api/school-years/\$id weitere Informationen abgefragt werden können. \\ \hline
+schoolYear.displayName & STRING & Anzeigename des Schuljahres. \\\hline
+grade & List of STRINGs & Enthält eine Liste von Klassenstufen, die dieser Klasse zugeordnet sind. \\ \hline
+users & Array of Objects & Liste von Rollen in Bezug auf eine Klasse. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:classes:id:users:read:ret} entnommen werden. \\ \hline
 \end{longtable}

@@ -1,22 +1,45 @@
 \subsubsection{READ}
 \label{sec:rest:api:subjects:id:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Diese Route gibt bei einer READ-Anfrage für das per ID ausgewählte Unterrichtsfach die allgemeinen Informationen davon wieder.
+Dieser Pfad gibt bei einer READ-Anfrage für das per ID ausgewählte Unterrichtsfach die allgemeinen Informationen davon wieder.
 Die Daten, welche wiedergegeben werden, sind durch den Kontext des anfragenden Benutzers eingeschränkt.
 
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:subjects:id:read:ret}. 
-Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:read:ret} beschrieben.
+Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:read:ret:json} beschrieben.
 
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/subjects/\$id},label={lst:code:rest:api:subjects:id:read:ret},frame=tlrb]
- {
-  subject: "<STRING>",
-  name: "<STRING>",
-  school-subject: ["<STRING>",...], 
-  school: "<STRING>",
-  school-year: "<STRING>",
-  start: "<DATE>",
-  end: "<DATE>",
+{
+    id: "<STRING>",
+    displayName: "<STRING>",
+    schoolSubject: [
+    {
+        id: "<STRING>",
+        displayName: "<STRING>"
+    },
+    ...
+    ],
+    school: {
+        id: "<STRING>",
+        displayName: "<STRING>"
+    },
+    schoolYear: {
+            id: "<STRING>",
+            displayName: "<STRING>"
+    },
+    grade: [
+        "STRING",
+        ...
+    ],
+    users: [
+    {
+        id: "<STRING>",
+        roleWithinSubject: <STRING>",
+        start: "<DATE>",
+        end: "<DATE>"    
+    },
+    ...
+    ]
  }
 \end{lstlisting}
 
@@ -24,16 +47,20 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:
 		\caption{Beschreibung der Felder in einem JSON-Objekt für ein Unterrichtsfach}
 \endfoot
 		\caption{Beschreibung der Felder in einem JSON-Objekt für ein Unterrichtsfach}
-		\label{tab:rest:api:subjects:id:read:ret}
+		\label{tab:rest:api:subjects:id:read:ret:json}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-subject & STRING & Eindeutige Zeichenkette, die das Unterrichtsfach an einer Schule repräsentiert.  \\ \hline
-name & STRING & Name des Unterrichtsfaches. \\ \hline
-school-subject & Liste von STRING & Für jede Zeichenkette aus dieser Liste kann unter /api/school-subjects/\$id die genauen Informationen abgefragt werden. \\ \hline
-school & STRING & ID der Schule, zu der das Fach gehört. Die Daten der Schule können damit unter /api/schools/\$id abgefragt werden. \\ \hline
-school-year & STRING & ID des Schuljahres, in dem das Unterrichtsfach angeboten wurde. Das Schuljahr kann damit unter /api/school-years/\$id abgefragt werden. \\ \hline
-start & DATE & Datumsangabe, ab dem das Unterrichtsfach angeboten wird.  \\ \hline
-Ende & DATE & Datumsangabe, bis zu dem das Unterrichtsfach angeboten wird. \\ \hline
+id & STRING & Eindeutige Zeichenkette, die das Unterrichtsfach an einer Schule repräsentiert.  \\ \hline
+displayName & STRING & Name des Unterrichtsfaches. \\ \hline
+schoolSubject & Array of Objects & Liste von Unterrichtsfächern und den Rollen, welcher der Benutzer in diesen innehat. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:subjects} entnommen werden. \\ \hline
+school & Object & Objekt mit Informationen zu Schule zu der die Klasse gehört \\ \hline
+school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weitere Informationen abgefragt werden können. \\ \hline
+school.displayName & STRING & Anzeigename der Schule \\ \hline
+schoolYear & Object & Objekt mit Informationen zum Schuljahr, in welchem der Benutzer die Klasse besucht hat. \\ \hline
+schoolYear.id & STRING & ID des Schuljahres, mit der unter /api/school-years/\$id weitere Informationen abgefragt werden können. \\ \hline
+schoolYear.displayName & STRING & Anzeigename des Schuljahres. \\\hline
+grade & List of STRINGs & Enthält eine Liste von Klassenstufen, die dieser Klasse zugeordnet sind. \\ \hline
+users & Array of Objects & Liste von Rollen in Bezug auf ein Unterrichtsfach. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:subjects:id:users:read:ret:json} entnommen werden. \\ \hline
 \end{longtable}

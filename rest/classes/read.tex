@@ -2,31 +2,27 @@
 \label{sec:end:rest:api:school-subjects:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
 Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:end:rest:api:school-subjects:read:ret}. Die einzelnen Felder der Antwort werden in \reftabllec{tab:end:rest:api:school-subjects:read:ret:json} beschrieben.
-Die Berechtingungen auf den Endpunkt können \reftabllec{tab:end:rest:api:school-subjects:read:right} entnommen werden.
 \input{json}
 \begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/school-subjects},label={lst:code:end:rest:api:school-subjects:read:ret},frame=tlrb]
 [
 {
- id: "<STRING>",
- name: "<STRING>"
+	id: "<STRING>",
+	displayName: "<STRING>"
 },
 ...
-{
- id: "<STRING>",
- name: "<STRING>"
-}
+
 ]
 \end{lstlisting}
 \begin{table}[htb]
 	\begin{tabularx}{\textwidth}{|c|c|X|}
 		\hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
-			%	id & STRING & Eine eindeutige Zeichenkette, die vom IDM Provider vergeben wird. Sie darf nur aus alphanumerischen Zeichen und Bindestrichen bestehen. \\ \hline
-			%	start & TIMESTAMP & Ein Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD \\ \hline
-			%	ende & TIMESTAMP & Ein Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD \\ \hline
+			%	id & STRING & Eine eindeutige Zeichenkette, die vom IdM Provider vergeben wird. Sie darf nur aus alphanumerischen Zeichen und Bindestrichen bestehen. \\ \hline
+			%	start & TIMESTAMP & Eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD \\ \hline
+			%	ende & TIMESTAMP & Eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD \\ \hline
 			% name & STRING & Eine Name für das Schuljahr wie z.b.: 2020-2021 \\ \hline
-			id & STRING & Eine eindeutige Zeichenkette, die vom IDM-Provider vergeben wird. Sie darf nur aus alphanumerischen Zeichen und Bindestrich bestehen.\\ \hline
-			name & STRING & Der ausgeschriebene Name eines Schulfaches \\ \hline
+			id & STRING & Eine eindeutige Zeichenkette, die vom IdM-Provider vergeben wird. Sie darf nur aus alphanumerischen Zeichen und Bindestrich bestehen.\\ \hline
+			displayName & STRING & Der ausgeschriebene Name eines Schulfaches. \\ \hline
 	\end{tabularx}
 
 		\caption{Beschreibung der Felder in einem JSON-Objekt für ein Schulfach}
