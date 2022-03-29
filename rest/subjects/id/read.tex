@@ -12,7 +12,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:
 {
     id: "<STRING>",
     displayName: "<STRING>",
-    schoolSubject: [
+    referenceSubject: [
     {
         id: "<STRING>",
         displayName: "<STRING>"
@@ -23,8 +23,8 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:
         id: "<STRING>",
         displayName: "<STRING>"
     },
-    schoolYear: {
-            id: "<STRING>",
+    schoolPeriod: {
+  y          id: "<STRING>",
             displayName: "<STRING>"
     },
     grade: [
@@ -53,14 +53,14 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
 id & STRING & Eindeutige Zeichenkette, die das Unterrichtsfach an einer Schule repräsentiert.  \\ \hline
-displayName & STRING & Name des Unterrichtsfaches. \\ \hline
-schoolSubject & Array of Objects & Liste von Unterrichtsfächern und den Rollen, welcher der Benutzer in diesen innehat. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:subjects} entnommen werden. \\ \hline
+displayName & STRING & Name des Unterrichtsfaches \\ \hline
+referenceSubject & Array of Objects & OPTIONAL; Liste von Unterrichtsfächern und den Rollen, welcher der Benutzer in diesen innehat. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:subjects} entnommen werden. \\ \hline
 school & Object & Objekt mit Informationen zu Schule zu der die Klasse gehört \\ \hline
 school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weitere Informationen abgefragt werden können. \\ \hline
-school.displayName & STRING & Anzeigename der Schule \\ \hline
-schoolYear & Object & Objekt mit Informationen zum Schuljahr, in welchem der Benutzer die Klasse besucht hat. \\ \hline
-schoolYear.id & STRING & ID des Schuljahres, mit der unter /api/school-years/\$id weitere Informationen abgefragt werden können. \\ \hline
-schoolYear.displayName & STRING & Anzeigename des Schuljahres. \\\hline
+school.displayName & STRING & OPTIONAL; Anzeigename der Schule \\ \hline
+schoolPeriod & Object & Objekt mit Informationen zum Schuljahr, in welchem der Benutzer die Klasse besucht hat. \\ \hline
+schoolPeriod.id & STRING & ID des Schuljahres, mit der unter /api/school-periods/\$id weitere Informationen abgefragt werden können. \\ \hline
+schoolPeriod.displayName & STRING & OPTIONAL; Anzeigename des Schuljahres \\\hline
 grade & List of STRINGs & Enthält eine Liste von Klassenstufen, die dieser Klasse zugeordnet sind. \\ \hline
 users & Array of Objects & Liste von Rollen in Bezug auf ein Unterrichtsfach. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:subjects:id:users:read:ret:json} entnommen werden. \\ \hline
 \end{longtable}

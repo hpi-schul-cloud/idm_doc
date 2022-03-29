@@ -1,11 +1,11 @@
 \subsubsection{READ}
-\label{sec:rest:api:school-subjects:read}
+\label{sec:rest:api:reference-subjects:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
 Unter diesem Pfad wird eine Liste der Teilmenge der Referenzschulfächer, welche vom IdM unterstützt werden, zurückgegeben.
 
-Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:school-subjects:read:ret}. Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school-subjects:read:ret:json} beschrieben.
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:reference-subjects:read:ret}. Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:reference-subjects:read:ret:json} beschrieben.
 \input{json}
-\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/school-subjects},label={lst:code:rest:api:school-subjects:read:ret},frame=tlrb]
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/reference-subjects},label={lst:code:rest:api:reference-subjects:read:ret},frame=tlrb]
 [
 {
     id: "<STRING>",
@@ -20,7 +20,7 @@ Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:school-sub
 		\caption{Beschreibung der Felder in einem JSON-Objekt für ein Schulfach}
 \endfoot
 		\caption{Beschreibung der Felder in einem JSON-Objekt für ein Schulfach}
-		\label{tab:rest:api:school-subjects:read:ret:json}
+		\label{tab:rest:api:reference-subjects:read:ret:json}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline

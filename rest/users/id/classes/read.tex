@@ -12,16 +12,16 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:cla
 {
 	id: "<STRING>",
 	displayName: "<STRING>",
-	summary: "<STRING>",
 	school: {
 		id: "<STRING>",
 		displayName: "<STRING>"
 	},
-	schoolYear: {
+	schoolPeriod: {
 		id: "<STRING>",
 		displayName: "<STRING>"
 	},
 	roleWithinClass: "<STRING>",
+    substitute: "<BOOLEAN>",
 	start: "<DATE>",
 	end: "<DATE>"
 },
@@ -39,15 +39,15 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:cla
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
 id & STRING & ID der Klasse, mit der unter /api/classes/\$id weitere Informationen abgefragt werden können. \\ \hline
-displayName & STRING & Anzeigename der Klasse \\ \hline
-summary & STRING & Zusammfassende Beschreibung der Klasse \\ \hline
+displayName & STRING & OPTIONAL; Anzeigename der Klasse \\ \hline
 school & Object & Objekt mit Informationen zu Schule zu der die Klasse gehört \\ \hline
 school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weitere Informationen abgefragt werden können. \\ \hline
-school.displayName & STRING & Anzeigename der Schule \\ \hline
-schoolYear & Object & Objekt mit Informationen zum Schuljahr, in welchem der Benutzer die Klasse besucht hat. \\ \hline
-schoolYear.id & STRING & ID des Schuljahres, mit der unter /api/school-years/\$id weitere Informationen abgefragt werden können. \\ \hline
-schoolYear.displayName & STRING & Anzeigename des Schuljahres. \\\hline
+school.displayName & STRING & OPTIONAL; Anzeigename der Schule \\ \hline
+schoolPeriod & Object & Objekt mit Informationen zum Schuljahr, in welchem der Benutzer die Klasse besucht hat. \\ \hline
+schoolPeriod.id & STRING & ID des Schuljahres, mit der unter /api/school-periods/\$id weitere Informationen abgefragt werden können. \\ \hline
+schoolPeriod.displayName & STRING & OPTIONAL; Anzeigename des Schuljahres \\\hline
 roleWithinClass & STRING & Rolle des Benutzers in der Klasse. Werte dafür können \reftabllec{tab:intro:rolesclass} entnommen werden. \\ \hline 
+substitute & BOOLEAN & Gibt an, ob die Rolle in Vertretung wahrgenommen wird. \\ \hline
 start & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, ab dem der Benutzer in der Klasse war oder ist. \\ \hline
 end & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, bis zu dem der Benutzer in der Klasse war oder ist. \\ \hline
 \end{longtable}
