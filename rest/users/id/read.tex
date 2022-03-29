@@ -105,7 +105,7 @@ studentId & STRING & OPTIONAL; Landesweit gültige Schüler-Identifikationsnumme
 name & STRING & Vorname des Benutzers \\ \hline
 preferredName & STRING & Bevorzugter Vorname des Benutzers \\ \hline
 lastName & STRING & Nachname des Benutzers \\ \hline
-dateOfBirth & DATE & Geburtstag des Benutzers \\ \hline
+dateOfBirth & DATE & eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Geburtstag des Benutzers \\ \hline
 salutation & ENUM & Anrede des Benutzers 
 \begin{itemize}
 	\item divers steht für divers
@@ -124,7 +124,7 @@ status & ENUM &
 	\item inactive steht für inaktiver Benutzer
 \end{itemize}
  \\ \hline
-deleteOn & DATE & Datum, an dem die Daten des Benutzers gelöscht werden sollen. \\ \hline
+deleteOn & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Datum, an dem die Daten des Benutzers gelöscht werden sollen. \\ \hline
 \end{longtable}
 
 Darüber hinaus kann der OpenID-Connect-Endpunkt UserInfo dazu genutzt werden, die genannten Daten für den eigenen User bereitzustellen.
