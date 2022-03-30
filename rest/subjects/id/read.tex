@@ -54,7 +54,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:
 \endhead
 id & STRING & Eindeutige Zeichenkette, die das Unterrichtsfach an einer Schule repräsentiert.  \\ \hline
 displayName & STRING & Name des Unterrichtsfaches \\ \hline
-referenceSubject & Array of Objects & OPTIONAL; Liste von Unterrichtsfächern und den Rollen, welcher der Benutzer in diesen innehat. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:subjects} entnommen werden. \\ \hline
+referenceSubject & Array of Objects & OPTIONAL; Liste von Unterrichtsfächern und den Rollen, welcher der Benutzer in diesen innehat. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:subjects:id:reference-subjects} entnommen werden. \\ \hline
 school & Object & Objekt mit Informationen zu Schule zu der die Klasse gehört \\ \hline
 school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weitere Informationen abgefragt werden können. \\ \hline
 school.displayName & STRING & OPTIONAL; Anzeigename der Schule \\ \hline
@@ -64,3 +64,17 @@ schoolPeriod.displayName & STRING & OPTIONAL; Anzeigename des Schuljahres \\\hli
 grade & List of STRINGs & Enthält eine Liste von Klassenstufen, die dieser Klasse zugeordnet sind. \\ \hline
 users & Array of Objects & Liste von Rollen in Bezug auf ein Unterrichtsfach. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:subjects:id:users:read:ret:json} entnommen werden. \\ \hline
 \end{longtable}
+
+\begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
+        \caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen von Referenzschulfächern zu einem Unterrichtsfach}
+\endfoot
+        \caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen von Referenzschulfächern zu einem Unterrichtsfach}
+        \label{tab:rest:api:subjects:id:reference-subjects}
+\endlastfoot 
+\hline
+            \textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
+\endhead
+referenceSubject & Object & Objekt mit Informationen zum Referenzschulfach. \\ \hline
+referenceSubject.id & STRING & ID des Referenzschulfachs. \\ \hline
+referenceSubject.displayName & STRING & OPTIONAL; Anzeigename des Referenzschulfachs \\ \hline
+its\end{longtable}

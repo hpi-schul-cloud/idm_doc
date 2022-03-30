@@ -1,12 +1,12 @@
 \subsubsection{READ}
-\label{sec:rest:api:user:read}
+\label{sec:rest:api:users:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
 Unter diesem Pfad wird eine Liste mit allen >user-IDs zurückgegeben, auf die der anfragende Benutzer berechtigt ist und für die Daten unter /api/users/\$id abgerufen werden können.
 
-Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:user:read:ret}. 
-Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:user:read:ret} beschrieben.
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:users:read:ret}. 
+Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:read:ret} beschrieben.
 \input{json}
-\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/users},label={lst:code:rest:api:user:read:ret},frame=tlrb]
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/users},label={lst:code:rest:api:users:read:ret},frame=tlrb]
 [
 "<STRING>",
 ...
@@ -17,7 +17,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:user:read:re
 		\caption{Beschreibung des Feldes in einem JSON-Objekt, was die User-IDs wiedergibt}
 \endfoot
 		\caption{Beschreibung des Feldes in einem JSON-Objekt, was die User-IDs wiedergibt}
-		\label{tab:rest:api:schools:read:ret}
+		\label{tab:rest:api:users:read:ret}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
