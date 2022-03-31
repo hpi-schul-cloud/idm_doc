@@ -11,6 +11,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:schools:id:r
 	id: "<STRING>",
 	displayName: "<STRING>",
 	schoolNumber: "<STRING>",
+	schoolType: "<STRING>",
 	district: "<STRING>",
 	classes: [
 	{
@@ -53,6 +54,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:schools:id:r
 id & STRING & Eindeutiger Identifikations-String der Schule im IdM \\ \hline
 displayName & STRING & Name der Schule \\ \hline
 schoolNumber & STRING & OPTIONAL; Schulnummer \\ \hline
+schoolType & STRING & OPTIONAL; Schultyp \\ \hline
 district & STRING & OPTIONAL; Schulbezirk \\ \hline
 classes & Array of Objects & Liste von Klassen an der Schule. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:schools:id:read:ret:subjects} entnommen werden. \\ \hline
 subjects & Array of Objects & Liste von Unterrichtsfächern an der Schule. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:schools:id:read:ret:classes} entnommen werden. \\ \hline
