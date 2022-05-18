@@ -15,7 +15,9 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:gua
 		id: "<STRING>",
 		firstName: "<STRING>",
 		lastName: "<STRING>"		
-	}
+	},
+	start,
+	end,
 },
 ...
 ]
@@ -23,18 +25,32 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:gua
 
 
 \begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
-		\caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
+		\caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen Erziehungsbrechteiger Benutzer zu einem Benutzer in einer Rolle zu einer Schule}
 \endfoot
-		\caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
+		\caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen Erziehungsbrechteiger Benutzer zu einem Benutzer in einer Rolle zu einer Schule}
 		\label{tab:rest:api:users:id:guardians:read:ret}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
 id & STRING & ID des Eintrages \\ \hline
-role & STRING & Angabe zur Beziehung zum anderen Benutzer. Werte dafür können \reftabllec{tab:intro:rolesuser} entnommen werden. \\ \hline
-user & Object & Objekt, welches die Informationen des anderen Benutzers enthält. \\ \hline
-user.id & STRING & ID des anderen Benutzers, mit der unter /api/users/\$id weitere Informtionen abgefragt werden können. \\ \hline
-user.firstName & STRING & Vorname des anderen Benutzers \\ \hline
-user.lastName & STRING & Nachname des anderen Benutzers \\ \hline
+role & STRING & Angabe zur Beziehung zum Erziehungsbrechteigen Benutzer. Werte dafür können \reftabllec{tab:intro:rolesuser} entnommen werden. \\ \hline
+user & Object & Objekt, welches die Informationen des Erziehungsbrechteigen Benutzers enthält. Der Aufbau des Objektes kann \reftabllec{tab:rest:api:users:id:guardians:user} entnommen werden. \\ \hline
+start & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt ein Datum an, ab dem der Benutzer Erziehungsbrechteig ist.\\ \hline
+end & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt ein Datum an, bis zu dem der Benutzer Erziehungsbrechteig. \\ \hline
 \end{longtable}
+
+\begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
+		\caption{Beschreibung der Felder in einem JSON-Objekt ein Erziehungsbrechteigen Benutzer}
+\endfoot
+		\caption{Beschreibung der Felder in einem JSON-Objekt ein Erziehungsbrechteigen Benutzer}
+		\label{tab:rest:api:users:id:guardians:user}
+\endlastfoot 
+\hline
+			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
+\endhead
+id & STRING & ID des Erziehungsbrechteigen Benutzers, mit der unter /api/users/\$id weitere Informationen abgefragt werden können. \\ \hline
+firstName & STRING & Vorname des Erziehungsbrechteigen Benutzers \\ \hline
+lastName & STRING & Nachname des Erziehungsbrechteigen Benutzers \\ \hline
+\end{longtable}
+
