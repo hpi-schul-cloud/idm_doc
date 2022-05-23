@@ -45,13 +45,35 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:sub
 id & STRING & ID des Unterrichtsfaches, mit der unter /api/subjects/\$id weiter Informationen abgefragt werden können. \\ \hline
 displayName & STRING & OPTIONAL; Anzeigenamen des Unterrichtsfaches \\ \hline
 referenceSubject & Array of Objects & Array mit Objekten zu Referenzschulfächern. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:subjects:id:reference-subjects} entnommen werden. \\ \hline
-school & Object & Objekt mit Informationen zu der Schule, an der das Unterrichtsfach angeboten wird. \\ \hline
-school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weitere Informationen abgefragt werden können. \\ \hline
-school.displayName & STRING & OPTIONAL; Anzeigename für die Schule \\ \hline
-schoolPeriod & Object & Objekt mit Informationen zum Schuljahr, in welche der Benutzer das Unterrichtsfach besucht hat. \\ \hline
-schoolPeriod.id & STRING & ID des Schuljahres, mit der unter /api/school-periods/\$id weitere Informationen abgefragt werden können. \\ \hline
-schoolPeriod.displayName & STRING & OPTIONAL; Anzeigename des Schuljahres \\\hline
+school & Object & Objekt mit Informationen zu der Schule, an der das Unterrichtsfach angeboten wird. Der Aufbau des Objektes kann \reftabllec{tab:rest:api:users:id:subjects:school} entnommen werden. \\ \hline
+schoolPeriod & Object & Objekt mit Informationen zum Schuljahr, in welche der Benutzer das Unterrichtsfach besucht hat. Der Aufbau des Objektes kann \reftabllec{tab:rest:api:users:id:subjects:schoolperiod} entnommen werden. \\ \hline
 roleWithinSubject & STRING & Rolle, welche der Benutzer in dem Unterrichtsfach innehat. Werte dafür können \reftabllec{tab:intro:rolessubject} entnommen werden. \\ \hline
 start & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, ab dem der Benutzer das Unterrichtsfach hat.\\ \hline
 end & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, bis zu dem der Benutzer das Unterrichtsfach hat. \\ \hline
+\end{longtable}
+
+\begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
+        \caption{Beschreibung der Felder im JSON-Objekt für die Schule }
+\endfoot
+        \caption{Beschreibung der Felder im JSON-Objekt für die Schule }
+        \label{tab:rest:api:users:id:subjects:school}
+\endlastfoot 
+\hline
+            \textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
+\endhead
+id & STRING & ID der Schule, mit der unter /api/schools/\$id weitere Informationen abgefragt werden können. \\ \hline
+displayName & STRING & OPTIONAL; Anzeigename der Schule \\ \hline
+\end{longtable}
+
+\begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
+        \caption{Beschreibung der Felder im JSON-Objekt für das Schuljahr }
+\endfoot
+        \caption{Beschreibung der Felder im JSON-Objekt für das Schuljahr }
+        \label{tab:rest:api:users:id:subjects:schoolperiod}
+\endlastfoot 
+\hline
+            \textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
+\endhead
+id & STRING & ID des Schuljahres, mit der unter /api/school-periods/\$id weitere Informationen abgefragt werden können. \\ \hline
+displayName & STRING & OPTIONAL; Anzeigename des Schuljahres \\\hline
 \end{longtable}
