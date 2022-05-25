@@ -1,16 +1,17 @@
 \subsubsection{READ}
-\label{sec:rest:api:school:id:read}
+\label{sec:rest:api:schools:id:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
 Dieser Pfad gibt für die per ID ausgewählte Schule die Stammdaten zurück.
 
-Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:school:id:read:ret}. 
-Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school:id:read:ret} beschrieben.
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:schools:id:read:ret}. 
+Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:schools:id:read:ret} beschrieben.
 \input{json}
-\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/school/\$id},label={lst:code:rest:api:school:id:read:ret},frame=tlrb]
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/school/\$id},label={lst:code:rest:api:schools:id:read:ret},frame=tlrb]
 {
 	id: "<STRING>",
 	displayName: "<STRING>",
 	schoolNumber: "<STRING>",
+	schoolType: "<STRING>",
 	district: "<STRING>",
 	classes: [
 	{
@@ -31,10 +32,13 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school:id:re
 		id: "<STRING>",
 		role: "<STRING>",
 		start: "<DATE>",
-		end: "<DATE>",
+		end: "<DATE>"
 	},
 	...
-	]
+	],
+	status: "<ENUM>",
+	deleteOn: "<DATE>"
+
 }
 \end{lstlisting}
 
@@ -42,7 +46,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school:id:re
 		\caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
 \endfoot
 		\caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
-		\label{tab:rest:api:school:id:read:ret}
+		\label{tab:rest:api:schools:id:read:ret}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
@@ -50,43 +54,44 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school:id:re
 id & STRING & Eindeutiger Identifikations-String der Schule im IdM \\ \hline
 displayName & STRING & Name der Schule \\ \hline
 schoolNumber & STRING & OPTIONAL; Schulnummer \\ \hline
+schoolType & STRING & OPTIONAL; Schultyp \\ \hline
 district & STRING & OPTIONAL; Schulbezirk \\ \hline
-classes & Array of Objects & Liste von Klassen an der Schule. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:school:id:read:ret:subjects} entnommen werden. \\ \hline
-subjects & Array of Objects & Liste von Unterrichtsfächern an der Schule. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:school:id:read:ret:classes} entnommen werden. \\ \hline
-users & Array of Objects & Liste von Benutzern an der Schule. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:school:id:read:ret:users} entnommen werden. \\ \hline
+classes & Array of Objects & Liste von Klassen an der Schule. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:schools:id:read:ret:subjects} entnommen werden. \\ \hline
+subjects & Array of Objects & Liste von Unterrichtsfächern an der Schule. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:schools:id:read:ret:classes} entnommen werden. \\ \hline
+users & Array of Objects & Liste von Benutzern an der Schule. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:schools:id:read:ret:users} entnommen werden. \\ \hline
 \end{longtable}
 
 \begin{longtable}{|p{0.18\textwidth}|p{0.18\textwidth}|p{0.52\textwidth}|}
 		\caption{Beschreibung der Felder in JSON-Objekt classes[]}
 \endfoot
 		\caption{Beschreibung der Felder in JSON-Objekt classes[]}
-		\label{tab:rest:api:school:id:read:ret:classes}
+		\label{tab:rest:api:schools:id:read:ret:classes}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
 id & STRING & ID der Klasse \\ \hline
-displayName & STRING & Anzeigename der Klasse \\ \hline
+displayName & STRING & OPTIONAL; Anzeigename der Klasse \\ \hline
 \end{longtable}
 
 \begin{longtable}{|p{0.18\textwidth}|p{0.18\textwidth}|p{0.52\textwidth}|}
 		\caption{Beschreibung der Felder in JSON-Objekt subjects[]}
 \endfoot
 		\caption{Beschreibung der Felder in JSON-Objekt subjects[]}
-		\label{tab:rest:api:school:id:read:ret:subjects}
+		\label{tab:rest:api:schools:id:read:ret:subjects}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
 id & STRING & ID des Unterrichtsfaches \\ \hline
-displayName & STRING & Anzeigename des Unterrichtsfaches \\ \hline
+displayName & STRING & OPTIONAL; Anzeigename des Unterrichtsfaches \\ \hline
 \end{longtable}
 
 \begin{longtable}{|p{0.18\textwidth}|p{0.18\textwidth}|p{0.52\textwidth}|}
 		\caption{Beschreibung der Felder in JSON-Objekt users[]}
 \endfoot
 		\caption{Beschreibung der Felder in JSON-Objekt users[]}
-		\label{tab:rest:api:school:id:read:ret:users}
+		\label{tab:rest:api:schools:id:read:ret:users}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
@@ -95,4 +100,11 @@ id & STRING & ID des Benutzers \\ \hline
 role & STRING & Rolle, welche der Benutzer an der Schule innehat. Werte dafür können \reftabllec{tab:intro:rolesschool} entnommen werden. \\ \hline
 start & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, ab dem der Benutzer die Rolle an der Schule innehat. \\ \hline
 end & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, bis zu dem der Benutzer die Rolle an der Schule innehat. \\ \hline
+status & ENUM & 
+\begin{itemize}
+	\item active steht für aktiver Benutzer
+	\item inactive steht für inaktiver Benutzer
+\end{itemize}
+ \\ \hline
+deleteOn & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Datum, an dem die Daten des Benutzers gelöscht werden sollen. \\ \hline
 \end{longtable}

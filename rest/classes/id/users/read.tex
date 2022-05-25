@@ -12,6 +12,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:u
 {
     id: "<STRING>",
     roleWithinClass: <STRING>",
+    substitute: "<BOOLEAN>",
     start: "<DATE>",
     end: "<DATE>"    
 },
@@ -30,6 +31,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:classes:id:u
 \endhead
 id & STRING & Zeichenkette, mit der der Benutzer unter /api/users/\$id abfragt werden kann. \\ \hline
 roleWithinClass & STRING & Rolle des Benutzer innerhalb der Klasse. \\ \hline
+substitute & BOOLEAN & Gibt an, ob Rolle in Vertretung wahrgenommen wird. \\ \hline
 start & DATE & OPTIONAL; Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Wird gesetzt, falls der Benutzer nach Start des Zeitraumes einer Klasse der Klasse hinzugefügt wurde. \\ \hline
 end & DATE & OPTIONAL; Eine Datumsangabe nach ISO-8601 im Format YYYY-MM-DD. Wird gesetzt, falls der Benutzer vor Ablauf des Zeitraumes einer Klasse aus der Klasse entfernt wurde. \\ \hline
 \end{longtable}

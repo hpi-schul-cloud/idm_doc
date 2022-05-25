@@ -1,206 +1,26 @@
 \subsubsection{READ}
-\label{sec:rest:api:user:read}
+\label{sec:rest:api:users:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Der Pfad gibt für den eingeloggten Benutzer seine persönlichen Daten wieder.
-Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:user:read:ret}. 
-Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:user:read:ret} beschrieben.
+Unter diesem Pfad wird eine Liste mit allen >user-IDs zurückgegeben, auf die der anfragende Benutzer berechtigt ist und für die Daten unter /api/users/\$id abgerufen werden können.
+
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:users:read:ret}. 
+Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:read:ret} beschrieben.
 \input{json}
-\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/users},label={lst:code:rest:api:user:read:ret},frame=tlrb]
-{
-	id: "<STRING>",
-	studentId: "<STRING>"
- 	firstName: "<STRING>",
- 	preferredName: "<STRING>",
- 	lastName: "<STRING>",
- 	dateOfBirth: "<DATE>",
- 	sex: "<ENUM>",
- 	schools: [
- 	{
- 		school: {
- 			id: "<STRING>",
- 			displayName: "<STRING>"
- 		},
- 		role: "<STRING>",
- 		start: "<DATE>",
- 		end: "<DATE>"
- 	},
- 	...
- 	],
- 	classes: [
- 	{
- 		id: "<STRING>",
- 		displayName: "<STRING>",
- 		summary: "<STRING>",
- 		school: {
- 			id: "<STRING>",
- 			displayName: "<STRING>"
- 		},
- 		schoolYear: {
- 			id: "<STRING>",
- 			displayName: "<STRING>"
- 		},
- 		roleWithinClass: "<STRING>",
- 		start: "<DATE>",
- 		end: "<DATE>"
- 	},
- 	...
-	],
-	subjects: [
-	{
-		id: "<STRING>",
-		displayName: "<STRING>",
-		schoolSubject: [
- 		{
- 			id: "<STRING>",
- 			displayName: "<STRING>"
- 		},
- 		...
- 		],
- 		school: {
- 			id: "<STRING>",
- 			displayName: "<STRING>"
- 		},
- 		schoolYear: {
- 			id: "<STRING>",
- 			displayName: "<STRING>"
- 		},
- 		roleWithinSubject: "<STRING>",
- 		start: "<DATE>",
- 		end: "<DATE>" 		
-	},
-	...
-	],
-	guardians: [
-	{
-		id: "<STRING>",
-		role: "<STRING>",
-		user: {
-			id: "<STRING>",
-			firstName: "<STRING>",
-			lastName: "<STRING>"		
-		}
-	},
-	...
-	]
-}
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/users},label={lst:code:rest:api:users:read:ret},frame=tlrb]
+[
+"<STRING>",
+...
+]
 \end{lstlisting}
 
-\begin{longtable}{|p{0.18\textwidth}|p{0.18\textwidth}|p{0.52\textwidth}|}
-		\caption{Beschreibung der Felder in einem JSON-Objekt von einem Benutzer}
+\begin{longtable}{|p{0.16\textwidth}|p{0.16\textwidth}|p{0.58\textwidth}|}
+		\caption{Beschreibung des Feldes in einem JSON-Objekt, was die User-IDs wiedergibt}
 \endfoot
-		\caption{Beschreibung der Felder in einem JSON-Objekt von einem Benutzer}
-		\label{tab:rest:api:user:read:ret}
+		\caption{Beschreibung des Feldes in einem JSON-Objekt, was die User-IDs wiedergibt}
+		\label{tab:rest:api:users:read:ret}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-id & STRING & ID des Benutzers, mit der unter /api/users/\$id weitere Informtionen abgefragt werden können. \\ \hline
-studentId & STRING & OPTIONAL; Landesweit gültige Schüler-Identifikationsnummer \\ \hline
-name & STRING & Vorname des Benutzers \\ \hline
-lastName & STRING & Nachname des Benutzers \\ \hline
-dateOfBirth & DATE & Geburtstag des Benutzers \\ \hline
-sex & ENUM & Geschlecht des Benutzers 
-\begin{itemize}
-	\item divers steht für divers
-	\item female steht für weiblich
-	\item male steht für männlich
-\end{itemize}
- \\ \hline
-schools & Array of Objects & Liste von Rollen in Bezug auf eine Schule. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:roles} entnommen werden. \\ \hline
-classes & Array of Objects & Liste von Rollen in Bezug auf eine Klasse. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:classes} entnommen werden. \\ \hline
-subjects & Array of Objects & Liste von Unterrichtsfächern und den Rollen, welcher der Benutzer in diesen innehat. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:subjects} entnommen werden. \\ \hline
-guardians & Array of Objects & Liste von direkten Verbindungen zu einem anderen Benutzer. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:guardians} entnommen werden. \\ \hline
-\end{longtable}
-
-\begin{longtable}{|p{0.24\textwidth}|p{0.18\textwidth}|p{0.46\textwidth}|}
-		\caption{Beschreibung der Felder in JSON-Objekt roles[]}
-\endfoot
-		\caption{Beschreibung der Felder in JSON-Objekt roles[]}
-		\label{tab:rest:api:user:read:ret:roles}
-\endlastfoot 
-\hline
-			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
-\endhead
-school & Object & Objekt mit Informationen zur Schule, zu der die Klasse gehört. \\ \hline
-school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weitere Informationen abgefragt werden können. \\ \hline
-school.displayName & STRING & Anzeigename der Schule \\ \hline
-role & STRING & Rolle, welche der Benutzer an der Schule innehat. Werte dafür können \reftabllec{tab:intro:rolesschool} entnommen werden. \\ \hline
-start & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, ab dem der Benutzer die Rolle an der Schule innehat. \\ \hline
-end & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, bis zu dem der Benutzer die Rolle an der Schule innehat. \\ \hline
-\end{longtable}
-
-\begin{longtable}{|p{0.28\textwidth}|p{0.18\textwidth}|p{0.42\textwidth}|}
-		\caption{Beschreibung der Felder in JSON-Objekt classes[]}
-\endfoot
-		\caption{Beschreibung der Felder in JSON-Objekt classes[]}
-		\label{tab:rest:api:user:read:ret:classes}
-\endlastfoot 
-\hline
-			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
-\endhead
-id & STRING & ID der Klasse, mit der unter /api/classes/\$id weitere Informationen abgefragt werden können. \\ \hline
-displayName & STRING & Anzeigename der Klasse \\ \hline
-summary & STRING & Zusammfassende Beschreibung der Klasse \\ \hline
-school & Object & Objekt mit Informationen zu Schule zu der die Klasse gehört \\ \hline
-school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weitere Informationen abgefragt werden können. \\ \hline
-school.displayName & STRING & Anzeigename der Schule \\ \hline
-schoolYear & Object & Objekt mit Informationen zum Schuljahr, in welchem der Benutzer die Klasse besucht hat. \\ \hline
-schoolYear.id & STRING & ID des Schuljahres, mit der unter /api/school-years/\$id weitere Informationen abgefragt werden können. \\ \hline
-schoolYear.displayName & STRING & Anzeigename des Schuljahres \\\hline
-roleWithinClass & STRING & Rolle des Benutzers in der Klasse. Werte dafür können \reftabllec{tab:intro:rolesclass} entnommen werden. \\ \hline 
-start & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, ab dem der Benutzer in der Klasse war oder ist. \\ \hline
-end & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, bis zu dem der Benutzer in der Klasse war oder ist. \\ \hline
-\end{longtable}
-
-\begin{longtable}{|p{0.28\textwidth}|p{0.18\textwidth}|p{0.42\textwidth}|}
-		\caption{Beschreibung der Felder in JSON-Objekt subjects[]}
-\endfoot
-		\caption{Beschreibung der Felder in JSON-Objekt subjects[]}
-		\label{tab:rest:api:user:read:ret:subjects}
-\endlastfoot 
-\hline
-			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
-\endhead
-id & STRING & ID des Unterrichtsfaches, mit der unter /api/subjects/\$id weiter Informationen abgefragt werden können. \\ \hline
-displayName & STRING & Anzeigenamen des Unterrichtsfaches \\ \hline
-schoolSubject & Array of Objects & Array mit Objekten zu Referenzschulfächern. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:subjects:schoolSubject} entnommen werden. \\ \hline
-school & Object & Objekt mit Informationen zu der Schule, an der das Unterrichtsfach angeboten wird. \\ \hline
-school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weitere Informationen abgefragt werden können. \\ \hline
-school.displayName & STRING & Anzeigename für die Schule \\ \hline
-schoolYear & Object & Objekt mit Informationen zum Schuljahr, in welche der Benutzer das Unterrichtsfach besucht hat. \\ \hline
-schoolYear.id & STRING & ID des Schuljahres, mit der unter /api/school-years/\$id weitere Informationen abgefragt werden können. \\ \hline
-schoolYear.displayName & STRING & Anzeigename des Schuljahres \\\hline
-roleWithinSubject & STRING & Rolle, welche der Benutzer in dem Unterrichtsfach innehat. Werte dafür können \reftabllec{tab:intro:rolessubject} entnommen werden. \\ \hline
-start & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, ab dem der Benutzer das Unterrichtsfach hat.\\ \hline
-end & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, bis zu dem der Benutzer das Unterrichtsfach hat. \\ \hline
-\end{longtable}
-
-\begin{longtable}{|p{0.18\textwidth}|p{0.18\textwidth}|p{0.52\textwidth}|}
-		\caption{Beschreibung der Felder in JSON-Objekt subjects[].schoolSubject[]}
-\endfoot
-		\caption{Beschreibung der Felder in JSON-Objekt subjects[].schoolSubject[]}
-		\label{tab:rest:api:user:read:ret:subjects:schoolSubject}
-\endlastfoot 
-\hline
-			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
-\endhead
-id & STRING & ID des Referenzschulfaches, welches in der Liste /api/school-subjects zu finden ist. \\ \hline
-displayName & STRING & Anzeigename das Referenzschulfaches \\ \hline
-\end{longtable}
-
-\begin{longtable}{|p{0.18\textwidth}|p{0.18\textwidth}|p{0.52\textwidth}|}
-		\caption{Beschreibung der Felder in JSON-Objekt guardians[]}
-\endfoot
-		\caption{Beschreibung der Felder in JSON-Objekt guardians[]}
-		\label{tab:rest:api:user:read:ret:guardians}
-\endlastfoot 
-\hline
-			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
-\endhead
-id & STRING & ID des Eintrages \\ \hline
-role & STRING & Angabe zur Beziehung zum anderen Benutzer. Werte dafür können \reftabllec{tab:intro:rolesuser} entnommen werden. \\ \hline
-user & Object & Objekt, welches die Informationen des anderen Benutzers enthält. \\ \hline
-user.id & STRING & ID des anderen Benutzers, mit der unter /api/users/\$id weitere Informtionen abgefragt werden können. \\ \hline
-user.firstName & STRING & Vorname des anderen Benutzers \\ \hline
-user.lastName & STRING & Nachname des anderen Benutzers \\ \hline
+ & STRING & Eindeutiger Identifikations-String des Benutzers im IdM, mit dem unter /api/users/\$id die Benutzerdaten abgerufen werden können.\\ \hline
 \end{longtable}

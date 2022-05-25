@@ -1,13 +1,13 @@
 \subsubsection{READ}
-\label{sec:rest:api:users:id:assignments:read}
+\label{sec:rest:api:users:id:schools:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
 Sie gibt für den per ID ausgewählten Benutzer seine Zuordnungen im System wieder.
 Für diese Daten gelten die Einschränkungen die durch den Kontext des anfragenden Benutzers gegeben sind.
 
-Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:users:id:assignments:read:ret}. 
-Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:assignments:read:ret} beschrieben.
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:users:id:schools:read:ret}. 
+Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:schools:read:ret} beschrieben.
 \input{json}
-\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/users/\$id/assignments},label={lst:code:rest:api:users:id:assignments:read:ret},frame=tlrb]
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/users/\$id/schools},label={lst:code:rest:api:users:id:schools:read:ret},frame=tlrb]
 [
 {
  		school: {
@@ -26,15 +26,26 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:ass
 		\caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
 \endfoot
 		\caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen eines Benutzer in einer Rolle zu einer Schule}
-		\label{tab:rest:api:users:id:assignments:read:ret}
+		\label{tab:rest:api:users:id:schools:read:ret}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
-school & Object & Objekt mit Informationen zur Schule, zu der die Klasse gehört. \\ \hline
-school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weitere Informationen abgefragt werden können. \\ \hline
-school.displayName & STRING & Anzeigename der Schule \\ \hline
+school & Object & Objekt mit Informationen zur Schule, zu der die Klasse gehört. Der Aufbau des Objektes kann \reftabllec{tab:rest:api:users:id:schools:school} entnommen werden. \\ \hline
 role & STRING & Rolle, welche der Benutzer an der Schule innehat. Werte dafür können \reftabllec{tab:intro:rolesschool} entnommen werden. \\ \hline
 start & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, ab dem der Benutzer die Rolle an der Schule innehat. \\ \hline
 end & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Gibt Datum an, bis zu dem der Benutzer die Rolle an der Schule innehat. \\ \hline
+\end{longtable}
+
+\begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
+        \caption{Beschreibung der Felder im JSON-Objekt für die Schule }
+\endfoot
+        \caption{Beschreibung der Felder im JSON-Objekt für die Schule }
+        \label{tab:rest:api:users:id:schools:school}
+\endlastfoot 
+\hline
+            \textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
+\endhead
+id & STRING & ID der Schule, mit der unter /api/schools/\$id weitere Informationen abgefragt werden können. \\ \hline
+displayName & STRING & OPTIONAL; Anzeigename der Schule \\ \hline
 \end{longtable}

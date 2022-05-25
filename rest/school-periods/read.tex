@@ -1,13 +1,13 @@
 \subsubsection{READ}
-\label{sec:rest:api:school-years:read}
+\label{sec:rest:api:schools-periods:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
 Unter diesem Pfad wird eine Liste mit allen im System existierenden Schuljahren zurückgegeben.
 Jedes Schuljahr hat eine eindeutigen Identifikator, einen Zeitraum, von wann bis wann das Schuljahr andauerte, und ein Anzeigenamen.
 
-Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:school-years:read:ret}. 
-Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school-years:read:ret:json} beschrieben.
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:schools-periods:read:ret}. 
+Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:schools-periods:read:ret:json} beschrieben.
 \input{json}
-\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/school-years},label={lst:code:rest:api:school-years:read:ret},frame=tlrb]
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/school-periods},label={lst:code:rest:api:schools-periods:read:ret},frame=tlrb]
 [
 {
     id: "<STRING>",
@@ -23,7 +23,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school-years
 		\caption{Beschreibung der Felder in einem JSON-Objekt für ein Schuljahr}
 \endfoot
 		\caption{Beschreibung der Felder in einem JSON-Objekt für ein Schuljahr}
-		\label{tab:rest:api:school-years:read:ret:json}
+		\label{tab:rest:api:schools-periods:read:ret:json}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline

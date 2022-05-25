@@ -1,9 +1,9 @@
 \subsubsection{READ}
-\label{sec:end:rest:api:school-subjects:read}
+\label{sec:end:rest:api:reference-subjects:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:end:rest:api:school-subjects:read:ret}. Die einzelnen Felder der Antwort werden in \reftabllec{tab:end:rest:api:school-subjects:read:ret:json} beschrieben.
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:end:rest:api:reference-subjects:read:ret}. Die einzelnen Felder der Antwort werden in \reftabllec{tab:end:rest:api:reference-subjects:read:ret:json} beschrieben.
 \input{json}
-\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/school-subjects},label={lst:code:end:rest:api:school-subjects:read:ret},frame=tlrb]
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/reference-subjects},label={lst:code:end:rest:api:reference-subjects:read:ret},frame=tlrb]
 [
 {
 	id: "<STRING>",
@@ -26,5 +26,5 @@ Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:end:rest:api:school
 	\end{tabularx}
 
 		\caption{Beschreibung der Felder in einem JSON-Objekt für ein Schulfach}
-		\label{tab:end:rest:api:school-subjects:read:ret:json}
+		\label{tab:end:rest:api:reference-subjects:read:ret:json}
 \end{table}

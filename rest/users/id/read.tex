@@ -14,7 +14,8 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:rea
  	preferredName: "<STRING>",
  	lastName: "<STRING>",
  	dateOfBirth: "<DATE>",
- 	sex: "<ENUM>",
+ 	salutation: "<ENUM>",
+ 	grade: "<STRING>",
  	schools: [
  	{
  		school: {
@@ -22,6 +23,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:rea
  			displayName: "<STRING>"
  		},
  		role: "<STRING>",
+ 		substitute: "<BOOLEAN",
  		start: "<DATE>",
  		end: "<DATE>"
  	},
@@ -31,16 +33,16 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:rea
  	{
  		id: "<STRING>",
  		displayName: "<STRING>",
- 		summary: "<STRING>",
  		school: {
  			id: "<STRING>",
  			displayName: "<STRING>"
  		},
- 		schoolYear: {
+ 		schoolPeriod: {
  			id: "<STRING>",
  			displayName: "<STRING>"
  		},
  		roleWithinClass: "<STRING>",
+ 		substitute: "<BOOLEAN",
  		start: "<DATE>",
  		end: "<DATE>"
  	},
@@ -50,7 +52,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:rea
 	{
 		id: "<STRING>",
 		displayName: "<STRING>",
-		schoolSubject: [
+		referenceSubject: [
  		{
  			id: "<STRING>",
  			displayName: "<STRING>"
@@ -61,11 +63,12 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:rea
  			id: "<STRING>",
  			displayName: "<STRING>"
  		},
- 		schoolYear: {
+ 		schoolPeriod: {
  			id: "<STRING>",
  			displayName: "<STRING>"
  		},
  		roleWithinSubject: "<STRING>",
+ 		substitute: "<BOOLEAN",
  		start: "<DATE>",
  		end: "<DATE>" 		
 	},
@@ -82,7 +85,9 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:users:id:rea
 		}
 	},
 	...
-	]
+	],
+	status: "<ENUM>",
+	deleteOn: "<DATE>"
 }
 \end{lstlisting}
 
@@ -100,16 +105,26 @@ studentId & STRING & OPTIONAL; Landesweit gültige Schüler-Identifikationsnumme
 name & STRING & Vorname des Benutzers \\ \hline
 preferredName & STRING & Bevorzugter Vorname des Benutzers \\ \hline
 lastName & STRING & Nachname des Benutzers \\ \hline
-dateOfBirth & DATE & Geburtstag des Benutzers \\ \hline
-sex & ENUM & Geschlecht des Benutzers 
+dateOfBirth & DATE & eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Geburtstag des Benutzers \\ \hline
+salutation & ENUM & Anrede des Benutzers 
 \begin{itemize}
 	\item divers steht für divers
 	\item female steht für weiblich
 	\item male steht für männlich
 \end{itemize}
  \\ \hline
-schools & Array of Objects & Liste von Rollen in Bezug auf eine Schule. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:roles} entnommen werden. \\ \hline
-classes & Array of Objects & Liste von Rollen in Bezug auf eine Klasse. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:classes} entnommen werden. \\ \hline
-subjects & Array of Objects & Liste von Unterrichtsfächern und den Rollen, welcher der Benutzer in diesen innehat. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:subjects} entnommen werden. \\ \hline
-guardians & Array of Objects & Liste von direkten Verbindungen zu einem anderen Benutzer. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:guardians} entnommen werden. \\ \hline
+grade & STRING & Klassen- bzw. Jahrgangsstufe des Benutzers \\ \hline 
+schools & Array of Objects & Liste von Rollen in Bezug auf eine Schule. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:users:id:schools:read:ret} entnommen werden. \\ \hline
+classes & Array of Objects & Liste von Rollen in Bezug auf eine Klasse. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:users:id:classes:read:ret} entnommen werden. \\ \hline
+subjects & Array of Objects & Liste von Unterrichtsfächern und den Rollen, welcher der Benutzer in diesen innehat. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:users:id:subjects:read:ret} entnommen werden. \\ \hline
+guardians & Array of Objects & Liste von direkten Verbindungen zu einem anderen Benutzer. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:users:id:guardians:read:ret} entnommen werden. \\ \hline
+status & ENUM & 
+\begin{itemize}
+	\item active steht für aktiver Benutzer
+	\item inactive steht für inaktiver Benutzer
+\end{itemize}
+ \\ \hline
+deleteOn & DATE & OPTIONAL; eine Datumsangabe nach ISO-8601 in dem Format YYYY-MM-DD. Datum, an dem die Daten des Benutzers gelöscht werden sollen. \\ \hline
 \end{longtable}
+
+Darüber hinaus kann der OpenID-Connect-Endpunkt UserInfo dazu genutzt werden, die genannten Daten für den eigenen User bereitzustellen.

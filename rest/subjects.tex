@@ -1,9 +1,5 @@
 \section{Schnittstellen für Unterrichtsfächer an Schulen}
-Ein Unterrichtsfach ist eine Unterrichtseinheit, welche in einem Schuljahr oder Halbjahr stattfindet und an eine Schule gebunden ist.
-In der Regel ist es einer Jahrgangsstufe zugeordnet, es kann aber auch mehreren Jahrgangsstufen zugeordnet sein, wenn es sich um eine jahrgangsstufenübergreifende Unterrichtseinheit handelt.
-Des Weiteren hat ein Unterrichtsfach immer eine Liste an teilnehmenden Schülern und Lehrkräften.
-Dazu können noch Informationen kommen, welche Klassen an diesen Fach teilnehmen.
-Weitere optionale Informationen zu einem Unterrichtsfach sind Angaben über den Stundenplan (an welchen Tagen, zu welcher Uhrzeit, wie lange und in welchem Rhythmus das Unterrichtsfach stattfindet).
+Ein Unterrichtsfach beschreibt die regelmäßige Wissensvermittlung durch eine Lehrperson an einer Schule (s. \refabschnitt{sec:end:rest:api:schools}) in Bezug auf eine oder mehrere Klassen/Klassenstufen (s. \refabschnitt{sec:end:rest:api:classes:id}) innerhalb eines Schulturnus (s. \refabschnitt{sec:end:rest:api:school-periods}). Dabei wird ein bestimmtes Thema abgedeckt, das durch das Referenzschulfach (s. \refabschnitt{sec:end:rest:api:reference-subjects}) angegeben werden kann.
 
 
 %\input{rest/subjects/main}
@@ -13,5 +9,5 @@ Weitere optionale Informationen zu einem Unterrichtsfach sind Angaben über den 
 % \input{rest/subjects/id/students/main}
 % \input{rest/subjects/id/teachers/main}
 \input{rest/subjects/id/users/main}
-\input{rest/subjects/id/timetable/main}
+% \input{rest/subjects/id/timetable/main}
 

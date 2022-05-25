@@ -12,7 +12,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:
 {
     id: "<STRING>",
     displayName: "<STRING>",
-    schoolSubject: [
+    referenceSubject: [
     {
         id: "<STRING>",
         displayName: "<STRING>"
@@ -23,7 +23,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:
         id: "<STRING>",
         displayName: "<STRING>"
     },
-    schoolYear: {
+    schoolPeriod: {
             id: "<STRING>",
             displayName: "<STRING>"
     },
@@ -43,7 +43,7 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:
  }
 \end{lstlisting}
 
-\begin{longtable}{|p{0.16\textwidth}|p{0.16\textwidth}|p{0.58\textwidth}|}
+\begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
 		\caption{Beschreibung der Felder in einem JSON-Objekt für ein Unterrichtsfach}
 \endfoot
 		\caption{Beschreibung der Felder in einem JSON-Objekt für ein Unterrichtsfach}
@@ -53,14 +53,49 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:subjects:id:
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
 id & STRING & Eindeutige Zeichenkette, die das Unterrichtsfach an einer Schule repräsentiert.  \\ \hline
-displayName & STRING & Name des Unterrichtsfaches. \\ \hline
-schoolSubject & Array of Objects & Liste von Unterrichtsfächern und den Rollen, welcher der Benutzer in diesen innehat. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:user:read:ret:subjects} entnommen werden. \\ \hline
-school & Object & Objekt mit Informationen zu Schule zu der die Klasse gehört \\ \hline
-school.id & STRING & ID der Schule, mit der unter /api/schools/\$id weitere Informationen abgefragt werden können. \\ \hline
-school.displayName & STRING & Anzeigename der Schule \\ \hline
-schoolYear & Object & Objekt mit Informationen zum Schuljahr, in welchem der Benutzer die Klasse besucht hat. \\ \hline
-schoolYear.id & STRING & ID des Schuljahres, mit der unter /api/school-years/\$id weitere Informationen abgefragt werden können. \\ \hline
-schoolYear.displayName & STRING & Anzeigename des Schuljahres. \\\hline
+displayName & STRING & Name des Unterrichtsfaches \\ \hline
+referenceSubject & Array of Objects & OPTIONAL; Liste von Unterrichtsfächern und den Rollen, welcher der Benutzer in diesen innehat. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:subjects:id:reference-subjects} entnommen werden. \\ \hline
+school & Object & Objekt mit Informationen zu Schule zu der die Klasse gehört. Der Aufbau des Objektes kann \reftabllec{tab:rest:api:subjects:id:school} entnommen werden.  \\ \hline
+schoolPeriod & Object & Objekt mit Informationen zum Schuljahr, in welchem der Benutzer die Klasse besucht hat. Der Aufbau des Objektes kann \reftabllec{tab:rest:api:subjects:id:schoolperiod} entnommen werden. \\ \hline
 grade & List of STRINGs & Enthält eine Liste von Klassenstufen, die dieser Klasse zugeordnet sind. \\ \hline
 users & Array of Objects & Liste von Rollen in Bezug auf ein Unterrichtsfach. Der Aufbau der Objekte kann \reftabllec{tab:rest:api:subjects:id:users:read:ret:json} entnommen werden. \\ \hline
+\end{longtable}
+
+\begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
+        \caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen von Referenzschulfächern zu einem Unterrichtsfach}
+\endfoot
+        \caption{Beschreibung der Felder in einem JSON-Objekt für das Zuordnen von Referenzschulfächern zu einem Unterrichtsfach}
+        \label{tab:rest:api:subjects:id:reference-subjects}
+\endlastfoot 
+\hline
+            \textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
+\endhead
+id & STRING & ID des Referenzschulfachs. \\ \hline
+displayName & STRING & OPTIONAL; Anzeigename des Referenzschulfachs \\ \hline
+\end{longtable}
+
+\begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
+        \caption{Beschreibung der Felder im JSON-Objekt für die Schule }
+\endfoot
+        \caption{Beschreibung der Felder im JSON-Objekt für die Schule }
+        \label{tab:rest:api:subjects:id:school}
+\endlastfoot 
+\hline
+            \textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
+\endhead
+id & STRING & ID der Schule, mit der unter /api/schools/\$id weitere Informationen abgefragt werden können. \\ \hline
+displayName & STRING & OPTIONAL; Anzeigename der Schule \\ \hline
+\end{longtable}
+
+\begin{longtable}{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.58\textwidth}|}
+        \caption{Beschreibung der Felder im JSON-Objekt für das Schuljahr }
+\endfoot
+        \caption{Beschreibung der Felder im JSON-Objekt für das Schuljahr }
+        \label{tab:rest:api:subjects:id:schoolperiod}
+\endlastfoot 
+\hline
+            \textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
+\endhead
+id & STRING & ID des Schuljahres, mit der unter /api/school-periods/\$id weitere Informationen abgefragt werden können. \\ \hline
+displayName & STRING & OPTIONAL; Anzeigename des Schuljahres \\\hline
 \end{longtable}

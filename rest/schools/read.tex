@@ -1,12 +1,12 @@
 \subsubsection{READ}
-\label{sec:rest:api:school:read}
+\label{sec:rest:api:schools:read}
 Es sind nur Anfragen mit der HTTP-GET-Methode für ein READ auf die Daten zugelassen.
-Unter diesem Pfad wird eine Liste mit allen Schul-IDs zurückgegeben, die dem anfragenden Benutzer zugeordnet sind und für die Daten unter /api/schools/\$id abgerufen werden können.
+Unter diesem Pfad wird eine Liste mit allen Schul-IDs zurückgegeben, auf die der anfragende Benutzer berechtigt ist und für die Daten unter /api/schools/\$id abgerufen werden können.
 
-Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:school:read:ret}. 
-Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school:read:ret} beschrieben.
+Die Antwort erfolgt mit dem JSON-Objekt \reflisting{lst:code:rest:api:schools:read:ret}. 
+Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:schools:read:ret} beschrieben.
 \input{json}
-\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/schools},label={lst:code:rest:api:school:read:ret},frame=tlrb]
+\begin{lstlisting}[caption={JSON-Antwort für einen GET-Aufruf des Pfads /api/schools},label={lst:code:rest:api:schools:read:ret},frame=tlrb]
 [
 "<STRING>",
 ...
@@ -14,13 +14,13 @@ Die einzelnen Felder der Antwort werden in \reftabllec{tab:rest:api:school:read:
 \end{lstlisting}
 
 \begin{longtable}{|p{0.16\textwidth}|p{0.16\textwidth}|p{0.58\textwidth}|}
-		\caption{Beschreibung des Felder in einem JSON-Objekt, was die Schul-IDs wiedergibt}
+		\caption{Beschreibung des Feldes in einem JSON-Objekt, was die Schul-IDs wiedergibt}
 \endfoot
-		\caption{Beschreibung des Felder in einem JSON-Objekt, was die Schul-IDs wiedergibt}
-		\label{tab:rest:api:school:read:ret}
+		\caption{Beschreibung des Feldes in einem JSON-Objekt, was die Schul-IDs wiedergibt}
+		\label{tab:rest:api:schools:read:ret}
 \endlastfoot 
 \hline
 			\textbf{Feldname} & \textbf{Datentyp} & \textbf{Beschreibung} \\ \hline
 \endhead
- & STRING & Eindeutiger Identifikations-String der Schule im IdM, mit dem unter /api/schools/\$id die Schule abgerufen werden kann.\\ \hline
+ & STRING & Eindeutiger Identifikations-String der Schule im IdM, mit dem unter /api/schools/\$id die Schuldaten abgerufen werden können.\\ \hline
 \end{longtable}
